@@ -29,4 +29,10 @@ class RequestFactory {
         let errorParser = makeErrorParser()
         return Auth(errorParser: errorParser, sessionManager: commonSession, queue: sessionQueue)
     }
+    
+    func makeSignUpRequestFatory() -> SignUpRequestFactory {
+        let errorParser = makeErrorParser()
+        return SignUp(errorParser: errorParser, sessionManager: commonSession, queue: sessionQueue)
+    }
+    
 }
