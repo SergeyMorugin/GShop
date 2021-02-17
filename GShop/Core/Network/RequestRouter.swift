@@ -24,6 +24,11 @@ protocol RequestRouter: URLRequestConvertible {
 }
 
 extension RequestRouter {
+    
+    var baseUrl: URL{
+        return URL(string: "https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses/")!
+    }
+    
     var fullUrl: URL {
         return baseUrl.appendingPathComponent(path)
     }
