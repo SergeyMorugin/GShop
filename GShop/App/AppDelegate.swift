@@ -34,6 +34,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 print(error.localizedDescription)
             }
         }
+        
+        
+        let logOut = requestFactory.makeLogOutUpRequestFatory()
+        logOut.logOut(id: "123"){ response in
+            switch response.result {
+            case .success(let result):
+                print(result)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
 
         return true
     }

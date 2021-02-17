@@ -21,6 +21,9 @@
 		34A62FE725DD35C80080A757 /* SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A62FE625DD35C80080A757 /* SignUp.swift */; };
 		34A62FE925DD35EF0080A757 /* SignUpRequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A62FE825DD35EF0080A757 /* SignUpRequestFactory.swift */; };
 		34A62FEB25DD37710080A757 /* SignUpResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A62FEA25DD37710080A757 /* SignUpResult.swift */; };
+		34A62FEE25DD3F160080A757 /* LogOut.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A62FED25DD3F160080A757 /* LogOut.swift */; };
+		34A62FF125DD3F490080A757 /* LogOutRequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A62FF025DD3F490080A757 /* LogOutRequestFactory.swift */; };
+		34A62FF325DD40940080A757 /* CommonResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A62FF225DD40940080A757 /* CommonResult.swift */; };
 		34F3473D25D53EE9008955A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F3473C25D53EE9008955A9 /* AppDelegate.swift */; };
 		34F3473F25D53EE9008955A9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F3473E25D53EE9008955A9 /* SceneDelegate.swift */; };
 		34F3474625D53EED008955A9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34F3474525D53EED008955A9 /* Assets.xcassets */; };
@@ -60,6 +63,9 @@
 		34A62FE625DD35C80080A757 /* SignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp.swift; sourceTree = "<group>"; };
 		34A62FE825DD35EF0080A757 /* SignUpRequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpRequestFactory.swift; sourceTree = "<group>"; };
 		34A62FEA25DD37710080A757 /* SignUpResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpResult.swift; sourceTree = "<group>"; };
+		34A62FED25DD3F160080A757 /* LogOut.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogOut.swift; sourceTree = "<group>"; };
+		34A62FF025DD3F490080A757 /* LogOutRequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogOutRequestFactory.swift; sourceTree = "<group>"; };
+		34A62FF225DD40940080A757 /* CommonResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonResult.swift; sourceTree = "<group>"; };
 		34F3473925D53EE9008955A9 /* GShop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GShop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		34F3473C25D53EE9008955A9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		34F3473E25D53EE9008955A9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -115,6 +121,7 @@
 		34A62FD925DADB6D0080A757 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				34A62FEC25DD3EFD0080A757 /* LogOut */,
 				34A62FE525DD357E0080A757 /* SignUp */,
 				34A62FE425DD19FA0080A757 /* Auth */,
 				34A62FDE25DADC1F0080A757 /* RequestFactory.swift */,
@@ -138,6 +145,15 @@
 				34A62FE825DD35EF0080A757 /* SignUpRequestFactory.swift */,
 			);
 			path = SignUp;
+			sourceTree = "<group>";
+		};
+		34A62FEC25DD3EFD0080A757 /* LogOut */ = {
+			isa = PBXGroup;
+			children = (
+				34A62FED25DD3F160080A757 /* LogOut.swift */,
+				34A62FF025DD3F490080A757 /* LogOutRequestFactory.swift */,
+			);
+			path = LogOut;
 			sourceTree = "<group>";
 		};
 		34F3473025D53EE9008955A9 = {
@@ -217,6 +233,7 @@
 				34A62FD525DADB380080A757 /* LoginResult.swift */,
 				34A62FD725DADB510080A757 /* User.swift */,
 				34A62FEA25DD37710080A757 /* SignUpResult.swift */,
+				34A62FF225DD40940080A757 /* CommonResult.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -396,9 +413,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				34A62FDF25DADC1F0080A757 /* RequestFactory.swift in Sources */,
+				34A62FEE25DD3F160080A757 /* LogOut.swift in Sources */,
 				34A62FEB25DD37710080A757 /* SignUpResult.swift in Sources */,
+				34A62FF325DD40940080A757 /* CommonResult.swift in Sources */,
 				34A62FCE25DAD94E0080A757 /* AbstractErrorParser.swift in Sources */,
 				34A62FE325DD0D470080A757 /* ResponseCodable.swift in Sources */,
+				34A62FF125DD3F490080A757 /* LogOutRequestFactory.swift in Sources */,
 				34A62FD625DADB380080A757 /* LoginResult.swift in Sources */,
 				34F3473D25D53EE9008955A9 /* AppDelegate.swift in Sources */,
 				34A62FE125DD0CDF0080A757 /* AbstractRequestFactory.swift in Sources */,
