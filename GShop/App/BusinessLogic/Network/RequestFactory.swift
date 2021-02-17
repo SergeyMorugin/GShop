@@ -35,9 +35,14 @@ class RequestFactory {
         return SignUp(errorParser: errorParser, sessionManager: commonSession, queue: sessionQueue)
     }
     
-    func makeLogOutUpRequestFatory() -> LogOutRequestFactory {
+    func makeLogOutRequestFatory() -> LogOutRequestFactory {
         let errorParser = makeErrorParser()
         return LogOut(errorParser: errorParser, sessionManager: commonSession, queue: sessionQueue)
+    }
+    
+    func makeChangeUserDataRequestFatory() -> ChangeUserDataRequestFactory {
+        let errorParser = makeErrorParser()
+        return ChangeUserData(errorParser: errorParser, sessionManager: commonSession, queue: sessionQueue)
     }
     
 }
