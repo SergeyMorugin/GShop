@@ -23,7 +23,7 @@ class AuthTests: XCTestCase {
             queue: DispatchQueue.global(qos: .utility),
             baseUrl: URL(string: "https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses/")!)
         
-        let loggedInExpectation = expectation(description: "loged in")
+        let loggedInExpectation = expectation(description: "exp")
         auth.login(userName: "test", password: "test") { response in
             switch response.result {
             case .success(let model):
@@ -36,7 +36,6 @@ class AuthTests: XCTestCase {
             case .failure(let error):
                 XCTFail(error.localizedDescription)
             }
-            
         }
         waitForExpectations(timeout: 5)
     }
@@ -54,7 +53,7 @@ class AuthTests: XCTestCase {
             queue: DispatchQueue.global(qos: .utility),
             baseUrl: baseUrl)
         
-        let wrongExpectation = expectation(description: "failed loged in")
+        let wrongExpectation = expectation(description: "failed exp")
         auth.login(userName: "test", password: "test") { response in
             switch response.result {
             case .success(let model):

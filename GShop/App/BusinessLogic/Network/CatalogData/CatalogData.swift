@@ -1,5 +1,5 @@
 //
-//  GetGoodById.swift
+//  CatalogData.swift
 //  GShop
 //
 //  Created by Matthew on 22.02.2021.
@@ -9,7 +9,7 @@
 import Foundation
 import Alamofire
 
-class GetGoodById: AbstractRequestFactory {
+class CatalogData: AbstractRequestFactory {
     let errorParser: AbstractErrorParser
     let sessionManager: Session
     let queue: DispatchQueue
@@ -27,26 +27,29 @@ class GetGoodById: AbstractRequestFactory {
     }
 }
 
-extension GetGoodById: GetGoodByIdRequestFactory {
-    func getGoodById(product_id: Int, completionHandler: @escaping (AFDataResponse<ProductById>) -> Void) {
-        let requestModel = GetGoodByIdDataRequest(
+extension CatalogData: CatalogDataRequestFactory {
+    func catalogData(page: Int, perPage: Int, completionHandler: @escaping (AFDataResponse<[Product]>) -> Void) {
+        let requestModel = CatalogDataDataRequest(
             baseUrl: self.baseUrl,
-            product_id: product_id)
+            page: page,
+            perPage: perPage)
         self.request(request: requestModel, completionHandler: completionHandler)
     }
 }
 
-extension GetGoodById{
-    struct GetGoodByIdDataRequest: RequestRouter {
+extension CatalogData{
+    struct CatalogDataDataRequest: RequestRouter {
         let baseUrl: URL
         let method: HTTPMethod = .get
-        let path: String = "getGoodById.json"
+        let path: String = "catalogData.json"
         
-        let product_id: Int
+        let page: Int
+        let perPage: Int
         
         var parameters: Parameters? {
             return [
-                "product_id": product_id
+                "page": page,
+                "perPage": perPage
             ]
         }
     }

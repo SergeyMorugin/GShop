@@ -52,4 +52,9 @@ class RequestFactory {
         return GetGoodById(errorParser: errorParser, sessionManager: commonSession, queue: sessionQueue, baseUrl: self.baseUrl!)
     }
     
+    func makeCatalogData() -> CatalogDataRequestFactory{
+        let errorParser = makeErrorParser()
+        return CatalogData(errorParser: errorParser, sessionManager: commonSession, queue: sessionQueue, baseUrl: self.baseUrl!)
+    }
+    
 }

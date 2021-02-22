@@ -1,36 +1,37 @@
 //
-//  GetGoodByIdTests.swift
+//  CatalogDataTests.swift
 //  GShopTests
 //
 //  Created by Matthew on 22.02.2021.
 //  Copyright © 2021 Ostagram Inc. All rights reserved.
 //
 
+
 import XCTest
 import Alamofire
 @testable import GShop
 
-class GetGoodByIdTests: XCTestCase {
+class CatalogDataTests: XCTestCase {
 
     func testGetGoodById() throws {
         let configuration = URLSessionConfiguration.default
         configuration.httpShouldSetCookies = false
         configuration.headers = .default
         let manager = Session(configuration: configuration)
-        let getGoodById = GetGoodById(
+        let catalogData = CatalogData(
             errorParser: ErrorParser(),
             sessionManager: manager,
             queue: DispatchQueue.global(qos: .utility),
             baseUrl: URL(string: "https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses/")!)
         
         let textExpectation = expectation(description: "exp")
-        getGoodById.getGoodById(product_id: 1) { (response) in
+        catalogData.catalogData(page: 1, perPage: 10) { (response) in
             switch response.result {
             case .success(let result):
-                XCTAssertEqual(result.id, 1)
-                XCTAssertEqual(result.name, "Ноутбук")
-                XCTAssertEqual(result.price, 45600)
-                XCTAssertEqual(result.desc, "Мощный игровой ноутбук")
+                XCTAssertEqual(result.count, 2)
+                XCTAssertEqual(result[0].id, 123)
+                XCTAssertEqual(result[0].name, "Ноутбук")
+                XCTAssertEqual(result[0].price, 45600)
                 textExpectation.fulfill()
             case .failure(let error):
                 XCTFail(error.localizedDescription)
@@ -46,14 +47,14 @@ class GetGoodByIdTests: XCTestCase {
         configuration.httpShouldSetCookies = false
         configuration.headers = .default
         let manager = Session(configuration: configuration)
-        let getGoodById = GetGoodById(
+        let catalogData = CatalogData(
             errorParser: ErrorParser(),
             sessionManager: manager,
             queue: DispatchQueue.global(qos: .utility),
             baseUrl: baseUrl)
         
         let wrongExpectation = expectation(description: "failed exp")
-        getGoodById.getGoodById(product_id: 1) { response in
+        catalogData.catalogData(page: 1, perPage: 10) { response in
             switch response.result {
             case .success(let model):
                 XCTFail("Must have failed: \(model)")

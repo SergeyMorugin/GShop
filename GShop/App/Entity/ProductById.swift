@@ -1,5 +1,5 @@
 //
-//  Product.swift
+//  ProductById.swift
 //  GShop
 //
 //  Created by Matthew on 22.02.2021.
@@ -8,14 +8,16 @@
 
 import Foundation
 
-struct Product: Codable {
+struct ProductById: Codable {
     let id: Int
     let name: String
     let price: Int
+    let desc: String
     
     enum CodingKeys: String, CodingKey {
-        case id = "id_product"
+        case id = "result"
         case name = "product_name"
-        case price = "price"
+        case price = "product_price"
+        case desc = "product_description"
     }
 }

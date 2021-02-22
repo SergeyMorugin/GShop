@@ -23,7 +23,7 @@ class ChangeUserDataTests: XCTestCase {
             queue: DispatchQueue.global(qos: .utility),
             baseUrl: URL(string: "https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses/")!)
         
-        let logOutExpectation = expectation(description: "changeUserData")
+        let logOutExpectation = expectation(description: "exp")
         changeUserData.changeUserData(id: "123", username: "Unknown2", password: "12345678", email: "test@test.com", gender: "Male", creditCard: "4242424242424242", bio: "bio"){ (response) in
             switch response.result {
             case .success(let result):
@@ -33,7 +33,6 @@ class ChangeUserDataTests: XCTestCase {
                 XCTFail(error.localizedDescription)
             }
         }
-        
         waitForExpectations(timeout: 5)
     }
     
@@ -50,7 +49,7 @@ class ChangeUserDataTests: XCTestCase {
             queue: DispatchQueue.global(qos: .utility),
             baseUrl: baseUrl)
         
-        let wrongExpectation = expectation(description: "failed loged in")
+        let wrongExpectation = expectation(description: "failed exp")
         changeUserData.changeUserData(id: "123", username: "Unknown2", password: "12345678", email: "test@test.com", gender: "Male", creditCard: "4242424242424242", bio: "bio"){ response in
             switch response.result {
             case .success(let model):

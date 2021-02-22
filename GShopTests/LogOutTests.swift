@@ -23,7 +23,7 @@ class LogOutTests: XCTestCase {
             queue: DispatchQueue.global(qos: .utility),
             baseUrl: URL(string: "https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses/")!)
         
-        let logOutExpectation = expectation(description: "sign up")
+        let logOutExpectation = expectation(description: "exp")
         logOut.logOut(id: "123") { (response) in
             switch response.result {
             case .success(let result):
@@ -33,7 +33,6 @@ class LogOutTests: XCTestCase {
                 XCTFail(error.localizedDescription)
             }
         }
-        
         waitForExpectations(timeout: 5)
     }
     
@@ -50,7 +49,7 @@ class LogOutTests: XCTestCase {
             queue: DispatchQueue.global(qos: .utility),
             baseUrl: baseUrl)
         
-        let wrongExpectation = expectation(description: "failed loged in")
+        let wrongExpectation = expectation(description: "failed exp")
         logOut.logOut(id: "123") { response in
             switch response.result {
             case .success(let model):
