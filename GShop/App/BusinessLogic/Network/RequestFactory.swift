@@ -11,6 +11,8 @@ import Alamofire
 
 class RequestFactory {
     
+    let baseUrl = URL(string: "https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses/")
+    
     func makeErrorParser() -> AbstractErrorParser {
         return ErrorParser()
     }
@@ -27,22 +29,22 @@ class RequestFactory {
     
     func makeAuthRequestFatory() -> AuthRequestFactory {
         let errorParser = makeErrorParser()
-        return Auth(errorParser: errorParser, sessionManager: commonSession, queue: sessionQueue)
+        return Auth(errorParser: errorParser, sessionManager: commonSession, queue: sessionQueue, baseUrl: self.baseUrl!)
     }
     
     func makeSignUpRequestFatory() -> SignUpRequestFactory {
         let errorParser = makeErrorParser()
-        return SignUp(errorParser: errorParser, sessionManager: commonSession, queue: sessionQueue)
+        return SignUp(errorParser: errorParser, sessionManager: commonSession, queue: sessionQueue, baseUrl: self.baseUrl!)
     }
     
     func makeLogOutRequestFatory() -> LogOutRequestFactory {
         let errorParser = makeErrorParser()
-        return LogOut(errorParser: errorParser, sessionManager: commonSession, queue: sessionQueue)
+        return LogOut(errorParser: errorParser, sessionManager: commonSession, queue: sessionQueue, baseUrl: self.baseUrl!)
     }
     
     func makeChangeUserDataRequestFatory() -> ChangeUserDataRequestFactory {
         let errorParser = makeErrorParser()
-        return ChangeUserData(errorParser: errorParser, sessionManager: commonSession, queue: sessionQueue)
+        return ChangeUserData(errorParser: errorParser, sessionManager: commonSession, queue: sessionQueue, baseUrl: self.baseUrl!)
     }
     
 }

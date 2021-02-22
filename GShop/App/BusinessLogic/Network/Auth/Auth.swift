@@ -13,26 +13,30 @@ class Auth: AbstractRequestFactory {
     let errorParser: AbstractErrorParser
     let sessionManager: Session
     let queue: DispatchQueue
+    let baseUrl: URL
     
     init(
         errorParser: AbstractErrorParser,
         sessionManager: Session,
-        queue: DispatchQueue = DispatchQueue.global(qos: .utility)) {
+        queue: DispatchQueue = DispatchQueue.global(qos: .utility),
+        baseUrl: URL) {
         self.errorParser = errorParser
         self.sessionManager = sessionManager
         self.queue = queue
+        self.baseUrl = baseUrl
     }
 }
 
 extension Auth: AuthRequestFactory {
     func login(userName: String, password: String, completionHandler: @escaping (AFDataResponse<LoginResult>) -> Void) {
-        let requestModel = Login(login: userName, password: password)
+        let requestModel = Login(baseUrl: self.baseUrl, login: userName, password: password)
         self.request(request: requestModel, completionHandler: completionHandler)
     }
 }
 
 extension Auth {
     struct Login: RequestRouter {
+        let baseUrl: URL
         let method: HTTPMethod = .get
         let path: String = "login.json"
         

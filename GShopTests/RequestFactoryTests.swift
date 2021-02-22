@@ -12,7 +12,6 @@ import Alamofire
 
 class RequestFactoryTests: XCTestCase {
 
-
     func testLogIn() throws {
         let requestFactory = RequestFactory()
         let auth = requestFactory.makeAuthRequestFatory()
@@ -27,7 +26,6 @@ class RequestFactoryTests: XCTestCase {
                 XCTFail(error.localizedDescription)
             }
         }
-        
         waitForExpectations(timeout: 5)
     }
 
