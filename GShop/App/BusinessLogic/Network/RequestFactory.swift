@@ -47,4 +47,9 @@ class RequestFactory {
         return ChangeUserData(errorParser: errorParser, sessionManager: commonSession, queue: sessionQueue, baseUrl: self.baseUrl!)
     }
     
+    func makeGetGoodById() -> GetGoodByIdRequestFactory{
+        let errorParser = makeErrorParser()
+        return GetGoodById(errorParser: errorParser, sessionManager: commonSession, queue: sessionQueue, baseUrl: self.baseUrl!)
+    }
+    
 }
