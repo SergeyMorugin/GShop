@@ -49,7 +49,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         let logOut = requestFactory.makeLogOutRequestFatory()
-        logOut.logOut(id: "123"){ response in
+        logOut.logOut(id: 123){ response in
             switch response.result {
             case .success(let result):
                 print(result)

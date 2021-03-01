@@ -1,15 +1,15 @@
 //
-//  Auth.swift
+//  GetGoodById.swift
 //  GShop
 //
-//  Created by Matthew on 15.02.2021.
+//  Created by Matthew on 22.02.2021.
 //  Copyright © 2021 Ostagram Inc. All rights reserved.
 //
 
 import Foundation
 import Alamofire
 
-class Auth: AbstractRequestFactory {
+class GetGoodById: AbstractRequestFactory {
     let errorParser: AbstractErrorParser
     let sessionManager: Session
     let queue: DispatchQueue
@@ -27,26 +27,26 @@ class Auth: AbstractRequestFactory {
     }
 }
 
-extension Auth: AuthRequestFactory {
-    func login(userName: String, password: String, completionHandler: @escaping (AFDataResponse<LoginResult>) -> Void) {
-        let requestModel = Login(baseUrl: self.baseUrl, login: userName, password: password)
+extension GetGoodById: GetGoodByIdRequestFactory {
+    func getGoodById(product_id: Int, completionHandler: @escaping (AFDataResponse<ProductById>) -> Void) {
+        let requestModel = GetGoodByIdDataRequest(
+            baseUrl: self.baseUrl,
+            product_id: product_id)
         self.request(request: requestModel, completionHandler: completionHandler)
     }
 }
 
-extension Auth {
-    struct Login: RequestRouter {
+extension GetGoodById{
+    struct GetGoodByIdDataRequest: RequestRouter {
         let baseUrl: URL
-        let method: HTTPMethod = .post
-        let path: String = "auth/login"
+        let method: HTTPMethod = .get
+        let product_id: Int
+        var path: String { return "products/\(product_id)" }
         
-        let login: String
-        let password: String
+        
+        
         var parameters: Parameters? {
-            return [
-                "username": login,
-                "password": password
-            ]
+            return [:]
         }
     }
 }

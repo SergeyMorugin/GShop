@@ -1,15 +1,15 @@
 //
-//  Auth.swift
+//  CatalogData.swift
 //  GShop
 //
-//  Created by Matthew on 15.02.2021.
+//  Created by Matthew on 22.02.2021.
 //  Copyright © 2021 Ostagram Inc. All rights reserved.
 //
 
 import Foundation
 import Alamofire
 
-class Auth: AbstractRequestFactory {
+class CatalogData: AbstractRequestFactory {
     let errorParser: AbstractErrorParser
     let sessionManager: Session
     let queue: DispatchQueue
@@ -27,25 +27,29 @@ class Auth: AbstractRequestFactory {
     }
 }
 
-extension Auth: AuthRequestFactory {
-    func login(userName: String, password: String, completionHandler: @escaping (AFDataResponse<LoginResult>) -> Void) {
-        let requestModel = Login(baseUrl: self.baseUrl, login: userName, password: password)
+extension CatalogData: CatalogDataRequestFactory {
+    func catalogData(page: Int, perPage: Int, completionHandler: @escaping (AFDataResponse<ProductsIndex>) -> Void) {
+        let requestModel = CatalogDataDataRequest(
+            baseUrl: self.baseUrl,
+            page: page,
+            perPage: perPage)
         self.request(request: requestModel, completionHandler: completionHandler)
     }
 }
 
-extension Auth {
-    struct Login: RequestRouter {
+extension CatalogData{
+    struct CatalogDataDataRequest: RequestRouter {
         let baseUrl: URL
-        let method: HTTPMethod = .post
-        let path: String = "auth/login"
+        let method: HTTPMethod = .get
+        let path: String = "products"
         
-        let login: String
-        let password: String
+        let page: Int
+        let perPage: Int
+        
         var parameters: Parameters? {
             return [
-                "username": login,
-                "password": password
+                "page": page,
+                "perPage": perPage
             ]
         }
     }
