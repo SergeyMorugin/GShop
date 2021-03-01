@@ -21,7 +21,7 @@ class GetGoodByIdTests: XCTestCase {
             errorParser: ErrorParser(),
             sessionManager: manager,
             queue: DispatchQueue.global(qos: .utility),
-            baseUrl: URL(string: "https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses/")!)
+            baseUrl: URL(string: TestConfiguration.shared.mockServerUrl)!)
         
         let textExpectation = expectation(description: "exp")
         getGoodById.getGoodById(product_id: 1) { (response) in

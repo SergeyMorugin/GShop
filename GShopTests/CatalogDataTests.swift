@@ -13,7 +13,7 @@ import Alamofire
 
 class CatalogDataTests: XCTestCase {
 
-    func testGetGoodById() throws {
+    func testatalogData() throws {
         let configuration = URLSessionConfiguration.default
         configuration.httpShouldSetCookies = false
         configuration.headers = .default
@@ -22,16 +22,17 @@ class CatalogDataTests: XCTestCase {
             errorParser: ErrorParser(),
             sessionManager: manager,
             queue: DispatchQueue.global(qos: .utility),
-            baseUrl: URL(string: "https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses/")!)
+            baseUrl: URL(string: TestConfiguration.shared.mockServerUrl)!)
         
         let textExpectation = expectation(description: "exp")
         catalogData.catalogData(page: 1, perPage: 10) { (response) in
+            print(response)
             switch response.result {
             case .success(let result):
-                XCTAssertEqual(result.count, 2)
-                XCTAssertEqual(result[0].id, 123)
-                XCTAssertEqual(result[0].name, "Ноутбук")
-                XCTAssertEqual(result[0].price, 45600)
+                XCTAssertEqual(result.items.count, 2)
+                XCTAssertEqual(result.items[0].id, 123)
+                XCTAssertEqual(result.items[0].name, "Ноутбук")
+                XCTAssertEqual(result.items[0].price, 45600)
                 textExpectation.fulfill()
             case .failure(let error):
                 XCTFail(error.localizedDescription)
@@ -40,7 +41,7 @@ class CatalogDataTests: XCTestCase {
         waitForExpectations(timeout: 5)
     }
     
-    func testWrongGetGoodById() throws {
+    func testWrongCatalogData() throws {
         let baseUrl = try XCTUnwrap(URL(string: "https://wrong.url.com"))
         
         let configuration = URLSessionConfiguration.default

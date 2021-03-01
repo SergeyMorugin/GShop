@@ -40,14 +40,13 @@ extension GetGoodById{
     struct GetGoodByIdDataRequest: RequestRouter {
         let baseUrl: URL
         let method: HTTPMethod = .get
-        let path: String = "getGoodById.json"
-        
         let product_id: Int
+        var path: String { return "products/\(product_id)" }
+        
+        
         
         var parameters: Parameters? {
-            return [
-                "product_id": product_id
-            ]
+            return [:]
         }
     }
 }

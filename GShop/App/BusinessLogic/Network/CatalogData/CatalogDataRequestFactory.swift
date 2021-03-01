@@ -10,5 +10,5 @@ import Foundation
 import Alamofire
 
 protocol CatalogDataRequestFactory {
-    func catalogData(page: Int, perPage: Int, completionHandler: @escaping (AFDataResponse<[Product]>) -> Void)
+    func catalogData(page: Int, perPage: Int, completionHandler: @escaping (AFDataResponse<ProductsIndex>) -> Void)
 }

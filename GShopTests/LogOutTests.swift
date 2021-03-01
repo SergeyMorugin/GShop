@@ -21,10 +21,10 @@ class LogOutTests: XCTestCase {
             errorParser: ErrorParser(),
             sessionManager: manager,
             queue: DispatchQueue.global(qos: .utility),
-            baseUrl: URL(string: "https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses/")!)
+            baseUrl: URL(string: TestConfiguration.shared.mockServerUrl)!)
         
         let logOutExpectation = expectation(description: "exp")
-        logOut.logOut(id: "123") { (response) in
+        logOut.logOut(id: 123) { (response) in
             switch response.result {
             case .success(let result):
                 XCTAssertEqual(result.result, 1)
@@ -50,7 +50,7 @@ class LogOutTests: XCTestCase {
             baseUrl: baseUrl)
         
         let wrongExpectation = expectation(description: "failed exp")
-        logOut.logOut(id: "123") { response in
+        logOut.logOut(id: 123) { response in
             switch response.result {
             case .success(let model):
                 XCTFail("Must have failed: \(model)")

@@ -21,7 +21,7 @@ class AuthTests: XCTestCase {
             errorParser: ErrorParser(),
             sessionManager: manager,
             queue: DispatchQueue.global(qos: .utility),
-            baseUrl: URL(string: "https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses/")!)
+            baseUrl: URL(string: TestConfiguration.shared.mockServerUrl)!)
         
         let loggedInExpectation = expectation(description: "exp")
         auth.login(userName: "test", password: "test") { response in

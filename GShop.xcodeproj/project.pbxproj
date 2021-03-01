@@ -20,6 +20,8 @@
 		3422BAC325E3CC8300ACC7F9 /* CatalogDataRequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3422BAC225E3CC8300ACC7F9 /* CatalogDataRequestFactory.swift */; };
 		3422BAC525E3CDC500ACC7F9 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3422BAC425E3CDC500ACC7F9 /* Product.swift */; };
 		3422BAC925E3D5B200ACC7F9 /* CatalogDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3422BAC825E3D5B200ACC7F9 /* CatalogDataTests.swift */; };
+		347930DE25E6802D00625D92 /* TestConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347930DC25E67F0F00625D92 /* TestConfiguration.swift */; };
+		347930E025E6B49300625D92 /* ProductsIndex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347930DF25E6B49300625D92 /* ProductsIndex.swift */; };
 		34A62FCB25DAD8F70080A757 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 34A62FCA25DAD8F70080A757 /* Alamofire */; };
 		34A62FCE25DAD94E0080A757 /* AbstractErrorParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A62FCD25DAD94E0080A757 /* AbstractErrorParser.swift */; };
 		34A62FD025DAD9920080A757 /* ErrorParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A62FCF25DAD9920080A757 /* ErrorParser.swift */; };
@@ -77,6 +79,8 @@
 		3422BAC225E3CC8300ACC7F9 /* CatalogDataRequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogDataRequestFactory.swift; sourceTree = "<group>"; };
 		3422BAC425E3CDC500ACC7F9 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		3422BAC825E3D5B200ACC7F9 /* CatalogDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogDataTests.swift; sourceTree = "<group>"; };
+		347930DC25E67F0F00625D92 /* TestConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestConfiguration.swift; sourceTree = "<group>"; };
+		347930DF25E6B49300625D92 /* ProductsIndex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsIndex.swift; sourceTree = "<group>"; };
 		34A62FCD25DAD94E0080A757 /* AbstractErrorParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractErrorParser.swift; sourceTree = "<group>"; };
 		34A62FCF25DAD9920080A757 /* ErrorParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorParser.swift; sourceTree = "<group>"; };
 		34A62FD325DADAEC0080A757 /* RequestRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestRouter.swift; sourceTree = "<group>"; };
@@ -248,6 +252,7 @@
 		34F3475225D53EED008955A9 /* GShopTests */ = {
 			isa = PBXGroup;
 			children = (
+				347930DC25E67F0F00625D92 /* TestConfiguration.swift */,
 				34F3475525D53EED008955A9 /* Info.plist */,
 				3422BAAA25DEBA7900ACC7F9 /* RequestFactoryTests.swift */,
 				3422BAAC25DEBEA100ACC7F9 /* AuthTests.swift */,
@@ -300,6 +305,7 @@
 				34A62FF225DD40940080A757 /* CommonResult.swift */,
 				3422BABB25E3C5FE00ACC7F9 /* ProductById.swift */,
 				3422BAC425E3CDC500ACC7F9 /* Product.swift */,
+				347930DF25E6B49300625D92 /* ProductsIndex.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -352,6 +358,7 @@
 				34F3473525D53EE9008955A9 /* Sources */,
 				34F3473625D53EE9008955A9 /* Frameworks */,
 				34F3473725D53EE9008955A9 /* Resources */,
+				34B7FEC625ED3B0C008841D2 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -473,6 +480,26 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		34B7FEC625ED3B0C008841D2 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		34F3473525D53EE9008955A9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -487,6 +514,7 @@
 				34A62FCE25DAD94E0080A757 /* AbstractErrorParser.swift in Sources */,
 				3422BAC325E3CC8300ACC7F9 /* CatalogDataRequestFactory.swift in Sources */,
 				34A62FE325DD0D470080A757 /* ResponseCodable.swift in Sources */,
+				347930E025E6B49300625D92 /* ProductsIndex.swift in Sources */,
 				34A62FF125DD3F490080A757 /* LogOutRequestFactory.swift in Sources */,
 				34A62FD625DADB380080A757 /* LoginResult.swift in Sources */,
 				34F3473D25D53EE9008955A9 /* AppDelegate.swift in Sources */,
@@ -517,6 +545,7 @@
 				3422BAB025E2921300ACC7F9 /* SignUpTests.swift in Sources */,
 				3422BAAD25DEBEA100ACC7F9 /* AuthTests.swift in Sources */,
 				3422BAB225E3A0A900ACC7F9 /* LogOutTests.swift in Sources */,
+				347930DE25E6802D00625D92 /* TestConfiguration.swift in Sources */,
 				3422BABE25E3C7BD00ACC7F9 /* GetGoodByIdTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -29,5 +29,4 @@ class RequestFactoryTests: XCTestCase {
         waitForExpectations(timeout: 5)
     }
 
-
 }

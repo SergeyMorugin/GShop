@@ -21,7 +21,7 @@ class SignUpTests: XCTestCase {
             errorParser: ErrorParser(),
             sessionManager: manager,
             queue: DispatchQueue.global(qos: .utility),
-            baseUrl: URL(string: "https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses/")!)
+            baseUrl: URL(string: TestConfiguration.shared.mockServerUrl)!)
         
         let signedInExpectation = expectation(description: "exp")
         signUp.signUp(id: "1", username: "Unknown", password: "12345678", email: "test@test.com", gender: "Male", creditCard: "4242424242424242", bio: "bio") { (response) in

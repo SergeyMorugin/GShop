@@ -21,7 +21,7 @@ class ChangeUserDataTests: XCTestCase {
             errorParser: ErrorParser(),
             sessionManager: manager,
             queue: DispatchQueue.global(qos: .utility),
-            baseUrl: URL(string: "https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses/")!)
+            baseUrl: URL(string: TestConfiguration.shared.mockServerUrl)!)
         
         let logOutExpectation = expectation(description: "exp")
         changeUserData.changeUserData(id: "123", username: "Unknown2", password: "12345678", email: "test@test.com", gender: "Male", creditCard: "4242424242424242", bio: "bio"){ (response) in
