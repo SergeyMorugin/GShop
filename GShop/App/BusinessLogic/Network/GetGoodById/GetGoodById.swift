@@ -28,10 +28,10 @@ class GetGoodById: AbstractRequestFactory {
 }
 
 extension GetGoodById: GetGoodByIdRequestFactory {
-    func getGoodById(product_id: Int, completionHandler: @escaping (AFDataResponse<ProductById>) -> Void) {
+    func getGoodById(productId: Int, completionHandler: @escaping (AFDataResponse<ProductById>) -> Void) {
         let requestModel = GetGoodByIdDataRequest(
             baseUrl: self.baseUrl,
-            product_id: product_id)
+            productId: productId)
         self.request(request: requestModel, completionHandler: completionHandler)
     }
 }
@@ -40,8 +40,8 @@ extension GetGoodById{
     struct GetGoodByIdDataRequest: RequestRouter {
         let baseUrl: URL
         let method: HTTPMethod = .get
-        let product_id: Int
-        var path: String { return "products/\(product_id)" }
+        let productId: Int
+        var path: String { return "products/\(productId)" }
         
         
         
