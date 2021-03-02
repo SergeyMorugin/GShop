@@ -37,15 +37,15 @@ extension CatalogData: CatalogDataRequestFactory {
     }
 }
 
-extension CatalogData{
+extension CatalogData {
     struct CatalogDataDataRequest: RequestRouter {
         let baseUrl: URL
         let method: HTTPMethod = .get
         let path: String = "products"
-        
+        //
         let page: Int
         let perPage: Int
-        
+        //
         var parameters: Parameters? {
             return [
                 "page": page,

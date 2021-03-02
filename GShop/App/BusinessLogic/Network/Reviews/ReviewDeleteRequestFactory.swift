@@ -12,4 +12,3 @@ import Alamofire
 protocol ReviewDeleteRequestFactory {
     func reviewDelete(reviewId: Int, completionHandler: @escaping (AFDataResponse<CommonResponse>) -> Void)
 }
-

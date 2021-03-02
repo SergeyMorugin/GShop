@@ -36,13 +36,13 @@ extension GetGoodById: GetGoodByIdRequestFactory {
     }
 }
 
-extension GetGoodById{
+extension GetGoodById {
     struct GetGoodByIdDataRequest: RequestRouter {
         let baseUrl: URL
         let method: HTTPMethod = .get
         let productId: Int
         var path: String { return "products/\(productId)" }
-        
+        //
         var parameters: Parameters? {
             return [:]
         }

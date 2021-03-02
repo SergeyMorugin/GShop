@@ -6,7 +6,6 @@
 //  Copyright © 2021 Ostagram Inc. All rights reserved.
 //
 
-
 import Foundation
 import Alamofire
 
@@ -29,8 +28,14 @@ class ChangeUserData: AbstractRequestFactory {
 }
 
 extension ChangeUserData: ChangeUserDataRequestFactory {
-    func changeUserData(id:String, username: String, password: String, email: String, gender: String, creditCard: String, bio: String,
-                completionHandler: @escaping (AFDataResponse<CommonResponse>) -> Void) {
+    func changeUserData(id:String,
+                        username: String,
+                        password: String,
+                        email: String,
+                        gender: String,
+                        creditCard: String,
+                        bio: String,
+                        completionHandler: @escaping (AFDataResponse<CommonResponse>) -> Void) {
         let requestModel = ChangeUserDataRequest(
             baseUrl: self.baseUrl, 
             id: id,
@@ -49,15 +54,15 @@ extension ChangeUserData {
         let baseUrl: URL
         let method: HTTPMethod = .put
         let path: String = "auth/update_user"
-        
-        let id:String
+        //
+        let id: String
         let username: String
         let password: String
         let email: String
         let gender: String
         let creditCard: String
         let bio: String
-        
+        //
         var parameters: Parameters? {
             return [
                 "id_user": id,
@@ -71,5 +76,3 @@ extension ChangeUserData {
         }
     }
 }
-
-

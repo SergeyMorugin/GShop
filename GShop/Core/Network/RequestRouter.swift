@@ -9,7 +9,6 @@
 import Foundation
 import Alamofire
 
-
 enum RequestRouterEncoding {
     case url, json
 }

@@ -39,15 +39,15 @@ extension ReviewsIndex: ReviewsIndexRequestFactory {
     }
 }
 
-extension ReviewsIndex{
+extension ReviewsIndex {
     struct ReviewsIndexRequest: RequestRouter {
         let baseUrl: URL
         let method: HTTPMethod = .get
         let path: String = "reviews"
-        
+        //
         let page: Int
         let perPage: Int
-        
+        //
         var parameters: Parameters? {
             return [
                 "page": page,
