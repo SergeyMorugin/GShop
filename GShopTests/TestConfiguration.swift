@@ -11,7 +11,8 @@ import Foundation
 
 final class TestConfiguration{
     
-    let mockServerUrl = "https://gshopserver.herokuapp.com/" //"http://127.0.0.1:8080/" 
+    //let mockServerUrl = "https://gshopserver.herokuapp.com/"
+    let mockServerUrl = "http://127.0.0.1:8080/"
     
     static let shared: TestConfiguration = TestConfiguration()
     

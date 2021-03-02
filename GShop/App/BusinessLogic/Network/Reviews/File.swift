@@ -1,15 +1,15 @@
 //
-//  GetGoodById.swift
+//  File.swift
 //  GShop
 //
-//  Created by Matthew on 22.02.2021.
+//  Created by Matthew on 02.03.2021.
 //  Copyright © 2021 Ostagram Inc. All rights reserved.
 //
 
 import Foundation
 import Alamofire
 
-class GetGoodById: AbstractRequestFactory {
+class ReviewDelete: AbstractRequestFactory {
     let errorParser: AbstractErrorParser
     let sessionManager: Session
     let queue: DispatchQueue
@@ -27,21 +27,21 @@ class GetGoodById: AbstractRequestFactory {
     }
 }
 
-extension GetGoodById: GetGoodByIdRequestFactory {
-    func getGoodById(productId: Int, completionHandler: @escaping (AFDataResponse<ProductById>) -> Void) {
-        let requestModel = GetGoodByIdDataRequest(
+extension ReviewDelete: ReviewDeleteRequestFactory {
+    func reviewDelete(reviewId: Int, completionHandler: @escaping (AFDataResponse<CommonResponse>) -> Void) {
+        let requestModel = ReviewDeleteRequest(
             baseUrl: self.baseUrl,
-            productId: productId)
+            reviewId: reviewId)
         self.request(request: requestModel, completionHandler: completionHandler)
     }
 }
 
-extension GetGoodById{
-    struct GetGoodByIdDataRequest: RequestRouter {
+extension ReviewDelete{
+    struct ReviewDeleteRequest: RequestRouter {
         let baseUrl: URL
-        let method: HTTPMethod = .get
-        let productId: Int
-        var path: String { return "products/\(productId)" }
+        let method: HTTPMethod = .delete
+        let reviewId: Int
+        var path: String { return "reviews/\(reviewId)" }
         
         var parameters: Parameters? {
             return [:]

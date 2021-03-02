@@ -1,15 +1,15 @@
 //
-//  GetGoodById.swift
+//  File.swift
 //  GShop
 //
-//  Created by Matthew on 22.02.2021.
+//  Created by Matthew on 02.03.2021.
 //  Copyright © 2021 Ostagram Inc. All rights reserved.
 //
 
 import Foundation
 import Alamofire
 
-class GetGoodById: AbstractRequestFactory {
+class ReviewCreate: AbstractRequestFactory {
     let errorParser: AbstractErrorParser
     let sessionManager: Session
     let queue: DispatchQueue
@@ -27,24 +27,27 @@ class GetGoodById: AbstractRequestFactory {
     }
 }
 
-extension GetGoodById: GetGoodByIdRequestFactory {
-    func getGoodById(productId: Int, completionHandler: @escaping (AFDataResponse<ProductById>) -> Void) {
-        let requestModel = GetGoodByIdDataRequest(
+extension ReviewCreate: ReviewCreateRequestFactory {
+    func reviewCreate(reviewText: String, completionHandler: @escaping (AFDataResponse<ReviewCreateResponse>) -> Void) {
+        let requestModel = ReviewCreateRequest(
             baseUrl: self.baseUrl,
-            productId: productId)
+            reviewText: reviewText)
         self.request(request: requestModel, completionHandler: completionHandler)
     }
 }
 
-extension GetGoodById{
-    struct GetGoodByIdDataRequest: RequestRouter {
+extension ReviewCreate{
+    struct ReviewCreateRequest: RequestRouter {
         let baseUrl: URL
-        let method: HTTPMethod = .get
-        let productId: Int
-        var path: String { return "products/\(productId)" }
+        let method: HTTPMethod = .post
+        let path: String = "reviews"
+        
+        let reviewText: String
         
         var parameters: Parameters? {
-            return [:]
+            return [
+                "text": reviewText
+            ]
         }
     }
 }

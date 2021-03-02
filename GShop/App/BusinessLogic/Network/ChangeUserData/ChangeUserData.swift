@@ -30,7 +30,7 @@ class ChangeUserData: AbstractRequestFactory {
 
 extension ChangeUserData: ChangeUserDataRequestFactory {
     func changeUserData(id:String, username: String, password: String, email: String, gender: String, creditCard: String, bio: String,
-                completionHandler: @escaping (AFDataResponse<CommonResult>) -> Void) {
+                completionHandler: @escaping (AFDataResponse<CommonResponse>) -> Void) {
         let requestModel = ChangeUserDataRequest(
             baseUrl: self.baseUrl, 
             id: id,
