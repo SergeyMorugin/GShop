@@ -91,10 +91,7 @@ class ReviewsTests: XCTestCase {
         }
         waitForExpectations(timeout: 5)
     }
-    
-    
-    
-    
+
     func testWrongUrlRewiewsIndex() throws {
         let wrongUrl = try XCTUnwrap(URL(string: "https://wrong.url.com"))
         let configuration = URLSessionConfiguration.default
