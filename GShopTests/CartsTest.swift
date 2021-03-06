@@ -12,7 +12,57 @@ import Alamofire
 
 
 class CartsTests: XCTestCase {
+    
+    func testCartItemsCreate() throws {
+        let configuration = URLSessionConfiguration.default
+        configuration.httpShouldSetCookies = false
+        configuration.headers = .default
+        let manager = Session(configuration: configuration)
+        let cartItem = CartItemsCreate(
+            errorParser: ErrorParser(),
+            sessionManager: manager,
+            queue: DispatchQueue.global(qos: .utility),
+            baseUrl: URL(string: TestConfiguration.shared.mockServerUrl)!)
 
+        let textExpectation = expectation(description: "exp")
+        cartItem.create(productId: 1, quantity: 1) { (response) in
+            print(response)
+            switch response.result {
+            case .success(let result):
+                XCTAssertEqual(result.result, 1)
+                textExpectation.fulfill()
+            case .failure(let error):
+                XCTFail(error.localizedDescription)
+            }
+        }
+        waitForExpectations(timeout: 5)
+    }
+    
+    func testCartItemsDelete() throws {
+        let configuration = URLSessionConfiguration.default
+        configuration.httpShouldSetCookies = false
+        configuration.headers = .default
+        let manager = Session(configuration: configuration)
+        let cartItem = CartItemsDelete(
+            errorParser: ErrorParser(),
+            sessionManager: manager,
+            queue: DispatchQueue.global(qos: .utility),
+            baseUrl: URL(string: TestConfiguration.shared.mockServerUrl)!)
+
+        let textExpectation = expectation(description: "exp")
+        cartItem.delete(productId: 1) { (response) in
+            print(response)
+            switch response.result {
+            case .success(let result):
+                XCTAssertEqual(result.result, 1)
+                textExpectation.fulfill()
+            case .failure(let error):
+                XCTFail(error.localizedDescription)
+            }
+        }
+        waitForExpectations(timeout: 5)
+    }
+    
     func testCartCheckout() throws {
         let configuration = URLSessionConfiguration.default
         configuration.httpShouldSetCookies = false
@@ -38,9 +88,6 @@ class CartsTests: XCTestCase {
         waitForExpectations(timeout: 5)
     }
 
-    
-    
-    
     func testWrongUrlCartCheckout() throws {
         let wrongUrl = try XCTUnwrap(URL(string: "https://wrong.url.com"))
         let configuration = URLSessionConfiguration.default
