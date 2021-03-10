@@ -20,6 +20,9 @@
 		3422BAC325E3CC8300ACC7F9 /* CatalogDataRequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3422BAC225E3CC8300ACC7F9 /* CatalogDataRequestFactory.swift */; };
 		3422BAC525E3CDC500ACC7F9 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3422BAC425E3CDC500ACC7F9 /* Product.swift */; };
 		3422BAC925E3D5B200ACC7F9 /* CatalogDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3422BAC825E3D5B200ACC7F9 /* CatalogDataTests.swift */; };
+		34551A9F25F91584008FEEF2 /* LoginInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34551A9E25F91584008FEEF2 /* LoginInteractor.swift */; };
+		34551AA225F91802008FEEF2 /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34551AA125F91802008FEEF2 /* LoginPresenter.swift */; };
+		34551AA725F927DD008FEEF2 /* LoginRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34551AA625F927DD008FEEF2 /* LoginRouter.swift */; };
 		347930DE25E6802D00625D92 /* TestConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347930DC25E67F0F00625D92 /* TestConfiguration.swift */; };
 		347930E025E6B49300625D92 /* ProductsIndex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347930DF25E6B49300625D92 /* ProductsIndex.swift */; };
 		348DA81125ED4FEE0083E1CB /* ReviewsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348DA81025ED4FEE0083E1CB /* ReviewsTest.swift */; };
@@ -98,6 +101,9 @@
 		3422BAC225E3CC8300ACC7F9 /* CatalogDataRequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogDataRequestFactory.swift; sourceTree = "<group>"; };
 		3422BAC425E3CDC500ACC7F9 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		3422BAC825E3D5B200ACC7F9 /* CatalogDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogDataTests.swift; sourceTree = "<group>"; };
+		34551A9E25F91584008FEEF2 /* LoginInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInteractor.swift; sourceTree = "<group>"; };
+		34551AA125F91802008FEEF2 /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
+		34551AA625F927DD008FEEF2 /* LoginRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRouter.swift; sourceTree = "<group>"; };
 		347930DC25E67F0F00625D92 /* TestConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestConfiguration.swift; sourceTree = "<group>"; };
 		347930DF25E6B49300625D92 /* ProductsIndex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsIndex.swift; sourceTree = "<group>"; };
 		348DA81025ED4FEE0083E1CB /* ReviewsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsTest.swift; sourceTree = "<group>"; };
@@ -192,6 +198,30 @@
 				3422BAC225E3CC8300ACC7F9 /* CatalogDataRequestFactory.swift */,
 			);
 			path = CatalogData;
+			sourceTree = "<group>";
+		};
+		34551A9D25F91561008FEEF2 /* Interactors */ = {
+			isa = PBXGroup;
+			children = (
+				34551A9E25F91584008FEEF2 /* LoginInteractor.swift */,
+			);
+			path = Interactors;
+			sourceTree = "<group>";
+		};
+		34551AA025F917DB008FEEF2 /* Presenters */ = {
+			isa = PBXGroup;
+			children = (
+				34551AA125F91802008FEEF2 /* LoginPresenter.swift */,
+			);
+			path = Presenters;
+			sourceTree = "<group>";
+		};
+		34551AA525F927A3008FEEF2 /* Routers */ = {
+			isa = PBXGroup;
+			children = (
+				34551AA625F927DD008FEEF2 /* LoginRouter.swift */,
+			);
+			path = Routers;
 			sourceTree = "<group>";
 		};
 		348DA81625ED51AA0083E1CB /* Reviews */ = {
@@ -408,6 +438,9 @@
 		34F3477725D54561008955A9 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				34551AA525F927A3008FEEF2 /* Routers */,
+				34551AA025F917DB008FEEF2 /* Presenters */,
+				34551A9D25F91561008FEEF2 /* Interactors */,
 				34A82C9425F8F404009CF031 /* Controllers */,
 				34F3473C25D53EE9008955A9 /* AppDelegate.swift */,
 				34F3473E25D53EE9008955A9 /* SceneDelegate.swift */,
@@ -615,6 +648,7 @@
 				34A62FCE25DAD94E0080A757 /* AbstractErrorParser.swift in Sources */,
 				3422BAC325E3CC8300ACC7F9 /* CatalogDataRequestFactory.swift in Sources */,
 				34A62FE325DD0D470080A757 /* ResponseCodable.swift in Sources */,
+				34551A9F25F91584008FEEF2 /* LoginInteractor.swift in Sources */,
 				348DA81325ED51180083E1CB /* ReviewsIndexResponse.swift in Sources */,
 				348DA82025EE26F30083E1CB /* ReviewCreate.swift in Sources */,
 				347930E025E6B49300625D92 /* ProductsIndex.swift in Sources */,
@@ -634,6 +668,7 @@
 				3422BAC125E3CC5F00ACC7F9 /* CatalogData.swift in Sources */,
 				3422BABA25E3C3E500ACC7F9 /* GetGoodByIdRequestFactory.swift in Sources */,
 				348DA82725EE2A8D0083E1CB /* ReviewDelete.swift in Sources */,
+				34551AA725F927DD008FEEF2 /* LoginRouter.swift in Sources */,
 				348DA81A25ED520A0083E1CB /* ReviewsIndex.swift in Sources */,
 				34A62FDB25DADB8F0080A757 /* AuthRequestFactory.swift in Sources */,
 				348DA81525ED514D0083E1CB /* Review.swift in Sources */,
@@ -641,6 +676,7 @@
 				34F3473F25D53EE9008955A9 /* SceneDelegate.swift in Sources */,
 				34A62FF825DD41E20080A757 /* ChangeUSerDataRequestFactory.swift in Sources */,
 				34A82C8F25F3BE22009CF031 /* CartItemsDeleteRequstFactory.swift in Sources */,
+				34551AA225F91802008FEEF2 /* LoginPresenter.swift in Sources */,
 				348DA82525EE2A2B0083E1CB /* ReviewDeleteRequestFactory.swift in Sources */,
 				34A62FE725DD35C80080A757 /* SignUp.swift in Sources */,
 				34A62FD025DAD9920080A757 /* ErrorParser.swift in Sources */,
