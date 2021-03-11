@@ -14,7 +14,6 @@ import UIKit
 
 class SignUpWorker
 {
-  func doSomeWork()
-  {
-  }
+    func doSomeWork(){
+    }
 }

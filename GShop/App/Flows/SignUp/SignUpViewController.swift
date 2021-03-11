@@ -12,78 +12,87 @@
 
 import UIKit
 
-protocol SignUpDisplayLogic: class
-{
-    func displaySomething(viewModel: SignUpEnum.Something.ViewModel)
+protocol SignUpDisplayLogic: class {
+    func displayResult(viewModel: SignUpEnum.SignUpAction.ViewModel)
 }
 
-class SignUpViewController: UIViewController, SignUpDisplayLogic
-{
-  var interactor: SignUpBusinessLogic?
-  var router: (NSObjectProtocol & SignUpRoutingLogic & SignUpDataPassing)?
-
-  // MARK: Object lifecycle
-  
-  override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
-  {
-    super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-    setup()
-  }
-  
-  required init?(coder aDecoder: NSCoder)
-  {
-    super.init(coder: aDecoder)
-    setup()
-  }
-  
-  // MARK: Setup
-  
-  private func setup()
-  {
-    let viewController = self
-    let interactor = SignUpInteractor()
-    let presenter = SignUpPresenter()
-    let router = SignUpRouter()
-    viewController.interactor = interactor
-    viewController.router = router
-    interactor.presenter = presenter
-    presenter.viewController = viewController
-    router.viewController = viewController
-    router.dataStore = interactor
-  }
-  
-  // MARK: Routing
-  
-  override func prepare(for segue: UIStoryboardSegue, sender: Any?)
-  {
-    if let scene = segue.identifier {
-      let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
-      if let router = router, router.responds(to: selector) {
-        router.perform(selector, with: segue)
-      }
+class SignUpViewController: UIViewController, SignUpDisplayLogic {
+    @IBOutlet weak var usernameTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var genderTextField: UITextField!
+    @IBOutlet weak var creditCardTextField: UITextField!
+    @IBOutlet weak var bioTextField: UITextField!
+    
+    @IBAction func onSignUpClick(_ sender: Any) {
+        doSignUp()
     }
-  }
-  
-  // MARK: View lifecycle
-  
-  override func viewDidLoad()
-  {
-    super.viewDidLoad()
-    doSomething()
-  }
-  
-  // MARK: Do something
-  
-  //@IBOutlet weak var nameTextField: UITextField!
-  
-  func doSomething()
-  {
-    let request = SignUpEnum.Something.Request()
-    interactor?.doSomething(request: request)
-  }
-  
-    func displaySomething(viewModel: SignUpEnum.Something.ViewModel)
-  {
-    //nameTextField.text = viewModel.name
-  }
+
+    var interactor: SignUpBusinessLogic?
+    var router: (NSObjectProtocol & SignUpRoutingLogic & SignUpDataPassing)?
+    
+    // MARK: Object lifecycle
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        setup()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        setup()
+    }
+    
+    // MARK: Setup
+    private func setup() {
+        let viewController = self
+        let interactor = SignUpInteractor()
+        let presenter = SignUpPresenter()
+        let router = SignUpRouter()
+        viewController.interactor = interactor
+        viewController.router = router
+        interactor.presenter = presenter
+        presenter.viewController = viewController
+        router.viewController = viewController
+        router.dataStore = interactor
+    }
+    
+    // MARK: Routing
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let scene = segue.identifier {
+            let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
+            if let router = router, router.responds(to: selector) {
+                router.perform(selector, with: segue)
+            }
+        }
+    }
+    
+    // MARK: View lifecycle
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+    
+    // MARK: Do something
+    //@IBOutlet weak var nameTextField: UITextField!
+    func doSignUp() {
+        let request = SignUpEnum.SignUpAction.Request(
+            id: "1",
+            username: usernameTextField.text ?? "",
+            password: passwordTextField.text ?? "",
+            email: emailTextField.text ?? "",
+            gender: genderTextField.text ?? "",
+            creditCard: creditCardTextField.text ?? "",
+            bio: bioTextField.text ?? "")
+        interactor?.signup(request: request)
+    }
+    
+    func displayResult(viewModel: SignUpEnum.SignUpAction.ViewModel) {
+        if viewModel.showModal {
+            let alert = UIAlertController(title: "",
+                                          message: viewModel.textMessage,
+                                          preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
 }

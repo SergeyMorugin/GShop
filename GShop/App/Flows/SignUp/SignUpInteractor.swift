@@ -12,30 +12,39 @@
 
 import UIKit
 
-protocol SignUpBusinessLogic
-{
-    func doSomething(request: SignUpEnum.Something.Request)
+protocol SignUpBusinessLogic {
+    func signup(request: SignUpEnum.SignUpAction.Request)
 }
 
-protocol SignUpDataStore
-{
-  //var name: String { get set }
+protocol SignUpDataStore {
+    //var name: String { get set }
 }
 
-class SignUpInteractor: SignUpBusinessLogic, SignUpDataStore
-{
-  var presenter: SignUpPresentationLogic?
-  var worker: SignUpWorker?
-  //var name: String = ""
-  
-  // MARK: Do something
-  
-    func doSomething(request: SignUpEnum.Something.Request)
-  {
-    worker = SignUpWorker()
-    worker?.doSomeWork()
+class SignUpInteractor: SignUpBusinessLogic, SignUpDataStore {
+    var presenter: SignUpPresentationLogic?
+    var worker: SignUpWorker?
+    private let network = RequestFactory().makeSignUpRequestFatory()
+    //var name: String = ""
     
-    let response = SignUpEnum.Something.Response()
-    presenter?.presentSomething(response: response)
-  }
+    // MARK: Do something
+    
+    func signup(request: SignUpEnum.SignUpAction.Request) {
+        network.signUp(
+            id: request.id,
+            username: request.username,
+            password: request.password,
+            email: request.email,
+            gender: request.gender,
+            creditCard: request.creditCard,
+            bio: request.bio,
+            completionHandler: { resp in
+                switch resp.result {
+                case .success(let model):
+                    self.presenter?.present(response: SignUpEnum.SignUpAction.Response(success: true))
+                case .failure:
+                    self.presenter?.present(response: SignUpEnum.SignUpAction.Response(success: false))
+                }
+            }
+        )
+    }
 }

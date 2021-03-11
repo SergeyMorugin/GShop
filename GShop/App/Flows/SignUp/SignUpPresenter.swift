@@ -12,20 +12,29 @@
 
 import UIKit
 
-protocol SignUpPresentationLogic
-{
-    func presentSomething(response: SignUpEnum.Something.Response)
+protocol SignUpPresentationLogic {
+    func present(response: SignUpEnum.SignUpAction.Response)
 }
 
-class SignUpPresenter: SignUpPresentationLogic
-{
-  weak var viewController: SignUpDisplayLogic?
-  
-  // MARK: Do something
-  
-    func presentSomething(response: SignUpEnum.Something.Response)
-  {
-    let viewModel = SignUpEnum.Something.ViewModel()
-    viewController?.displaySomething(viewModel: viewModel)
-  }
+class SignUpPresenter: SignUpPresentationLogic {
+    weak var viewController: SignUpDisplayLogic?
+    
+    // MARK: Do something
+    
+    func present(response: SignUpEnum.SignUpAction.Response) {
+        DispatchQueue.main.async {
+            if response.success {
+              let viewModel = SignUpEnum.SignUpAction.ViewModel(
+                showModal: true,
+                textMessage: "Successfully")
+                self.viewController?.displayResult(viewModel: viewModel)
+            } else {
+                let viewModel = SignUpEnum.SignUpAction.ViewModel(
+                  showModal: true,
+                  textMessage: "Fail")
+                self.viewController?.displayResult(viewModel: viewModel)
+            }
+        }
+        
+    }
 }

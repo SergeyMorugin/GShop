@@ -12,20 +12,25 @@
 
 import UIKit
 
-enum SignUpEnum
-{
-  // MARK: Use cases
-  
-  enum Something
-  {
-    struct Request
-    {
+enum SignUpEnum {
+    // MARK: Use cases
+    
+    enum SignUpAction {
+        struct Request {
+            let id: String
+            let username: String
+            let password: String
+            let email: String
+            let gender: String
+            let creditCard: String
+            let bio: String
+        }
+        struct Response {
+            var success: Bool
+        }
+        struct ViewModel {
+            let showModal: Bool
+            let textMessage: String
+        }
     }
-    struct Response
-    {
-    }
-    struct ViewModel
-    {
-    }
-  }
 }
