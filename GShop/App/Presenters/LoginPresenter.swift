@@ -14,7 +14,7 @@ protocol LoginPresentationLogic {
 }
 
 class LoginPresenter: LoginPresentationLogic {
-    var viewController: LoginViewDisplayLogic?
+    weak var viewController: LoginViewDisplayLogic?
     
     func success(model: User) {
         print("SUCCESS")

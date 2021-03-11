@@ -20,6 +20,12 @@
 		3422BAC325E3CC8300ACC7F9 /* CatalogDataRequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3422BAC225E3CC8300ACC7F9 /* CatalogDataRequestFactory.swift */; };
 		3422BAC525E3CDC500ACC7F9 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3422BAC425E3CDC500ACC7F9 /* Product.swift */; };
 		3422BAC925E3D5B200ACC7F9 /* CatalogDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3422BAC825E3D5B200ACC7F9 /* CatalogDataTests.swift */; };
+		343181BD25FA2CAA003A9922 /* SignUpPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343181B725FA2CAA003A9922 /* SignUpPresenter.swift */; };
+		343181BE25FA2CAA003A9922 /* SignUpWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343181B825FA2CAA003A9922 /* SignUpWorker.swift */; };
+		343181BF25FA2CAA003A9922 /* SignUpRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343181B925FA2CAA003A9922 /* SignUpRouter.swift */; };
+		343181C025FA2CAA003A9922 /* SignUpModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343181BA25FA2CAA003A9922 /* SignUpModels.swift */; };
+		343181C125FA2CAA003A9922 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343181BB25FA2CAA003A9922 /* SignUpViewController.swift */; };
+		343181C225FA2CAA003A9922 /* SignUpInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343181BC25FA2CAA003A9922 /* SignUpInteractor.swift */; };
 		34551A9F25F91584008FEEF2 /* LoginInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34551A9E25F91584008FEEF2 /* LoginInteractor.swift */; };
 		34551AA225F91802008FEEF2 /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34551AA125F91802008FEEF2 /* LoginPresenter.swift */; };
 		34551AA725F927DD008FEEF2 /* LoginRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34551AA625F927DD008FEEF2 /* LoginRouter.swift */; };
@@ -101,6 +107,12 @@
 		3422BAC225E3CC8300ACC7F9 /* CatalogDataRequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogDataRequestFactory.swift; sourceTree = "<group>"; };
 		3422BAC425E3CDC500ACC7F9 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		3422BAC825E3D5B200ACC7F9 /* CatalogDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogDataTests.swift; sourceTree = "<group>"; };
+		343181B725FA2CAA003A9922 /* SignUpPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPresenter.swift; sourceTree = "<group>"; };
+		343181B825FA2CAA003A9922 /* SignUpWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpWorker.swift; sourceTree = "<group>"; };
+		343181B925FA2CAA003A9922 /* SignUpRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpRouter.swift; sourceTree = "<group>"; };
+		343181BA25FA2CAA003A9922 /* SignUpModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpModels.swift; sourceTree = "<group>"; };
+		343181BB25FA2CAA003A9922 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		343181BC25FA2CAA003A9922 /* SignUpInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpInteractor.swift; sourceTree = "<group>"; };
 		34551A9E25F91584008FEEF2 /* LoginInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInteractor.swift; sourceTree = "<group>"; };
 		34551AA125F91802008FEEF2 /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
 		34551AA625F927DD008FEEF2 /* LoginRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRouter.swift; sourceTree = "<group>"; };
@@ -198,6 +210,19 @@
 				3422BAC225E3CC8300ACC7F9 /* CatalogDataRequestFactory.swift */,
 			);
 			path = CatalogData;
+			sourceTree = "<group>";
+		};
+		343181B625FA2C8A003A9922 /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				343181B725FA2CAA003A9922 /* SignUpPresenter.swift */,
+				343181B825FA2CAA003A9922 /* SignUpWorker.swift */,
+				343181B925FA2CAA003A9922 /* SignUpRouter.swift */,
+				343181BA25FA2CAA003A9922 /* SignUpModels.swift */,
+				343181BB25FA2CAA003A9922 /* SignUpViewController.swift */,
+				343181BC25FA2CAA003A9922 /* SignUpInteractor.swift */,
+			);
+			path = SignUp;
 			sourceTree = "<group>";
 		};
 		34551A9D25F91561008FEEF2 /* Interactors */ = {
@@ -401,6 +426,7 @@
 		34F3477325D54519008955A9 /* Flows */ = {
 			isa = PBXGroup;
 			children = (
+				343181B625FA2C8A003A9922 /* SignUp */,
 			);
 			path = Flows;
 			sourceTree = "<group>";
@@ -638,6 +664,7 @@
 			files = (
 				34A82C8D25F3BB04009CF031 /* CartItemsCreate.swift in Sources */,
 				34A62FF625DD41BF0080A757 /* ChangeUserData.swift in Sources */,
+				343181BD25FA2CAA003A9922 /* SignUpPresenter.swift in Sources */,
 				34A62FDF25DADC1F0080A757 /* RequestFactory.swift in Sources */,
 				34A62FEE25DD3F160080A757 /* LogOut.swift in Sources */,
 				34A62FEB25DD37710080A757 /* SignUpResult.swift in Sources */,
@@ -648,6 +675,7 @@
 				34A62FCE25DAD94E0080A757 /* AbstractErrorParser.swift in Sources */,
 				3422BAC325E3CC8300ACC7F9 /* CatalogDataRequestFactory.swift in Sources */,
 				34A62FE325DD0D470080A757 /* ResponseCodable.swift in Sources */,
+				343181BE25FA2CAA003A9922 /* SignUpWorker.swift in Sources */,
 				34551A9F25F91584008FEEF2 /* LoginInteractor.swift in Sources */,
 				348DA81325ED51180083E1CB /* ReviewsIndexResponse.swift in Sources */,
 				348DA82025EE26F30083E1CB /* ReviewCreate.swift in Sources */,
@@ -660,6 +688,7 @@
 				34A62FD625DADB380080A757 /* LoginResult.swift in Sources */,
 				34F3473D25D53EE9008955A9 /* AppDelegate.swift in Sources */,
 				34A62FE125DD0CDF0080A757 /* AbstractRequestFactory.swift in Sources */,
+				343181C225FA2CAA003A9922 /* SignUpInteractor.swift in Sources */,
 				3422BABC25E3C5FE00ACC7F9 /* ProductById.swift in Sources */,
 				34A62FE925DD35EF0080A757 /* SignUpRequestFactory.swift in Sources */,
 				34A62FD425DADAEC0080A757 /* RequestRouter.swift in Sources */,
@@ -667,10 +696,13 @@
 				34A62FDD25DADBDC0080A757 /* Auth.swift in Sources */,
 				3422BAC125E3CC5F00ACC7F9 /* CatalogData.swift in Sources */,
 				3422BABA25E3C3E500ACC7F9 /* GetGoodByIdRequestFactory.swift in Sources */,
+				343181C025FA2CAA003A9922 /* SignUpModels.swift in Sources */,
 				348DA82725EE2A8D0083E1CB /* ReviewDelete.swift in Sources */,
 				34551AA725F927DD008FEEF2 /* LoginRouter.swift in Sources */,
 				348DA81A25ED520A0083E1CB /* ReviewsIndex.swift in Sources */,
 				34A62FDB25DADB8F0080A757 /* AuthRequestFactory.swift in Sources */,
+				343181BF25FA2CAA003A9922 /* SignUpRouter.swift in Sources */,
+				343181C125FA2CAA003A9922 /* SignUpViewController.swift in Sources */,
 				348DA81525ED514D0083E1CB /* Review.swift in Sources */,
 				34A82C9625F8F450009CF031 /* LoginViewController.swift in Sources */,
 				34F3473F25D53EE9008955A9 /* SceneDelegate.swift in Sources */,
