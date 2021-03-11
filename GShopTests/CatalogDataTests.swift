@@ -13,7 +13,7 @@ import Alamofire
 
 class CatalogDataTests: XCTestCase {
 
-    func testatalogData() throws {
+    func testCatalogData() throws {
         let configuration = URLSessionConfiguration.default
         configuration.httpShouldSetCookies = false
         configuration.headers = .default
@@ -23,7 +23,7 @@ class CatalogDataTests: XCTestCase {
             sessionManager: manager,
             queue: DispatchQueue.global(qos: .utility),
             baseUrl: URL(string: TestConfiguration.shared.mockServerUrl)!)
-        
+
         let textExpectation = expectation(description: "exp")
         catalogData.catalogData(page: 1, perPage: 10) { (response) in
             print(response)

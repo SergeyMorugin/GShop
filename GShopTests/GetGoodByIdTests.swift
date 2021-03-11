@@ -24,7 +24,7 @@ class GetGoodByIdTests: XCTestCase {
             baseUrl: URL(string: TestConfiguration.shared.mockServerUrl)!)
         
         let textExpectation = expectation(description: "exp")
-        getGoodById.getGoodById(product_id: 1) { (response) in
+        getGoodById.getGoodById(productId: 1) { (response) in
             switch response.result {
             case .success(let result):
                 XCTAssertEqual(result.id, 1)
@@ -53,7 +53,7 @@ class GetGoodByIdTests: XCTestCase {
             baseUrl: baseUrl)
         
         let wrongExpectation = expectation(description: "failed exp")
-        getGoodById.getGoodById(product_id: 1) { response in
+        getGoodById.getGoodById(productId: 1) { response in
             switch response.result {
             case .success(let model):
                 XCTFail("Must have failed: \(model)")

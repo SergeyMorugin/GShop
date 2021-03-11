@@ -8,6 +8,6 @@
 
 import Foundation
 
-struct CommonResult: Codable {
+struct CommonResponse: Codable {
     let result: Int
 }
