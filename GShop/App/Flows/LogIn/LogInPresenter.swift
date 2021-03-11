@@ -23,6 +23,6 @@ class LogInPresenter: LogInPresentationLogic {
     
     func presentSomething(response: LogIn.Something.Response) {
         let viewModel = LogIn.Something.ViewModel()
-        viewController?.displaySomething(viewModel: viewModel)
+        viewController?.displayResult(viewModel: viewModel)
     }
 }

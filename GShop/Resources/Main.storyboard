@@ -71,8 +71,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="pTC-oP-evJ"/>
                     <connections>
-                        <outlet property="loginTextField" destination="MKo-69-eWT" id="pt7-j4-AKS"/>
-                        <outlet property="passwordTextField" destination="2Ze-up-Xh6" id="FmZ-HV-9qS"/>
+                        <outlet property="loginTextField" destination="MKo-69-eWT" id="vJI-YO-kLX"/>
+                        <outlet property="onLogInClick" destination="vQu-nG-Oow" id="b6v-W2-p3h"/>
+                        <outlet property="passwordTextField" destination="2Ze-up-Xh6" id="3IK-nF-7XK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="he1-Fg-jgE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

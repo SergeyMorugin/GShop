@@ -13,14 +13,14 @@
 import UIKit
 
 protocol LogInDisplayLogic: class {
-    func displaySomething(viewModel: LogIn.Something.ViewModel)
+    func displayResult(viewModel: LogIn.Something.ViewModel)
 }
 
 class LogInViewController: UIViewController, LogInDisplayLogic {
     var interactor: LogInBusinessLogic?
     var router: (NSObjectProtocol & LogInRoutingLogic & LogInDataPassing)?
-    
     // MARK: Object lifecycle
+    
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
