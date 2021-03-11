@@ -7,10 +7,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Login View Controller-->
+        <!--Log In View Controller-->
         <scene sceneID="Sr3-90-DQC">
             <objects>
-                <viewController id="00c-27-VgS" customClass="LoginViewController" sceneMemberID="viewController">
+                <viewController id="00c-27-VgS" customClass="LogInViewController" customModule="GShop" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LTw-jO-2ca">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -18,27 +18,28 @@
                             <stackView opaque="NO" contentMode="scaleAspectFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="ebp-VS-p8Z">
                                 <rect key="frame" x="0.0" y="359" width="414" height="188"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Login" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MKo-69-eWT">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Login" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pYj-E7-itt">
                                         <rect key="frame" x="20" y="0.0" width="374" height="34"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="34" id="I18-SZ-SRc"/>
+                                            <constraint firstAttribute="height" constant="34" id="WC0-GH-29E"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2Ze-up-Xh6">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NSx-ba-p2C">
                                         <rect key="frame" x="20" y="54" width="374" height="34"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="34" id="gNa-x7-pf9"/>
+                                            <constraint firstAttribute="height" constant="34" id="Y4S-gt-5gT"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vQu-nG-Oow">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lSF-xD-s5f">
                                         <rect key="frame" x="186" y="108" width="42" height="30"/>
                                         <state key="normal" title="Log In"/>
                                         <connections>
-                                            <action selector="onLoginClick:" destination="00c-27-VgS" eventType="touchUpInside" id="W8z-Jh-Osh"/>
+                                            <action selector="onLoginClick:" destination="00c-27-VgS" eventType="touchUpInside" id="9Mn-AF-Lbf"/>
+                                            <action selector="onSignUpClick:" destination="Swq-Kd-uVt" eventType="touchUpInside" id="l3c-MA-E3L"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zXa-F5-U3W">
@@ -47,16 +48,15 @@
                                             <color key="titleColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                         </state>
                                         <connections>
-                                            <action selector="onLoginClick:" destination="00c-27-VgS" eventType="touchUpInside" id="0Ll-Dh-bli"/>
-                                            <segue destination="Swq-Kd-uVt" kind="presentation" identifier="SignUp" modalPresentationStyle="fullScreen" id="cth-43-PPL"/>
+                                            <segue destination="Swq-Kd-uVt" kind="presentation" modalPresentationStyle="fullScreen" id="39G-h6-ViE"/>
                                         </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="MKo-69-eWT" firstAttribute="leading" secondItem="ebp-VS-p8Z" secondAttribute="leading" constant="20" id="Rgm-UG-xjJ"/>
-                                    <constraint firstItem="2Ze-up-Xh6" firstAttribute="leading" secondItem="ebp-VS-p8Z" secondAttribute="leading" constant="20" id="fro-aj-CsN"/>
-                                    <constraint firstAttribute="trailing" secondItem="2Ze-up-Xh6" secondAttribute="trailing" constant="20" id="lhx-iJ-XnI"/>
-                                    <constraint firstAttribute="trailing" secondItem="MKo-69-eWT" secondAttribute="trailing" constant="20" id="un9-Xr-8lh"/>
+                                    <constraint firstAttribute="trailing" secondItem="pYj-E7-itt" secondAttribute="trailing" constant="20" id="2tP-aH-9xa"/>
+                                    <constraint firstItem="NSx-ba-p2C" firstAttribute="leading" secondItem="ebp-VS-p8Z" secondAttribute="leading" constant="20" id="JQy-if-GaG"/>
+                                    <constraint firstItem="pYj-E7-itt" firstAttribute="leading" secondItem="ebp-VS-p8Z" secondAttribute="leading" constant="20" id="MFF-yb-JX6"/>
+                                    <constraint firstAttribute="trailing" secondItem="NSx-ba-p2C" secondAttribute="trailing" constant="20" id="uvT-dt-S85"/>
                                 </constraints>
                             </stackView>
                         </subviews>
@@ -71,9 +71,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="pTC-oP-evJ"/>
                     <connections>
-                        <outlet property="loginTextField" destination="MKo-69-eWT" id="vJI-YO-kLX"/>
-                        <outlet property="onLogInClick" destination="vQu-nG-Oow" id="b6v-W2-p3h"/>
-                        <outlet property="passwordTextField" destination="2Ze-up-Xh6" id="3IK-nF-7XK"/>
+                        <outlet property="loginTextField" destination="pYj-E7-itt" id="nhG-k9-BUW"/>
+                        <outlet property="passwordTextField" destination="NSx-ba-p2C" id="1bV-yR-QAH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="he1-Fg-jgE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -143,7 +142,6 @@
                                         <rect key="frame" x="180" y="358" width="54" height="30"/>
                                         <state key="normal" title="Sign Up"/>
                                         <connections>
-                                            <action selector="onLoginClick:" destination="00c-27-VgS" eventType="touchUpInside" id="Ixw-rv-PKK"/>
                                             <action selector="onSignUpClick:" destination="Swq-Kd-uVt" eventType="touchUpInside" id="qrV-hf-Mng"/>
                                         </connections>
                                     </button>
@@ -153,8 +151,7 @@
                                             <color key="titleColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                         </state>
                                         <connections>
-                                            <action selector="goToLoginClick:" destination="Swq-Kd-uVt" eventType="touchUpInside" id="cvs-4O-T4L"/>
-                                            <segue destination="00c-27-VgS" kind="presentation" modalPresentationStyle="fullScreen" id="0Q6-3n-yk6"/>
+                                            <segue destination="00c-27-VgS" kind="presentation" modalPresentationStyle="fullScreen" id="PTn-AH-WMA"/>
                                         </connections>
                                     </button>
                                 </subviews>

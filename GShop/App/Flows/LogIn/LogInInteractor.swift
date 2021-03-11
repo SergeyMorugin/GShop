@@ -13,7 +13,7 @@
 import UIKit
 
 protocol LogInBusinessLogic {
-    func doSomething(request: LogIn.Something.Request)
+    func login(request: LogIn.LoginAction.Request)
 }
 
 protocol LogInDataStore {
@@ -22,16 +22,21 @@ protocol LogInDataStore {
 
 class LogInInteractor: LogInBusinessLogic, LogInDataStore {
     var presenter: LogInPresentationLogic?
-    var worker: LogInWorker?
-    //var name: String = ""
-    
+    private let network = RequestFactory().makeAuthRequestFatory()
     // MARK: Do something
     
-    func doSomething(request: LogIn.Something.Request) {
-        worker = LogInWorker()
-        worker?.doSomeWork()
-        
-        let response = LogIn.Something.Response()
-        presenter?.presentSomething(response: response)
+    func login(request: LogIn.LoginAction.Request) {
+        network.login(
+            userName: request.login,
+            password: request.password, 
+            completionHandler: { resp in
+                switch resp.result {
+                case .success(let model):
+                    self.presenter?.present(response: LogIn.LoginAction.Response(success: true))
+                case .failure:
+                    self.presenter?.present(response: LogIn.LoginAction.Response(success: false))
+                }
+            }
+        )
     }
 }

@@ -13,7 +13,7 @@
 import UIKit
 
 protocol LogInPresentationLogic {
-    func presentSomething(response: LogIn.Something.Response)
+    func present(response: LogIn.LoginAction.Response)
 }
 
 class LogInPresenter: LogInPresentationLogic {
@@ -21,8 +21,18 @@ class LogInPresenter: LogInPresentationLogic {
     
     // MARK: Do something
     
-    func presentSomething(response: LogIn.Something.Response) {
-        let viewModel = LogIn.Something.ViewModel()
-        viewController?.displayResult(viewModel: viewModel)
+    func present(response: LogIn.LoginAction.Response) {
+        DispatchQueue.main.async {
+            if response.success {
+              let viewModel = LogIn.LoginAction.ViewModel(
+                redirectToUserInfo: true)
+                self.viewController?.displayResult(viewModel: viewModel)
+            } else {
+                let viewModel = LogIn.LoginAction.ViewModel(
+                  showModal: true,
+                  textMessage: "Fail")
+                self.viewController?.displayResult(viewModel: viewModel)
+            }
+        }
     }
 }

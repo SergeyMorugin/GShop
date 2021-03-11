@@ -15,12 +15,18 @@ import UIKit
 enum LogIn {
     // MARK: Use cases
     
-    enum Something {
+    enum LoginAction {
         struct Request {
+            let login: String
+            let password: String
         }
         struct Response {
+            let success: Bool
         }
         struct ViewModel {
+            var showModal: Bool = false
+            var textMessage: String = ""
+            var redirectToUserInfo: Bool = false
         }
     }
 }

@@ -22,7 +22,6 @@ protocol SignUpDataStore {
 
 class SignUpInteractor: SignUpBusinessLogic, SignUpDataStore {
     var presenter: SignUpPresentationLogic?
-    var worker: SignUpWorker?
     private let network = RequestFactory().makeSignUpRequestFatory()
     //var name: String = ""
     

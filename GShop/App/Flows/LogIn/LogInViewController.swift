@@ -13,13 +13,20 @@
 import UIKit
 
 protocol LogInDisplayLogic: class {
-    func displayResult(viewModel: LogIn.Something.ViewModel)
+    func displayResult(viewModel: LogIn.LoginAction.ViewModel)
 }
 
 class LogInViewController: UIViewController, LogInDisplayLogic {
     var interactor: LogInBusinessLogic?
     var router: (NSObjectProtocol & LogInRoutingLogic & LogInDataPassing)?
     // MARK: Object lifecycle
+    @IBOutlet weak var loginTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
+    
+    @IBAction func onLoginClick(_ sender: Any) {
+        doLogIn()
+    }
+    
     
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -59,21 +66,31 @@ class LogInViewController: UIViewController, LogInDisplayLogic {
     }
     
     // MARK: View lifecycle
-    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
     // MARK: Do something
-    
     //@IBOutlet weak var nameTextField: UITextField!
-    
     func doLogIn() {
-        let request = LogIn.Something.Request()
-        interactor?.doSomething(request: request)
+        let request = LogIn.LoginAction.Request(
+            login: loginTextField.text ?? "",
+            password: passwordTextField.text ?? "")
+        interactor?.login(request: request)
     }
     
-    func displayResult(viewModel: LogIn.Something.ViewModel) {
-        //nameTextField.text = viewModel.name
+    func displayResult(viewModel: LogIn.LoginAction.ViewModel) {
+        if viewModel.showModal == false {
+            let alert = UIAlertController(title: "",
+                                          message: viewModel.textMessage,
+                                          preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+        
+        if viewModel.redirectToUserInfo {
+            
+        }
+        
     }
 }
