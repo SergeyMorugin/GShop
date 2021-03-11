@@ -10,7 +10,7 @@
         <!--Login View Controller-->
         <scene sceneID="Sr3-90-DQC">
             <objects>
-                <viewController id="00c-27-VgS" customClass="LoginViewController" customModule="GShop" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="00c-27-VgS" customClass="LoginViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LTw-jO-2ca">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

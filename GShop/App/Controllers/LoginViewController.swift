@@ -12,9 +12,8 @@ protocol LoginViewDisplayLogic: class {
     func displayFailedLogin()
 }
 
-final class LoginViewController: UIViewController {
-    @IBOutlet weak var loginTextField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextField!
+final class LoginViewController1: UIViewController {
+  
     
     var interactor: LoginBusinessLogic?
     
@@ -24,15 +23,7 @@ final class LoginViewController: UIViewController {
         // Do any additional setup after loading the view.
         setup()
     }
-    @IBAction func onLoginClick(_ sender: Any) {
-        guard
-            let login = loginTextField.text,
-            let password = passwordTextField.text
-        else {
-            return
-        }
-        interactor?.login(login: login, password: password)
-    }
+
  
      /*
     // MARK: - Navigation
