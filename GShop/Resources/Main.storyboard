@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="00c-27-VgS">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Lya-dD-GsM">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -139,10 +139,11 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="avy-va-4Hd">
-                                        <rect key="frame" x="160" y="358" width="54" height="30"/>
-                                        <state key="normal" title="Sign Up"/>
+                                        <rect key="frame" x="147" y="358" width="80" height="30"/>
+                                        <state key="normal" title="Update info"/>
                                         <connections>
                                             <action selector="onSignUpClick:" destination="Swq-Kd-uVt" eventType="touchUpInside" id="fLW-me-JgC"/>
+                                            <action selector="onUpdateUserInfo:" destination="Lya-dD-GsM" eventType="touchUpInside" id="Y5D-Qi-CZ4"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -170,6 +171,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="nrv-4x-nGy"/>
                     </view>
+                    <connections>
+                        <outlet property="bioTextField" destination="dBs-eE-RIP" id="IKX-LG-XLs"/>
+                        <outlet property="creditCardTextField" destination="xud-Xt-9mC" id="ccG-Pj-K0K"/>
+                        <outlet property="emailTextField" destination="fgM-dM-5Ub" id="JvJ-qY-nfo"/>
+                        <outlet property="genderTextField" destination="SiC-N4-tH4" id="Itw-OS-3Ep"/>
+                        <outlet property="passwordTextField" destination="4nY-BF-t9p" id="pHF-bI-DmT"/>
+                        <outlet property="usernameTextField" destination="mY9-xQ-o5v" id="AdV-Of-llr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PeN-N1-O0m" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

@@ -13,25 +13,42 @@
 import UIKit
 
 protocol UserInfoBusinessLogic {
-    func doSomething(request: UserInfo.Something.Request)
+    func updateUserInfo(request: UserInfo.Update.Request)
+    func fetchUserInfo(request: UserInfo.Update.Request)
 }
 
 protocol UserInfoDataStore {
     //var name: String { get set }
 }
 
-class UserInfoInteractor: UserInfoBusinessLogic, UserInfoDataStore{
+class UserInfoInteractor: UserInfoBusinessLogic, UserInfoDataStore {
     var presenter: UserInfoPresentationLogic?
-    var worker: UserInfoWorker?
-    //var name: String = ""
-    
+    private let updateUserInfo = RequestFactory().makeChangeUserDataRequestFatory()
     // MARK: Do something
     
-    func doSomething(request: UserInfo.Something.Request) {
-        worker = UserInfoWorker()
-        worker?.doSomeWork()
-        
-        let response = UserInfo.Something.Response()
-        presenter?.presentSomething(response: response)
+    // MARK:
+    func updateUserInfo(request: UserInfo.Update.Request) {
+        updateUserInfo.changeUserData(
+            id: "1",
+            username: request.username,
+            password: request.password,
+            email: request.email,
+            gender: request.gender,
+            creditCard: request.creditCard,
+            bio: request.bio,
+            completionHandler: { resp in
+                switch resp.result {
+                case .success(let model):
+                    self.presenter?.presentUpdate(response: UserInfo.Update.Response(success: true))
+                case .failure:
+                    self.presenter?.presentUpdate(response: UserInfo.Update.Response(success: false))
+                }
+            }
+        )
     }
+    
+    func fetchUserInfo(request: UserInfo.Update.Request) {
+        
+    }
+
 }

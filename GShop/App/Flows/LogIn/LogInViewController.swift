@@ -39,7 +39,6 @@ class LogInViewController: UIViewController, LogInDisplayLogic {
     }
     
     // MARK: Setup
-    
     private func setup() {
         let viewController = self
         let interactor = LogInInteractor()
@@ -54,7 +53,6 @@ class LogInViewController: UIViewController, LogInDisplayLogic {
     }
     
     // MARK: Routing
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let scene = segue.identifier {
             let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
@@ -79,10 +77,11 @@ class LogInViewController: UIViewController, LogInDisplayLogic {
     }
     
     func displayResult(viewModel: LogIn.LoginAction.ViewModel) {
-        if viewModel.showModal == false {
-            let alert = UIAlertController(title: "",
-                                          message: viewModel.textMessage,
-                                          preferredStyle: UIAlertController.Style.alert)
+        if viewModel.showModal {
+            let alert = UIAlertController(
+                title: "",
+                message: viewModel.textMessage,
+                preferredStyle: UIAlertController.Style.alert)
             alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
         }
@@ -90,6 +89,5 @@ class LogInViewController: UIViewController, LogInDisplayLogic {
         if viewModel.redirectToUserInfo {
             
         }
-        
     }
 }

@@ -13,15 +13,25 @@
 import UIKit
 
 protocol UserInfoDisplayLogic: class {
-    func displaySomething(viewModel: UserInfo.Something.ViewModel)
+    func updateView(viewModel: UserInfo.ViewModel)
 }
 
 class UserInfoViewController: UIViewController, UserInfoDisplayLogic {
     var interactor: UserInfoBusinessLogic?
     var router: (NSObjectProtocol & UserInfoRoutingLogic & UserInfoDataPassing)?
+    @IBOutlet weak var usernameTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var genderTextField: UITextField!
+    @IBOutlet weak var creditCardTextField: UITextField!
+    @IBOutlet weak var bioTextField: UITextField!
     
+    
+    @IBAction func onUpdateUserInfo(_ sender: Any) {
+        updateUserInfo()
+    }
+
     // MARK: Object lifecycle
-    
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         setup()
@@ -62,19 +72,39 @@ class UserInfoViewController: UIViewController, UserInfoDisplayLogic {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        doSomething()
+        
     }
     
     // MARK: Do something
     
-    //@IBOutlet weak var nameTextField: UITextField!
+
     
-    func doSomething() {
-        let request = UserInfo.Something.Request()
-        interactor?.doSomething(request: request)
+    func updateUserInfo() {
+        let request = UserInfo.Update.Request(
+            username: usernameTextField.text ?? "",
+            password: passwordTextField.text ?? "",
+            email: emailTextField.text ?? "",
+            gender: genderTextField.text ?? "",
+            creditCard: creditCardTextField.text ?? "",
+            bio: bioTextField.text ?? ""
+        )
+        interactor?.updateUserInfo(request: request)
     }
     
-    func displaySomething(viewModel: UserInfo.Something.ViewModel) {
-        //nameTextField.text = viewModel.name
+    func updateView(viewModel: UserInfo.ViewModel) {
+        usernameTextField.text = viewModel.username
+        passwordTextField.text = viewModel.password
+        emailTextField.text = viewModel.email
+        genderTextField.text = viewModel.gender
+        creditCardTextField.text = viewModel.creditCard
+        bioTextField.text = viewModel.bio
+        if viewModel.showModal {
+            let alert = UIAlertController(
+                title: "",
+                message: viewModel.textMessage,
+                preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
     }
 }
