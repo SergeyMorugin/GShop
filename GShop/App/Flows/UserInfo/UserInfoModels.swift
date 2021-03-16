@@ -12,39 +12,44 @@
 
 import UIKit
 
-enum UserInfo {
+enum UserInfoModel {
     // MARK: Use cases
     
     enum Update {
         struct Request {
-            let username: String
-            let password: String
             let email: String
+            let username: String
             let gender: String
-            let creditCard: String
             let bio: String
         }
         struct Response {
             let success: Bool
+            
+            let email: String
+            let username: String
+            let gender: String
+            let bio: String
         }
-        
+    }
+    
+    enum Show {
+        struct Request {
+        }
+        struct Response {
+            let email: String
+            let username: String
+            let gender: String
+            let bio: String
+        }
     }
     
     struct ViewModel {
         var showModal: Bool = false
         var textMessage: String = ""
-        let username: String = ""
-        let password: String = ""
-        let email: String = ""
-        let gender: String = ""
-        let creditCard: String = ""
-        let bio: String = ""
-    }
-    
-    enum Fetch {
-        struct Request {
-        }
-        struct Response { 
-        }
+        
+        var email: String = ""
+        var username: String = ""
+        var gender: String = ""
+        var bio: String = ""
     }
 }

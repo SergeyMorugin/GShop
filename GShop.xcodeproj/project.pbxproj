@@ -77,6 +77,7 @@
 		34A82C8F25F3BE22009CF031 /* CartItemsDeleteRequstFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A82C8E25F3BE22009CF031 /* CartItemsDeleteRequstFactory.swift */; };
 		34A82C9125F3BE59009CF031 /* CartItemsDelete.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A82C9025F3BE59009CF031 /* CartItemsDelete.swift */; };
 		34A82C9325F8F2DE009CF031 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34A82C9225F8F2DE009CF031 /* Main.storyboard */; };
+		34BE0F092600B325001CCB4A /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BE0F082600B325001CCB4A /* UserInfo.swift */; };
 		34F3473D25D53EE9008955A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F3473C25D53EE9008955A9 /* AppDelegate.swift */; };
 		34F3473F25D53EE9008955A9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F3473E25D53EE9008955A9 /* SceneDelegate.swift */; };
 		34F3474625D53EED008955A9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34F3474525D53EED008955A9 /* Assets.xcassets */; };
@@ -171,6 +172,7 @@
 		34A82C8E25F3BE22009CF031 /* CartItemsDeleteRequstFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartItemsDeleteRequstFactory.swift; sourceTree = "<group>"; };
 		34A82C9025F3BE59009CF031 /* CartItemsDelete.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartItemsDelete.swift; sourceTree = "<group>"; };
 		34A82C9225F8F2DE009CF031 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		34BE0F082600B325001CCB4A /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		34F3473925D53EE9008955A9 /* GShop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GShop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		34F3473C25D53EE9008955A9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		34F3473E25D53EE9008955A9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -469,6 +471,7 @@
 				3422BABB25E3C5FE00ACC7F9 /* ProductById.swift */,
 				3422BAC425E3CDC500ACC7F9 /* Product.swift */,
 				347930DF25E6B49300625D92 /* ProductsIndex.swift */,
+				34BE0F082600B325001CCB4A /* UserInfo.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -675,6 +678,7 @@
 				34A62FF625DD41BF0080A757 /* ChangeUserData.swift in Sources */,
 				343181BD25FA2CAA003A9922 /* SignUpPresenter.swift in Sources */,
 				34A62FDF25DADC1F0080A757 /* RequestFactory.swift in Sources */,
+				34BE0F092600B325001CCB4A /* UserInfo.swift in Sources */,
 				34A62FEE25DD3F160080A757 /* LogOut.swift in Sources */,
 				34A62FEB25DD37710080A757 /* SignUpResult.swift in Sources */,
 				343181CF25FA7411003A9922 /* LogInInteractor.swift in Sources */,

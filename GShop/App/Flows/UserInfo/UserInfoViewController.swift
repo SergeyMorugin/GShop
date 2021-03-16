@@ -13,7 +13,7 @@
 import UIKit
 
 protocol UserInfoDisplayLogic: class {
-    func updateView(viewModel: UserInfo.ViewModel)
+    func updateView(viewModel: UserInfoModel.ViewModel)
 }
 
 class UserInfoViewController: UIViewController, UserInfoDisplayLogic {
@@ -43,7 +43,6 @@ class UserInfoViewController: UIViewController, UserInfoDisplayLogic {
     }
     
     // MARK: Setup
-    
     private func setup() {
         let viewController = self
         let interactor = UserInfoInteractor()
@@ -69,34 +68,26 @@ class UserInfoViewController: UIViewController, UserInfoDisplayLogic {
     }
     
     // MARK: View lifecycle
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        interactor?.showUserInfo(request: UserInfoModel.Show.Request())
     }
     
     // MARK: Do something
-    
-
-    
     func updateUserInfo() {
-        let request = UserInfo.Update.Request(
-            username: usernameTextField.text ?? "",
-            password: passwordTextField.text ?? "",
+        let request = UserInfoModel.Update.Request(
             email: emailTextField.text ?? "",
+            username: usernameTextField.text ?? "",
             gender: genderTextField.text ?? "",
-            creditCard: creditCardTextField.text ?? "",
             bio: bioTextField.text ?? ""
         )
         interactor?.updateUserInfo(request: request)
     }
     
-    func updateView(viewModel: UserInfo.ViewModel) {
+    func updateView(viewModel: UserInfoModel.ViewModel) {
         usernameTextField.text = viewModel.username
-        passwordTextField.text = viewModel.password
         emailTextField.text = viewModel.email
         genderTextField.text = viewModel.gender
-        creditCardTextField.text = viewModel.creditCard
         bioTextField.text = viewModel.bio
         if viewModel.showModal {
             let alert = UIAlertController(

@@ -15,6 +15,7 @@ import UIKit
 enum LogIn {
     // MARK: Use cases
     
+    
     enum LoginAction {
         struct Request {
             let login: String

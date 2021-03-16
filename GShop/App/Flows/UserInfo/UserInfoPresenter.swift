@@ -13,7 +13,8 @@
 import UIKit
 
 protocol UserInfoPresentationLogic {
-    func presentUpdate(response: UserInfo.Update.Response)
+    func presentShow(response: UserInfoModel.Show.Response)
+    func presentUpdate(response: UserInfoModel.Update.Response)
 }
 
 class UserInfoPresenter: UserInfoPresentationLogic {
@@ -21,19 +22,33 @@ class UserInfoPresenter: UserInfoPresentationLogic {
     
     // MARK: Do something
     
-    func presentUpdate(response: UserInfo.Update.Response) {
+    func presentShow(response: UserInfoModel.Show.Response){
+        let viewModel = UserInfoModel.ViewModel(
+            showModal: false,
+            textMessage: "",
+            email: response.email,
+            username: response.username,
+            gender: response.gender,
+            bio: response.bio
+        )
+        self.viewController?.updateView(viewModel: viewModel)
+    }
+    
+    func presentUpdate(response: UserInfoModel.Update.Response) {
         DispatchQueue.main.async {
-            if response.success {
-              let viewModel = UserInfo.ViewModel(
+            var viewModel = UserInfoModel.ViewModel(
                 showModal: true,
-                textMessage: "Success")
-                self.viewController?.updateView(viewModel: viewModel)
-            } else {
-                let viewModel = UserInfo.ViewModel(
-                  showModal: true,
-                  textMessage: "Fail")
-                self.viewController?.updateView(viewModel: viewModel)
+                textMessage: "Success",
+                email: response.email,
+                username: response.username,
+                gender: response.gender,
+                bio: response.bio)
+            
+            if !response.success {
+                viewModel.showModal = true
+                viewModel.textMessage = "Fail"
             }
+            self.viewController?.updateView(viewModel: viewModel)
         }
     }
 }

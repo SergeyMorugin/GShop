@@ -18,11 +18,13 @@ protocol LogInBusinessLogic {
 
 protocol LogInDataStore {
     //var name: String { get set }
+    var userInfo: UserInfo? { get set }
 }
 
 class LogInInteractor: LogInBusinessLogic, LogInDataStore {
     var presenter: LogInPresentationLogic?
     private let network = RequestFactory().makeAuthRequestFatory()
+    var userInfo: UserInfo?
     // MARK: Do something
     
     func login(request: LogIn.LoginAction.Request) {
@@ -32,7 +34,14 @@ class LogInInteractor: LogInBusinessLogic, LogInDataStore {
             completionHandler: { resp in
                 switch resp.result {
                 case .success(let model):
-                    self.presenter?.present(response: LogIn.LoginAction.Response(success: true))
+                    self.userInfo = UserInfo(
+                        email: model.user.email,
+                        username: model.user.username,
+                        gender: model.user.gender,
+                        bio: model.user.bio)
+                    
+                    self.presenter?.present(response:
+                        LogIn.LoginAction.Response(success: true))
                 case .failure:
                     self.presenter?.present(response: LogIn.LoginAction.Response(success: false))
                 }

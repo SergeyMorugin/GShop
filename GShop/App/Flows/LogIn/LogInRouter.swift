@@ -13,7 +13,7 @@
 import UIKit
 
 @objc protocol LogInRoutingLogic {
-    //func routeToSomewhere(segue: UIStoryboardSegue?)
+    func routeToUserInfo(segue: UIStoryboardSegue?)
 }
 
 protocol LogInDataPassing {
@@ -26,32 +26,39 @@ class LogInRouter: NSObject, LogInRoutingLogic, LogInDataPassing {
     
     // MARK: Routing
     
-    //func routeToSomewhere(segue: UIStoryboardSegue?)
-    //{
-    //  if let segue = segue {
-    //    let destinationVC = segue.destination as! SomewhereViewController
-    //    var destinationDS = destinationVC.router!.dataStore!
-    //    passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-    //  } else {
-    //    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-    //    let destinationVC = storyboard.instantiateViewController(withIdentifier: "SomewhereViewController") as! SomewhereViewController
-    //    var destinationDS = destinationVC.router!.dataStore!
-    //    passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-    //    navigateToSomewhere(source: viewController!, destination: destinationVC)
-    //  }
-    //}
+    @objc func routeToUserInfo(segue: UIStoryboardSegue?) {
+        if let segue = segue {
+            guard
+                segue.destination is UserInfoViewController,
+                let destinationVC = segue.destination as? UserInfoViewController,
+                let router = destinationVC.router,
+                var destinationDS = router.dataStore
+            else {
+                return
+            }
+            passDataToUserInfo(source: dataStore!, destination: &destinationDS)
+        } else {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            guard
+                let destinationVC = storyboard.instantiateViewController(withIdentifier: "UserInfoViewController") as? UserInfoViewController,
+                let router = destinationVC.router,
+                var destinationDS = router.dataStore
+            else { return }
+            
+            passDataToUserInfo(source: dataStore!, destination: &destinationDS)
+            navigateToUserInfo(source: viewController!, destination: destinationVC)
+        }
+    }
     
     // MARK: Navigation
     
-    //func navigateToSomewhere(source: LogInViewController, destination: SomewhereViewController)
-    //{
-    //  source.show(destination, sender: nil)
-    //}
+    func navigateToUserInfo(source: LogInViewController, destination: UserInfoViewController) {
+        source.show(destination, sender: nil)
+    }
     
     // MARK: Passing data
     
-    //func passDataToSomewhere(source: LogInDataStore, destination: inout SomewhereDataStore)
-    //{
-    //  destination.name = source.name
-    //}
+    func passDataToUserInfo(source: LogInDataStore, destination: inout UserInfoDataStore) {
+        destination.userInfo = source.userInfo
+    }
 }

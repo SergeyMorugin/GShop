@@ -13,42 +13,67 @@
 import UIKit
 
 protocol UserInfoBusinessLogic {
-    func updateUserInfo(request: UserInfo.Update.Request)
-    func fetchUserInfo(request: UserInfo.Update.Request)
+    func showUserInfo(request: UserInfoModel.Show.Request)
+    func updateUserInfo(request: UserInfoModel.Update.Request)
 }
 
 protocol UserInfoDataStore {
-    //var name: String { get set }
+    var userInfo: UserInfo? { get set }
 }
 
 class UserInfoInteractor: UserInfoBusinessLogic, UserInfoDataStore {
+    var userInfo: UserInfo?
     var presenter: UserInfoPresentationLogic?
     private let updateUserInfo = RequestFactory().makeChangeUserDataRequestFatory()
     // MARK: Do something
-    
+    func showUserInfo(request: UserInfoModel.Show.Request) {
+        self.presenter?.presentShow(response: UserInfoModel.Show.Response(
+            email: userInfo?.email ?? "",
+            username: userInfo?.username ?? "",
+            gender: userInfo?.gender ?? "",
+            bio: userInfo?.bio ?? ""
+        ))
+    }
     // MARK:
-    func updateUserInfo(request: UserInfo.Update.Request) {
+    func updateUserInfo(request: UserInfoModel.Update.Request) {
         updateUserInfo.changeUserData(
             id: "1",
             username: request.username,
-            password: request.password,
+            password: "",
             email: request.email,
             gender: request.gender,
-            creditCard: request.creditCard,
+            creditCard: "",
             bio: request.bio,
             completionHandler: { resp in
                 switch resp.result {
                 case .success(let model):
-                    self.presenter?.presentUpdate(response: UserInfo.Update.Response(success: true))
+                    guard
+                        let _ = self.userInfo
+                    else { return }
+                    self.userInfo = UserInfo(
+                        email: request.email,
+                        username: request.username,
+                        gender: request.gender,
+                        bio: request.bio)
+                    self.presenter?.presentUpdate(response: UserInfoModel.Update.Response(
+                            success: true,
+                            email: request.email,
+                            username: request.username,
+                            gender: request.gender,
+                            bio: request.bio))
                 case .failure:
-                    self.presenter?.presentUpdate(response: UserInfo.Update.Response(success: false))
+                    guard
+                        let userInfo = self.userInfo
+                    else { return }
+                    self.presenter?.presentUpdate(response:
+                        UserInfoModel.Update.Response(
+                            success: false,
+                            email: userInfo.email,
+                            username: userInfo.username,
+                            gender: userInfo.gender,
+                            bio: userInfo.bio))
                 }
             }
         )
     }
-    
-    func fetchUserInfo(request: UserInfo.Update.Request) {
-        
-    }
-
 }
