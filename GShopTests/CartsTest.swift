@@ -1,8 +1,8 @@
 //
-//  ReviewsTest.swift
+//  CardsTest.swift
 //  GShopTests
 //
-//  Created by Matthew on 01.03.2021.
+//  Created by Matthew on 04.03.2021.
 //  Copyright © 2021 Ostagram Inc. All rights reserved.
 //
 
@@ -11,21 +11,21 @@ import Alamofire
 @testable import GShop
 
 
-class ReviewsTests: XCTestCase {
+class CartsTests: XCTestCase {
     
-    func testReviewDelete() throws {
+    func testCartItemsCreate() throws {
         let configuration = URLSessionConfiguration.default
         configuration.httpShouldSetCookies = false
         configuration.headers = .default
         let manager = Session(configuration: configuration)
-        let reviewDelete = ReviewDelete(
+        let cartItem = CartItemsCreate(
             errorParser: ErrorParser(),
             sessionManager: manager,
             queue: DispatchQueue.global(qos: .utility),
             baseUrl: URL(string: TestConfiguration.shared.mockServerUrl)!)
 
         let textExpectation = expectation(description: "exp")
-        reviewDelete.reviewDelete(reviewId: 1) { (response) in
+        cartItem.create(productId: 1, quantity: 1) { (response) in
             print(response)
             switch response.result {
             case .success(let result):
@@ -38,24 +38,23 @@ class ReviewsTests: XCTestCase {
         waitForExpectations(timeout: 5)
     }
     
-    func testReviewCreate() throws {
+    func testCartItemsDelete() throws {
         let configuration = URLSessionConfiguration.default
         configuration.httpShouldSetCookies = false
         configuration.headers = .default
         let manager = Session(configuration: configuration)
-        let reviewCreate = ReviewCreate(
+        let cartItem = CartItemsDelete(
             errorParser: ErrorParser(),
             sessionManager: manager,
             queue: DispatchQueue.global(qos: .utility),
             baseUrl: URL(string: TestConfiguration.shared.mockServerUrl)!)
 
         let textExpectation = expectation(description: "exp")
-        reviewCreate.reviewCreate(reviewText: "Test review") { (response) in
+        cartItem.delete(productId: 1) { (response) in
             print(response)
             switch response.result {
             case .success(let result):
                 XCTAssertEqual(result.result, 1)
-                XCTAssertEqual(result.userMessage, "Ваш отзыв был принят на модерацию")
                 textExpectation.fulfill()
             case .failure(let error):
                 XCTFail(error.localizedDescription)
@@ -63,27 +62,24 @@ class ReviewsTests: XCTestCase {
         }
         waitForExpectations(timeout: 5)
     }
-
-    func testRewiewsIndex() throws {
+    
+    func testCartCheckout() throws {
         let configuration = URLSessionConfiguration.default
         configuration.httpShouldSetCookies = false
         configuration.headers = .default
         let manager = Session(configuration: configuration)
-        let reviewsIndex = ReviewsIndex(
+        let cart = CartCheckout(
             errorParser: ErrorParser(),
             sessionManager: manager,
             queue: DispatchQueue.global(qos: .utility),
             baseUrl: URL(string: TestConfiguration.shared.mockServerUrl)!)
 
         let textExpectation = expectation(description: "exp")
-        reviewsIndex.reviewsIndex(page: 1, perPage: 10) { (response) in
+        cart.checkout(cartId: 1) { (response) in
             print(response)
             switch response.result {
             case .success(let result):
-                XCTAssertEqual(result.items.count, 2)
-                XCTAssertEqual(result.items[0].id, 1)
-                XCTAssertEqual(result.items[0].userId, 1)
-                XCTAssertEqual(result.items[0].text, "Review1")
+                XCTAssertEqual(result.result, 1)
                 textExpectation.fulfill()
             case .failure(let error):
                 XCTFail(error.localizedDescription)
@@ -92,20 +88,20 @@ class ReviewsTests: XCTestCase {
         waitForExpectations(timeout: 5)
     }
 
-    func testWrongUrlRewiewsIndex() throws {
+    func testWrongUrlCartCheckout() throws {
         let wrongUrl = try XCTUnwrap(URL(string: "https://wrong.url.com"))
         let configuration = URLSessionConfiguration.default
         configuration.httpShouldSetCookies = false
         configuration.headers = .default
         let manager = Session(configuration: configuration)
-        let reviewsIndex = ReviewsIndex(
+        let cart = CartCheckout(
             errorParser: ErrorParser(),
             sessionManager: manager,
             queue: DispatchQueue.global(qos: .utility),
             baseUrl: wrongUrl)
 
         let textExpectation = expectation(description: "exp")
-        reviewsIndex.reviewsIndex(page: 1, perPage: 10) { (response) in
+        cart.checkout(cartId: 1) { (response) in
             switch response.result {
             case .success(let model):
                 XCTFail("Must have failed: \(model)")
@@ -116,3 +112,4 @@ class ReviewsTests: XCTestCase {
         waitForExpectations(timeout: 5)
     }
 }
+
