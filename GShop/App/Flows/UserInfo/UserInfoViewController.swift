@@ -20,10 +20,8 @@ class UserInfoViewController: UIViewController, UserInfoDisplayLogic {
     var interactor: UserInfoBusinessLogic?
     var router: (NSObjectProtocol & UserInfoRoutingLogic & UserInfoDataPassing)?
     @IBOutlet weak var usernameTextField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var genderTextField: UITextField!
-    @IBOutlet weak var creditCardTextField: UITextField!
     @IBOutlet weak var bioTextField: UITextField!
     
     
