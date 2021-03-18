@@ -73,7 +73,6 @@
                     <connections>
                         <outlet property="loginTextField" destination="pYj-E7-itt" id="nhG-k9-BUW"/>
                         <outlet property="passwordTextField" destination="NSx-ba-p2C" id="1bV-yR-QAH"/>
-                        <segue destination="Lya-dD-GsM" kind="presentation" identifier="UserInfo2" modalPresentationStyle="fullScreen" id="2tD-CB-w3F"/>
                         <segue destination="quP-Lw-fb7" kind="presentation" identifier="UserInfo" modalPresentationStyle="fullScreen" id="t4d-vP-xEG"/>
                     </connections>
                 </viewController>
@@ -329,7 +328,4 @@
             <point key="canvasLocation" x="969.56521739130437" y="-21.428571428571427"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="BKl-FA-tM9"/>
-    </inferredMetricsTieBreakers>
 </document>
