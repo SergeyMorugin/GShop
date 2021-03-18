@@ -21,34 +21,42 @@ class UserInfoPresenter: UserInfoPresentationLogic {
     weak var viewController: UserInfoDisplayLogic?
     
     // MARK: Do something
-    
     func presentShow(response: UserInfoModel.Show.Response){
         let viewModel = UserInfoModel.ViewModel(
             showModal: false,
             textMessage: "",
-            email: response.email,
-            username: response.username,
-            gender: response.gender,
-            bio: response.bio
+            email: response.userInfo.email,
+            username: response.userInfo.username,
+            gender: response.userInfo.gender,
+            bio: response.userInfo.bio
         )
         self.viewController?.updateView(viewModel: viewModel)
     }
     
     func presentUpdate(response: UserInfoModel.Update.Response) {
         DispatchQueue.main.async {
-            var viewModel = UserInfoModel.ViewModel(
+            switch response {
+            case .success(let data):
+                let viewModel = UserInfoModel.ViewModel(
+                    showModal: true,
+                    textMessage: "Success",
+                    email: data.email,
+                    username: data.username,
+                    gender: data.gender,
+                    bio: data.bio)
+                self.viewController?.updateView(viewModel: viewModel)
+            case .failure(let data):
+                let viewModel = UserInfoModel.ViewModel(
                 showModal: true,
-                textMessage: "Success",
-                email: response.email,
-                username: response.username,
-                gender: response.gender,
-                bio: response.bio)
-            
-            if !response.success {
-                viewModel.showModal = true
-                viewModel.textMessage = "Fail"
+                textMessage: "Fail",
+                email: data.email,
+                username: data.username,
+                gender: data.gender,
+                bio: data.bio)
+                self.viewController?.updateView(viewModel: viewModel)
             }
-            self.viewController?.updateView(viewModel: viewModel)
+            
+            
         }
     }
 }

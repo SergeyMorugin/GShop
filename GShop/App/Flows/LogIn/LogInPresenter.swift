@@ -23,14 +23,15 @@ class LogInPresenter: LogInPresentationLogic {
     
     func present(response: LogIn.LoginAction.Response) {
         DispatchQueue.main.async {
-            if response.success {
-              let viewModel = LogIn.LoginAction.ViewModel(
-                redirectToUserInfo: true)
-                self.viewController?.displayResult(viewModel: viewModel)
-            } else {
+            switch response {
+            case .success:
                 let viewModel = LogIn.LoginAction.ViewModel(
-                  showModal: true,
-                  textMessage: "Fail")
+                    redirectToUserInfo: true)
+                self.viewController?.displayResult(viewModel: viewModel)
+            case .failure:
+                let viewModel = LogIn.LoginAction.ViewModel(
+                    showModal: true,
+                    textMessage: "Fail")
                 self.viewController?.displayResult(viewModel: viewModel)
             }
         }

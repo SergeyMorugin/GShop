@@ -27,12 +27,8 @@ class UserInfoInteractor: UserInfoBusinessLogic, UserInfoDataStore {
     private let updateUserInfo = RequestFactory().makeChangeUserDataRequestFatory()
     // MARK: Do something
     func showUserInfo(request: UserInfoModel.Show.Request) {
-        self.presenter?.presentShow(response: UserInfoModel.Show.Response(
-            email: userInfo?.email ?? "",
-            username: userInfo?.username ?? "",
-            gender: userInfo?.gender ?? "",
-            bio: userInfo?.bio ?? ""
-        ))
+        guard let userInfo = self.userInfo else { return }
+        self.presenter?.presentShow(response: .init(userInfo: userInfo))
     }
     // MARK:
     func updateUserInfo(request: UserInfoModel.Update.Request) {
@@ -55,23 +51,22 @@ class UserInfoInteractor: UserInfoBusinessLogic, UserInfoDataStore {
                         username: request.username,
                         gender: request.gender,
                         bio: request.bio)
-                    self.presenter?.presentUpdate(response: UserInfoModel.Update.Response(
-                            success: true,
+                    self.presenter?.presentUpdate(
+                        response: .success(UserInfo(
                             email: request.email,
                             username: request.username,
                             gender: request.gender,
-                            bio: request.bio))
+                            bio: request.bio)))
                 case .failure:
                     guard
                         let userInfo = self.userInfo
                     else { return }
                     self.presenter?.presentUpdate(response:
-                        UserInfoModel.Update.Response(
-                            success: false,
+                        .failure(UserInfo(
                             email: userInfo.email,
                             username: userInfo.username,
                             gender: userInfo.gender,
-                            bio: userInfo.bio))
+                            bio: userInfo.bio)))
                 }
             }
         )

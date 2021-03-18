@@ -22,13 +22,9 @@ enum UserInfoModel {
             let gender: String
             let bio: String
         }
-        struct Response {
-            let success: Bool
-            
-            let email: String
-            let username: String
-            let gender: String
-            let bio: String
+        enum Response {
+            case success(UserInfo)
+            case failure(UserInfo)
         }
     }
     
@@ -36,10 +32,7 @@ enum UserInfoModel {
         struct Request {
         }
         struct Response {
-            let email: String
-            let username: String
-            let gender: String
-            let bio: String
+            let userInfo: UserInfo
         }
     }
     

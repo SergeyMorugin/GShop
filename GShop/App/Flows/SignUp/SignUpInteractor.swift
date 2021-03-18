@@ -17,13 +17,12 @@ protocol SignUpBusinessLogic {
 }
 
 protocol SignUpDataStore {
-    //var name: String { get set }
+
 }
 
 class SignUpInteractor: SignUpBusinessLogic, SignUpDataStore {
     var presenter: SignUpPresentationLogic?
     private let network = RequestFactory().makeSignUpRequestFatory()
-    //var name: String = ""
     
     // MARK: Do something
     

@@ -40,10 +40,9 @@ class LogInInteractor: LogInBusinessLogic, LogInDataStore {
                         gender: model.user.gender,
                         bio: model.user.bio)
                     
-                    self.presenter?.present(response:
-                        LogIn.LoginAction.Response(success: true))
+                    self.presenter?.present(response: .success)
                 case .failure:
-                    self.presenter?.present(response: LogIn.LoginAction.Response(success: false))
+                    self.presenter?.present(response: .failure)
                 }
             }
         )

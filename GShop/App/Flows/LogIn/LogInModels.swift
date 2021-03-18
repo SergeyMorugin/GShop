@@ -21,8 +21,9 @@ enum LogIn {
             let login: String
             let password: String
         }
-        struct Response {
-            let success: Bool
+        enum Response {
+            case success
+            case failure
         }
         struct ViewModel {
             var showModal: Bool = false
