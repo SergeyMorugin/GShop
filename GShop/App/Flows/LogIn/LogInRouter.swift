@@ -25,12 +25,13 @@ class LogInRouter: NSObject, LogInRoutingLogic, LogInDataPassing {
     var dataStore: LogInDataStore?
     
     // MARK: Routing
-    
     @objc func routeToUserInfo(segue: UIStoryboardSegue?) {
         if let segue = segue {
             guard
-                segue.destination is UserInfoViewController,
-                let destinationVC = segue.destination as? UserInfoViewController,
+                segue.destination is UITabBarController,
+                let tabBarController = segue.destination as? UITabBarController,
+                let userInfoViewController = tabBarController.viewControllers?.first(where: { $0 is UserInfoViewController }),
+                let destinationVC = userInfoViewController as? UserInfoViewController,
                 let router = destinationVC.router,
                 var destinationDS = router.dataStore
             else {
@@ -51,13 +52,11 @@ class LogInRouter: NSObject, LogInRoutingLogic, LogInDataPassing {
     }
     
     // MARK: Navigation
-    
     func navigateToUserInfo(source: LogInViewController, destination: UserInfoViewController) {
         source.show(destination, sender: nil)
     }
     
     // MARK: Passing data
-    
     func passDataToUserInfo(source: LogInDataStore, destination: inout UserInfoDataStore) {
         destination.userInfo = source.userInfo
     }
