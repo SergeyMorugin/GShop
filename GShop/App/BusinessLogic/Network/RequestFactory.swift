@@ -11,7 +11,7 @@ import Alamofire
 
 class RequestFactory {
     
-    let baseUrl = URL(string: "https://gshopserver.herokuapp.com/")
+    var baseUrl = URL(string: "https://gshopserver.herokuapp.com/")
     
     func makeErrorParser() -> AbstractErrorParser {
         return ErrorParser()
