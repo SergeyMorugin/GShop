@@ -12,20 +12,30 @@
 
 import UIKit
 
-protocol ProductsPresentationLogic
-{
-  func presentSomething(response: Products.Something.Response)
+protocol ProductsPresentationLogic {
+    func present(response: Products.Show.Response)
 }
 
-class ProductsPresenter: ProductsPresentationLogic
-{
-  weak var viewController: ProductsDisplayLogic?
-  
-  // MARK: Do something
-  
-  func presentSomething(response: Products.Something.Response)
-  {
-    let viewModel = Products.Something.ViewModel()
-    viewController?.displaySomething(viewModel: viewModel)
-  }
+class ProductsPresenter: ProductsPresentationLogic {
+    weak var viewController: ProductsDisplayLogic?
+    
+    // MARK: Do something
+    func present(response: Products.Show.Response) {
+        DispatchQueue.main.async {
+            switch response {
+            case .success(let items):
+                let viewModel = Products.Show.ViewModel(
+                    showModal: false,
+                    textMessage: "",
+                    items: items)
+                self.viewController?.display(viewModel: viewModel)
+            case .failure:
+                let viewModel = Products.Show.ViewModel(
+                    showModal: true,
+                    textMessage: "Fail fetch products",
+                    items: nil)
+                self.viewController?.display(viewModel: viewModel)
+            }
+        }
+    }
 }

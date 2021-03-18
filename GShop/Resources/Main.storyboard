@@ -186,19 +186,52 @@
         <!--Products-->
         <scene sceneID="N1t-l1-T4g">
             <objects>
-                <tableViewController id="Crc-Zy-5W9" sceneMemberID="viewController">
+                <tableViewController id="Crc-Zy-5W9" customClass="ProductsViewController" customModule="GShop" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="qXq-tt-6wW">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="x9y-vb-lIJ">
-                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="productsCell" rowHeight="100" id="x9y-vb-lIJ" customClass="ProductsTableViewCell" customModule="GShop" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="x9y-vb-lIJ" id="ale-4J-l9Z">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OJV-R3-O32">
+                                            <rect key="frame" x="334" y="0.0" width="80" height="100"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="80" id="Da6-AY-Wib"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Product name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oAO-K9-RMe">
+                                            <rect key="frame" x="20" y="0.0" width="306" height="100"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="27"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="OJV-R3-O32" firstAttribute="top" secondItem="ale-4J-l9Z" secondAttribute="top" id="17a-lQ-gPZ"/>
+                                        <constraint firstAttribute="bottom" secondItem="oAO-K9-RMe" secondAttribute="bottom" id="3gk-YL-bie"/>
+                                        <constraint firstItem="oAO-K9-RMe" firstAttribute="top" secondItem="ale-4J-l9Z" secondAttribute="top" id="5Yo-Dq-InF"/>
+                                        <constraint firstAttribute="bottom" secondItem="OJV-R3-O32" secondAttribute="bottom" id="DDz-7U-Yl1"/>
+                                        <constraint firstItem="oAO-K9-RMe" firstAttribute="leading" secondItem="ale-4J-l9Z" secondAttribute="leading" constant="20" id="O3d-vf-xRb"/>
+                                        <constraint firstItem="OJV-R3-O32" firstAttribute="top" secondItem="ale-4J-l9Z" secondAttribute="top" id="TCV-GO-avi"/>
+                                        <constraint firstAttribute="trailing" secondItem="OJV-R3-O32" secondAttribute="trailing" id="TTY-gg-Jrx"/>
+                                        <constraint firstAttribute="trailing" secondItem="OJV-R3-O32" secondAttribute="trailing" id="dtv-qL-gdJ"/>
+                                        <constraint firstItem="OJV-R3-O32" firstAttribute="leading" secondItem="oAO-K9-RMe" secondAttribute="trailing" constant="8" id="gQB-uT-UX3"/>
+                                        <constraint firstAttribute="bottom" secondItem="OJV-R3-O32" secondAttribute="bottom" id="t7C-iK-VQq"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="productName" destination="oAO-K9-RMe" id="gs6-8T-asV"/>
+                                    <outlet property="productPrice" destination="OJV-R3-O32" id="xPE-xW-qh3"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -210,7 +243,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6sR-0t-mgc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-353" y="1572"/>
+            <point key="canvasLocation" x="-353.62318840579712" y="1571.6517857142856"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="ZqZ-b3-Cuy">

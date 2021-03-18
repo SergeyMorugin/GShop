@@ -81,6 +81,8 @@
 		34C38C3026039B2C00194626 /* ProductsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C38C2A26039B2C00194626 /* ProductsModels.swift */; };
 		34C38C3126039B2C00194626 /* ProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C38C2B26039B2C00194626 /* ProductsViewController.swift */; };
 		34C38C3226039B2C00194626 /* ProductsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C38C2C26039B2C00194626 /* ProductsInteractor.swift */; };
+		34C38C342603A49F00194626 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C38C332603A49F00194626 /* TableViewController.swift */; };
+		34C38C362603A6B100194626 /* ProductsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C38C352603A6B100194626 /* ProductsTableViewCell.swift */; };
 		34F3473D25D53EE9008955A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F3473C25D53EE9008955A9 /* AppDelegate.swift */; };
 		34F3473F25D53EE9008955A9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F3473E25D53EE9008955A9 /* SceneDelegate.swift */; };
 		34F3474625D53EED008955A9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34F3474525D53EED008955A9 /* Assets.xcassets */; };
@@ -179,6 +181,8 @@
 		34C38C2A26039B2C00194626 /* ProductsModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsModels.swift; sourceTree = "<group>"; };
 		34C38C2B26039B2C00194626 /* ProductsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsViewController.swift; sourceTree = "<group>"; };
 		34C38C2C26039B2C00194626 /* ProductsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsInteractor.swift; sourceTree = "<group>"; };
+		34C38C332603A49F00194626 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		34C38C352603A6B100194626 /* ProductsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsTableViewCell.swift; sourceTree = "<group>"; };
 		34F3473925D53EE9008955A9 /* GShop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GShop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		34F3473C25D53EE9008955A9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		34F3473E25D53EE9008955A9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -389,6 +393,8 @@
 				34C38C2A26039B2C00194626 /* ProductsModels.swift */,
 				34C38C2B26039B2C00194626 /* ProductsViewController.swift */,
 				34C38C2C26039B2C00194626 /* ProductsInteractor.swift */,
+				34C38C332603A49F00194626 /* TableViewController.swift */,
+				34C38C352603A6B100194626 /* ProductsTableViewCell.swift */,
 			);
 			path = Products;
 			sourceTree = "<group>";
@@ -718,6 +724,7 @@
 				347930E025E6B49300625D92 /* ProductsIndex.swift in Sources */,
 				34A82C9125F3BE59009CF031 /* CartItemsDelete.swift in Sources */,
 				34C38C3026039B2C00194626 /* ProductsModels.swift in Sources */,
+				34C38C342603A49F00194626 /* TableViewController.swift in Sources */,
 				34A82C8625F14232009CF031 /* CartCheckout.swift in Sources */,
 				34A82C8825F1428E009CF031 /* CartCheckoutRequstFactory.swift in Sources */,
 				348DA81825ED51D10083E1CB /* ReviewsIndexRequestFactory.swift in Sources */,
@@ -752,6 +759,7 @@
 				348DA82525EE2A2B0083E1CB /* ReviewDeleteRequestFactory.swift in Sources */,
 				34A62FE725DD35C80080A757 /* SignUp.swift in Sources */,
 				34A62FD025DAD9920080A757 /* ErrorParser.swift in Sources */,
+				34C38C362603A6B100194626 /* ProductsTableViewCell.swift in Sources */,
 				348DA81E25EE26970083E1CB /* ReviewCreateRequestFactory.swift in Sources */,
 				3422BAC525E3CDC500ACC7F9 /* Product.swift in Sources */,
 			);

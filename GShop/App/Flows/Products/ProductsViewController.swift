@@ -13,13 +13,13 @@
 import UIKit
 
 protocol ProductsDisplayLogic: class {
-    func displaySomething(viewModel: Products.Something.ViewModel)
+    func display(viewModel: Products.Show.ViewModel)
 }
 
 class ProductsViewController: UITableViewController, ProductsDisplayLogic {
     var interactor: ProductsBusinessLogic?
     var router: (NSObjectProtocol & ProductsRoutingLogic & ProductsDataPassing)?
-    
+    var products: [Product]! = []
     // MARK: Object lifecycle
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -37,6 +37,7 @@ class ProductsViewController: UITableViewController, ProductsDisplayLogic {
     private func setup() {
         let viewController = self
         let interactor = ProductsInteractor()
+        interactor.worker = RequestFactory().makeCatalogData()
         let presenter = ProductsPresenter()
         let router = ProductsRouter()
         viewController.interactor = interactor
@@ -59,22 +60,57 @@ class ProductsViewController: UITableViewController, ProductsDisplayLogic {
     }
     
     // MARK: View lifecycle
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        doSomething()
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+        fetchProducts()
     }
     
     // MARK: Do something
     
-    //@IBOutlet weak var nameTextField: UITextField!
-    
-    func doSomething() {
-        let request = Products.Something.Request()
-        interactor?.doSomething(request: request)
+    func fetchProducts() {
+        let request = Products.Show.Request()
+        interactor?.fetchProducts(request: request)
     }
     
-    func displaySomething(viewModel: Products.Something.ViewModel) {
-        //nameTextField.text = viewModel.name
+    func display(viewModel: Products.Show.ViewModel) {
+        if let items = viewModel.items {
+            self.products = items
+        } else {
+            self.products = []
+        }
+        self.tableView.reloadData()
+        
+        if viewModel.showModal {
+            let alert = UIAlertController(
+                title: "",
+                message: viewModel.textMessage,
+                preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
     }
+}
+
+extension ProductsViewController {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // #warning Incomplete implementation, return the number of rows
+        return products.count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "productsCell", for: indexPath)
+        guard
+            let productsCell = cell as? ProductsTableViewCell
+        else {
+            return cell
+        }
+        // Configure the cell...
+        let product = self.products[indexPath.row]
+        productsCell.productName.text = product.name
+        productsCell.productPrice.text = String(format: "$%.02f", Float(product.price)/100)
+        return productsCell
+    }
+    
 }

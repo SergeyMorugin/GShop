@@ -13,25 +13,30 @@
 import UIKit
 
 protocol ProductsBusinessLogic {
-    func doSomething(request: Products.Something.Request)
+    func fetchProducts(request: Products.Show.Request)
 }
 
 protocol ProductsDataStore {
-    //var name: String { get set }
+    
 }
 
 class ProductsInteractor: ProductsBusinessLogic, ProductsDataStore {
     var presenter: ProductsPresentationLogic?
-    var worker: ProductsWorker?
-    //var name: String = ""
+    var worker: CatalogDataRequestFactory?
     
     // MARK: Do something
-    
-    func doSomething(request: Products.Something.Request) {
-        worker = ProductsWorker()
-        worker?.doSomeWork()
-        
-        let response = Products.Something.Response()
-        presenter?.presentSomething(response: response)
+    func fetchProducts(request: Products.Show.Request) {
+        worker?.catalogData(
+            page: 1,
+            perPage: 100,
+            completionHandler: { resp in
+                switch resp.result {
+                case .success(let model):
+                    self.presenter?.present(response: .success(model.items))
+                case .failure:
+                    self.presenter?.present(response: .failure)
+                }
+            }
+        )
     }
 }

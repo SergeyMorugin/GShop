@@ -16,12 +16,17 @@ enum Products
 {
     // MARK: Use cases
     
-    enum Something {
+    enum Show {
         struct Request {
         }
-        struct Response {
+        enum Response {
+            case success([Product])
+            case failure
         }
         struct ViewModel {
+            var showModal: Bool = false
+            var textMessage: String = ""
+            let items: [Product]?
         }
     }
 }
