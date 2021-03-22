@@ -13,7 +13,7 @@
 import UIKit
 
 protocol ProductBusinessLogic {
-    func doSomething(request: Product.Something.Request)
+    func doSomething(request: ProductModel.Something.Request)
 }
 
 protocol ProductDataStore {
@@ -28,11 +28,11 @@ class ProductInteractor: ProductBusinessLogic, ProductDataStore
     
     // MARK: Do something
     
-    func doSomething(request: Product.Something.Request) {
+    func doSomething(request: ProductModel.Something.Request) {
         worker = ProductWorker()
         worker?.doSomeWork()
         
-        let response = Product.Something.Response()
+        let response = ProductModel.Something.Response()
         presenter?.presentSomething(response: response)
     }
 }

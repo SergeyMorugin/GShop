@@ -13,7 +13,7 @@
 import UIKit
 
 protocol ProductDisplayLogic: class {
-    func displaySomething(viewModel: Product.Something.ViewModel)
+    func displaySomething(viewModel: ProductModel.Something.ViewModel)
 }
 
 class ProductViewController: UIViewController, ProductDisplayLogic {
@@ -70,11 +70,11 @@ class ProductViewController: UIViewController, ProductDisplayLogic {
     //@IBOutlet weak var nameTextField: UITextField!
     
     func doSomething() {
-        let request = Product.Something.Request()
+        let request = ProductModel.Something.Request()
         interactor?.doSomething(request: request)
     }
     
-    func displaySomething(viewModel: Product.Something.ViewModel) {
+    func displaySomething(viewModel: ProductModel.Something.ViewModel) {
         //nameTextField.text = viewModel.name
     }
 }

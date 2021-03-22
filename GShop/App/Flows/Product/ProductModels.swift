@@ -12,7 +12,7 @@
 
 import UIKit
 
-enum Product {
+enum ProductModel {
     // MARK: Use cases
     
     enum Something {

@@ -13,7 +13,7 @@
 import UIKit
 
 protocol ProductPresentationLogic {
-    func presentSomething(response: Product.Something.Response)
+    func presentSomething(response: ProductModel.Something.Response)
 }
 
 class ProductPresenter: ProductPresentationLogic {
@@ -21,8 +21,8 @@ class ProductPresenter: ProductPresentationLogic {
     
     // MARK: Do something
     
-    func presentSomething(response: Product.Something.Response) {
-        let viewModel = Product.Something.ViewModel()
+    func presentSomething(response: ProductModel.Something.Response) {
+        let viewModel = ProductModel.Something.ViewModel()
         viewController?.displaySomething(viewModel: viewModel)
     }
 }
