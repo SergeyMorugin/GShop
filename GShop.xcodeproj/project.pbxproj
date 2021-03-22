@@ -89,6 +89,8 @@
 		34C38C432608EAAB00194626 /* ProductInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C38C3D2608EAAB00194626 /* ProductInteractor.swift */; };
 		34C38C462608F92C00194626 /* ProductTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C38C442608F92C00194626 /* ProductTableViewCell.swift */; };
 		34C38C472608F92C00194626 /* ProductTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34C38C452608F92C00194626 /* ProductTableViewCell.xib */; };
+		34C38C4A2608FD1E00194626 /* ReviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C38C482608FD1E00194626 /* ReviewTableViewCell.swift */; };
+		34C38C4B2608FD1E00194626 /* ReviewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34C38C492608FD1E00194626 /* ReviewTableViewCell.xib */; };
 		34F3473D25D53EE9008955A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F3473C25D53EE9008955A9 /* AppDelegate.swift */; };
 		34F3473F25D53EE9008955A9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F3473E25D53EE9008955A9 /* SceneDelegate.swift */; };
 		34F3474625D53EED008955A9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34F3474525D53EED008955A9 /* Assets.xcassets */; };
@@ -195,6 +197,8 @@
 		34C38C3D2608EAAB00194626 /* ProductInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductInteractor.swift; sourceTree = "<group>"; };
 		34C38C442608F92C00194626 /* ProductTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductTableViewCell.swift; sourceTree = "<group>"; };
 		34C38C452608F92C00194626 /* ProductTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductTableViewCell.xib; sourceTree = "<group>"; };
+		34C38C482608FD1E00194626 /* ReviewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewTableViewCell.swift; sourceTree = "<group>"; };
+		34C38C492608FD1E00194626 /* ReviewTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReviewTableViewCell.xib; sourceTree = "<group>"; };
 		34F3473925D53EE9008955A9 /* GShop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GShop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		34F3473C25D53EE9008955A9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		34F3473E25D53EE9008955A9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -420,6 +424,8 @@
 				34C38C3D2608EAAB00194626 /* ProductInteractor.swift */,
 				34C38C442608F92C00194626 /* ProductTableViewCell.swift */,
 				34C38C452608F92C00194626 /* ProductTableViewCell.xib */,
+				34C38C482608FD1E00194626 /* ReviewTableViewCell.swift */,
+				34C38C492608FD1E00194626 /* ReviewTableViewCell.xib */,
 			);
 			path = Product;
 			sourceTree = "<group>";
@@ -678,6 +684,7 @@
 				34A82C9325F8F2DE009CF031 /* Main.storyboard in Resources */,
 				34C38C472608F92C00194626 /* ProductTableViewCell.xib in Resources */,
 				34F3474925D53EED008955A9 /* LaunchScreen.storyboard in Resources */,
+				34C38C4B2608FD1E00194626 /* ReviewTableViewCell.xib in Resources */,
 				34F3474625D53EED008955A9 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -748,6 +755,7 @@
 				34C38C2F26039B2C00194626 /* ProductsRouter.swift in Sources */,
 				34C38C412608EAAB00194626 /* ProductModels.swift in Sources */,
 				343181CE25FA7411003A9922 /* LogInViewController.swift in Sources */,
+				34C38C4A2608FD1E00194626 /* ReviewTableViewCell.swift in Sources */,
 				348DA81325ED51180083E1CB /* ReviewsIndexResponse.swift in Sources */,
 				348DA82025EE26F30083E1CB /* ReviewCreate.swift in Sources */,
 				347930E025E6B49300625D92 /* ProductsIndex.swift in Sources */,
