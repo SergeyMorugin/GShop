@@ -21,6 +21,8 @@ enum ProductModel {
         struct Response {
         }
         struct ViewModel {
+            var product: ProductById?
+            var reviews: [Review]?
         }
     }
 }
