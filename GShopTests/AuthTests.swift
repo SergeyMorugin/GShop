@@ -28,10 +28,11 @@ class AuthTests: XCTestCase {
             switch response.result {
             case .success(let model):
                 XCTAssertEqual(model.result, 1)
-                XCTAssertEqual(model.user.login, "geekbrains")
-                XCTAssertEqual(model.user.name, "John")
-                XCTAssertEqual(model.user.lastname, "Doe")
                 XCTAssertEqual(model.user.id, 123)
+                XCTAssertEqual(model.user.email, "test@test.com")
+                XCTAssertEqual(model.user.username, "geekbrains")
+                XCTAssertEqual(model.user.gender, "male")
+                XCTAssertEqual(model.user.bio, "Test bio")
                 loggedInExpectation.fulfill()
             case .failure(let error):
                 XCTFail(error.localizedDescription)
