@@ -20,6 +20,7 @@ class ProductsViewController: UITableViewController, ProductsDisplayLogic {
     var interactor: ProductsBusinessLogic?
     var router: (NSObjectProtocol & ProductsRoutingLogic & ProductsDataPassing)?
     var products: [Product]! = []
+    let productsCellHeight: CGFloat = 80
     // MARK: Object lifecycle
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -51,6 +52,13 @@ class ProductsViewController: UITableViewController, ProductsDisplayLogic {
     // MARK: Routing
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if  let index = tableView.indexPathForSelectedRow,
+            let router = self.router,
+            var dataStore = router.dataStore {
+            let product = products[index.row]
+            dataStore.selectedProductId = product.id
+        }
+            
         if let scene = segue.identifier {
             let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
             if let router = router, router.responds(to: selector) {
@@ -111,6 +119,10 @@ extension ProductsViewController {
         productsCell.productName.text = product.name
         productsCell.productPrice.text = String(format: "$%.02f", Float(product.price)/100)
         return productsCell
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return productsCellHeight
     }
     
 }

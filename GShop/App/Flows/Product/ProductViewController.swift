@@ -20,10 +20,7 @@ protocol ProductDisplayLogic: class {
 class ProductViewController: UITableViewController, ProductDisplayLogic {
     var interactor: ProductBusinessLogic?
     var router: (NSObjectProtocol & ProductRoutingLogic & ProductDataPassing)?
-    var viewModel: ProductModel.Fetch.ViewModel = .init(
-        product: ProductById(id: 1, name: "test", price: 2300, desc: "test desc"),
-        reviews: [Review(id: 1, userId: 2, text: "test review")])
-    
+    var viewModel: ProductModel.Fetch.ViewModel = .init(product: nil, reviews: nil)
     let productCardHeight: CGFloat = 200
     let reviewCardHeight: CGFloat = 110
     
@@ -71,8 +68,7 @@ class ProductViewController: UITableViewController, ProductDisplayLogic {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableView.register(UINib(nibName: "ProductTableViewCell", bundle: nil), forCellReuseIdentifier: "ProductCard")
-        //tableView.register(ProductsTableViewCell.self, forCellReuseIdentifier: "ProductCell")
+        tableView.register(UINib(nibName: "ProductTableViewCell", bundle: nil), forCellReuseIdentifier: "ProductCard")
         tableView.register(UINib(nibName: "ReviewTableViewCell", bundle: nil), forCellReuseIdentifier: "ReviewCard")
         self.tableView.delegate = self
         self.tableView.dataSource = self
@@ -116,7 +112,6 @@ extension ProductViewController {
             // Configure the cell...
             productCell.showProduct(product: viewModel.product)
             return productCell
-            
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "ReviewCard", for: indexPath)
             guard

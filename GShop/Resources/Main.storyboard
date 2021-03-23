@@ -176,14 +176,14 @@
                     </tabBar>
                     <connections>
                         <segue destination="Lya-dD-GsM" kind="relationship" relationship="viewControllers" id="BKl-FA-tM9"/>
-                        <segue destination="Crc-Zy-5W9" kind="relationship" relationship="viewControllers" id="7Tb-mm-u9u"/>
+                        <segue destination="UZO-2G-MW8" kind="relationship" relationship="viewControllers" id="7Tb-mm-u9u"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lG9-jJ-kTd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1481" y="1167"/>
         </scene>
-        <!--Products-->
+        <!--Products View Controller-->
         <scene sceneID="N1t-l1-T4g">
             <objects>
                 <tableViewController id="Crc-Zy-5W9" customClass="ProductsViewController" customModule="GShop" customModuleProvider="target" sceneMemberID="viewController">
@@ -231,7 +231,7 @@
                                 <connections>
                                     <outlet property="productName" destination="oAO-K9-RMe" id="gs6-8T-asV"/>
                                     <outlet property="productPrice" destination="OJV-R3-O32" id="xPE-xW-qh3"/>
-                                    <segue destination="rk5-AD-pta" kind="presentation" identifier="Product" modalPresentationStyle="fullScreen" id="85I-7R-Xe1"/>
+                                    <segue destination="rk5-AD-pta" kind="show" identifier="Product" id="Aqz-mT-Ibp"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -240,13 +240,13 @@
                             <outlet property="delegate" destination="Crc-Zy-5W9" id="QZd-CZ-mv6"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Products" id="ByC-Ba-vLA"/>
+                    <navigationItem key="navigationItem" id="1j9-j4-EVn"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6sR-0t-mgc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-353.62318840579712" y="1571.6517857142856"/>
+            <point key="canvasLocation" x="556.52173913043487" y="1571.6517857142856"/>
         </scene>
-        <!--Product View Controller-->
+        <!--Title-->
         <scene sceneID="P3s-DM-jBy">
             <objects>
                 <tableViewController id="rk5-AD-pta" customClass="ProductViewController" customModule="GShop" customModuleProvider="target" sceneMemberID="viewController">
@@ -277,11 +277,11 @@
                             <outlet property="delegate" destination="rk5-AD-pta" id="zvN-TV-FEB"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="dEM-sV-Wr0"/>
+                    <navigationItem key="navigationItem" title="Title" id="HU2-iZ-ab4"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VFk-xg-dhD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="789.85507246376812" y="1571.6517857142856"/>
+            <point key="canvasLocation" x="1655.072463768116" y="1571.6517857142856"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="ZqZ-b3-Cuy">
@@ -397,6 +397,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZqU-33-Q4L" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="969.56521739130437" y="-21.428571428571427"/>
+        </scene>
+        <!--Products-->
+        <scene sceneID="tcz-0j-ZJ9">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="UZO-2G-MW8" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Products" id="ByC-Ba-vLA"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Wts-n1-6e0">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Crc-Zy-5W9" kind="relationship" relationship="rootViewController" id="nsK-TJ-3k8"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UXJ-h1-0sS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-353.62318840579712" y="1571.6517857142856"/>
         </scene>
     </scenes>
 </document>

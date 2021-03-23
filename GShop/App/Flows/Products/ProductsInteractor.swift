@@ -17,10 +17,11 @@ protocol ProductsBusinessLogic {
 }
 
 protocol ProductsDataStore {
-    
+    var selectedProductId: Int? { get set }
 }
 
 class ProductsInteractor: ProductsBusinessLogic, ProductsDataStore {
+    var selectedProductId: Int?
     var presenter: ProductsPresentationLogic?
     var worker: CatalogDataRequestFactory?
     
