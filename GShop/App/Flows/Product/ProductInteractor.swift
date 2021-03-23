@@ -13,26 +13,53 @@
 import UIKit
 
 protocol ProductBusinessLogic {
-    func doSomething(request: ProductModel.Something.Request)
+    func fetchProductInfo(request: ProductModel.Fetch.Request)
+    func fetchProductReviews(request: ProductModel.Fetch.Request)
 }
 
 protocol ProductDataStore {
     //var name: String { get set }
+    var productId: Int? {get set}
 }
 
 class ProductInteractor: ProductBusinessLogic, ProductDataStore
 {
+    var productId: Int?
     var presenter: ProductPresentationLogic?
-    var worker: ProductWorker?
-    //var name: String = ""
+    var productWorker: GetGoodByIdRequestFactory?
+    var reviewWorker: ReviewsIndexRequestFactory?
     
     // MARK: Do something
     
-    func doSomething(request: ProductModel.Something.Request) {
-        worker = ProductWorker()
-        worker?.doSomeWork()
-        
-        let response = ProductModel.Something.Response()
-        presenter?.presentSomething(response: response)
+    func fetchProductInfo(request: ProductModel.Fetch.Request) {
+        guard let productId = self.productId else { return }
+        productWorker?.getGoodById(
+            productId: productId,
+            completionHandler: { resp in
+                switch resp.result {
+                case .success(let model):
+                    self.presenter?.present(response: .successProductInfo(model))
+                case .failure:
+                    self.presenter?.present(response: .failure)
+                }
+            }
+        )
     }
+    
+    func fetchProductReviews(request: ProductModel.Fetch.Request) {
+        guard let productId = self.productId else { return }
+        reviewWorker?.reviewsIndex(
+            page: 0,
+            perPage: 100,
+            completionHandler: { resp in
+                switch resp.result {
+                case .success(let model):
+                    self.presenter?.present(response: .successProductReviews(model.items))
+                case .failure:
+                    self.presenter?.present(response: .failure)
+                }
+            }
+        )
+    }
+
 }

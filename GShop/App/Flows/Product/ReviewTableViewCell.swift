@@ -24,9 +24,9 @@ class ReviewTableViewCell: UITableViewCell {
     }
     
     func showReview(review: Review?) {
-        if let review = review {
-            userLabel.text = String(review.userId)
-            reviewLabel.text = review.text
+        if let rev = review {
+            userLabel.text = String(rev.userId)
+            reviewLabel.text = rev.text
         } else {
             userLabel.text = ""
             reviewLabel.text = ""

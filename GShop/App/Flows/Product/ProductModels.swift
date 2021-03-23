@@ -15,11 +15,16 @@ import UIKit
 enum ProductModel {
     // MARK: Use cases
     
-    enum Something {
+    enum Fetch {
         struct Request {
         }
-        struct Response {
+        
+        enum Response {
+            case successProductInfo(ProductById)
+            case successProductReviews([Review])
+            case failure
         }
+        
         struct ViewModel {
             var product: ProductById?
             var reviews: [Review]?

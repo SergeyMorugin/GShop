@@ -57,4 +57,9 @@ class RequestFactory {
         return CatalogData(errorParser: errorParser, sessionManager: commonSession, queue: sessionQueue, baseUrl: self.baseUrl!)
     }
     
+    func makeReviewsIndex() -> ReviewsIndexRequestFactory {
+        let errorParser = makeErrorParser()
+        return ReviewsIndex(errorParser: errorParser, sessionManager: commonSession, queue: sessionQueue, baseUrl: self.baseUrl!)
+    }
+    
 }

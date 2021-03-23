@@ -82,7 +82,6 @@
 		34C38C3226039B2C00194626 /* ProductsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C38C2C26039B2C00194626 /* ProductsInteractor.swift */; };
 		34C38C362603A6B100194626 /* ProductsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C38C352603A6B100194626 /* ProductsTableViewCell.swift */; };
 		34C38C3E2608EAAB00194626 /* ProductPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C38C382608EAAB00194626 /* ProductPresenter.swift */; };
-		34C38C3F2608EAAB00194626 /* ProductWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C38C392608EAAB00194626 /* ProductWorker.swift */; };
 		34C38C402608EAAB00194626 /* ProductRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C38C3A2608EAAB00194626 /* ProductRouter.swift */; };
 		34C38C412608EAAB00194626 /* ProductModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C38C3B2608EAAB00194626 /* ProductModels.swift */; };
 		34C38C422608EAAB00194626 /* ProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C38C3C2608EAAB00194626 /* ProductViewController.swift */; };
@@ -190,7 +189,6 @@
 		34C38C2C26039B2C00194626 /* ProductsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsInteractor.swift; sourceTree = "<group>"; };
 		34C38C352603A6B100194626 /* ProductsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsTableViewCell.swift; sourceTree = "<group>"; };
 		34C38C382608EAAB00194626 /* ProductPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductPresenter.swift; sourceTree = "<group>"; };
-		34C38C392608EAAB00194626 /* ProductWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductWorker.swift; sourceTree = "<group>"; };
 		34C38C3A2608EAAB00194626 /* ProductRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductRouter.swift; sourceTree = "<group>"; };
 		34C38C3B2608EAAB00194626 /* ProductModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductModels.swift; sourceTree = "<group>"; };
 		34C38C3C2608EAAB00194626 /* ProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewController.swift; sourceTree = "<group>"; };
@@ -417,7 +415,6 @@
 			isa = PBXGroup;
 			children = (
 				34C38C382608EAAB00194626 /* ProductPresenter.swift */,
-				34C38C392608EAAB00194626 /* ProductWorker.swift */,
 				34C38C3A2608EAAB00194626 /* ProductRouter.swift */,
 				34C38C3B2608EAAB00194626 /* ProductModels.swift */,
 				34C38C3C2608EAAB00194626 /* ProductViewController.swift */,
@@ -731,7 +728,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				34A82C8D25F3BB04009CF031 /* CartItemsCreate.swift in Sources */,
-				34C38C3F2608EAAB00194626 /* ProductWorker.swift in Sources */,
 				343181DC25FBADD5003A9922 /* UserInfoInteractor.swift in Sources */,
 				34A62FF625DD41BF0080A757 /* ChangeUserData.swift in Sources */,
 				343181BD25FA2CAA003A9922 /* SignUpPresenter.swift in Sources */,

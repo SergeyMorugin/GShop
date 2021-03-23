@@ -13,7 +13,7 @@
 import UIKit
 
 protocol ProductPresentationLogic {
-    func presentSomething(response: ProductModel.Something.Response)
+    func present(response: ProductModel.Fetch.Response)
 }
 
 class ProductPresenter: ProductPresentationLogic {
@@ -21,8 +21,20 @@ class ProductPresenter: ProductPresentationLogic {
     
     // MARK: Do something
     
-    func presentSomething(response: ProductModel.Something.Response) {
-        let viewModel = ProductModel.Something.ViewModel()
-        viewController?.displaySomething(viewModel: viewModel)
+    func present(response: ProductModel.Fetch.Response) {
+        DispatchQueue.main.async {
+            guard var viewModel = self.viewController?.viewModel else { return }
+            switch response {
+            case .successProductInfo(let product):
+                viewModel.product = product
+                self.viewController?.updateView(viewModel: viewModel)
+            case .successProductReviews(let reviews):
+                viewModel.reviews = reviews
+                self.viewController?.updateView(viewModel: viewModel)
+            case .failure:
+                self.viewController?.updateView(viewModel: viewModel)
+            }
+        }
+
     }
 }

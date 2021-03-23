@@ -13,12 +13,19 @@
 import UIKit
 
 protocol ProductDisplayLogic: class {
-    func displaySomething(viewModel: ProductModel.Something.ViewModel)
+    var viewModel: ProductModel.Fetch.ViewModel {get set}
+    func updateView(viewModel: ProductModel.Fetch.ViewModel)
 }
 
 class ProductViewController: UITableViewController, ProductDisplayLogic {
     var interactor: ProductBusinessLogic?
     var router: (NSObjectProtocol & ProductRoutingLogic & ProductDataPassing)?
+    var viewModel: ProductModel.Fetch.ViewModel = .init(
+        product: ProductById(id: 1, name: "test", price: 2300, desc: "test desc"),
+        reviews: [Review(id: 1, userId: 2, text: "test review")])
+    
+    let productCardHeight: CGFloat = 200
+    let reviewCardHeight: CGFloat = 110
     
     // MARK: Object lifecycle
     
@@ -42,13 +49,15 @@ class ProductViewController: UITableViewController, ProductDisplayLogic {
         viewController.interactor = interactor
         viewController.router = router
         interactor.presenter = presenter
+        interactor.productWorker = RequestFactory().makeGetGoodById()
+        interactor.reviewWorker = RequestFactory().makeReviewsIndex()
         presenter.viewController = viewController
         router.viewController = viewController
         router.dataStore = interactor
     }
     
     // MARK: Routing
-    
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let scene = segue.identifier {
             let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
@@ -62,19 +71,74 @@ class ProductViewController: UITableViewController, ProductDisplayLogic {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        doSomething()
+        self.tableView.register(UINib(nibName: "ProductTableViewCell", bundle: nil), forCellReuseIdentifier: "ProductCard")
+        //tableView.register(ProductsTableViewCell.self, forCellReuseIdentifier: "ProductCell")
+        tableView.register(UINib(nibName: "ReviewTableViewCell", bundle: nil), forCellReuseIdentifier: "ReviewCard")
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+        fetchData()
     }
     
     // MARK: Do something
     
     //@IBOutlet weak var nameTextField: UITextField!
     
-    func doSomething() {
-        let request = ProductModel.Something.Request()
-        interactor?.doSomething(request: request)
+    func fetchData() {
+        let request = ProductModel.Fetch.Request()
+        interactor?.fetchProductInfo(request: request)
+        interactor?.fetchProductReviews(request: request)
     }
     
-    func displaySomething(viewModel: ProductModel.Something.ViewModel) {
-        //nameTextField.text = viewModel.name
+    func updateView(viewModel: ProductModel.Fetch.ViewModel) {
+        self.viewModel = viewModel
+        tableView.reloadData()
     }
+}
+
+extension ProductViewController {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // #warning Incomplete implementation, return the number of rows
+        var count = 1
+        if let reviews = viewModel.reviews {
+            count += reviews.count
+        }
+        return count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if indexPath.row == 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ProductCard", for: indexPath)
+            guard
+                let productCell = cell as? ProductTableViewCell
+            else {
+                return cell
+            }
+            // Configure the cell...
+            productCell.showProduct(product: viewModel.product)
+            return productCell
+            
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ReviewCard", for: indexPath)
+            guard
+                let reviewCell = cell as? ReviewTableViewCell
+            else {
+                return cell
+            }
+            // Configure the cell...
+            if let reviews = viewModel.reviews {
+              reviewCell.showReview(review: reviews[indexPath.row-1])
+            }
+            return reviewCell
+        }
+        
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.row == 0 {
+            return productCardHeight
+        } else {
+            return reviewCardHeight
+        }
+    }
+    
 }
