@@ -46,6 +46,7 @@ class LogInViewController: UIViewController, LogInDisplayLogic {
         viewController.interactor = interactor
         viewController.router = router
         interactor.presenter = presenter
+        interactor.network = RequestFactory().makeAuthRequestFatory()
         presenter.viewController = viewController
         router.viewController = viewController
         router.dataStore = interactor

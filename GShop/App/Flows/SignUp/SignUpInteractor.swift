@@ -22,12 +22,12 @@ protocol SignUpDataStore {
 
 class SignUpInteractor: SignUpBusinessLogic, SignUpDataStore {
     var presenter: SignUpPresentationLogic?
-    private let network = RequestFactory().makeSignUpRequestFatory()
+    var network: SignUpRequestFactory?
     
     // MARK: Do something
     
     func signup(request: SignUpEnum.SignUpAction.Request) {
-        network.signUp(
+        network?.signUp(
             id: request.id,
             username: request.username,
             password: request.password,

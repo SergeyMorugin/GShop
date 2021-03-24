@@ -23,12 +23,12 @@ protocol LogInDataStore {
 
 class LogInInteractor: LogInBusinessLogic, LogInDataStore {
     var presenter: LogInPresentationLogic?
-    private let network = RequestFactory().makeAuthRequestFatory()
+    var network: AuthRequestFactory? 
     var userInfo: UserInfo?
     // MARK: Do something
     
     func login(request: LogIn.LoginAction.Request) {
-        network.login(
+        network?.login(
             userName: request.login,
             password: request.password, 
             completionHandler: { resp in
