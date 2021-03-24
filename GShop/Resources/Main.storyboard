@@ -20,6 +20,9 @@
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Login" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pYj-E7-itt">
                                         <rect key="frame" x="20" y="0.0" width="374" height="34"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="loginLabel">
+                                            <bool key="isElement" value="NO"/>
+                                        </accessibility>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="34" id="WC0-GH-29E"/>
                                         </constraints>
@@ -28,6 +31,9 @@
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NSx-ba-p2C">
                                         <rect key="frame" x="20" y="54" width="374" height="34"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="passwordLabel">
+                                            <bool key="isElement" value="NO"/>
+                                        </accessibility>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="34" id="Y4S-gt-5gT"/>
                                         </constraints>
@@ -36,6 +42,7 @@
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lSF-xD-s5f">
                                         <rect key="frame" x="186" y="108" width="42" height="30"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="loginButton"/>
                                         <state key="normal" title="Log In"/>
                                         <connections>
                                             <action selector="onLoginClick:" destination="00c-27-VgS" eventType="touchUpInside" id="9Mn-AF-Lbf"/>
@@ -44,6 +51,9 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zXa-F5-U3W">
                                         <rect key="frame" x="182" y="158" width="50" height="30"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="toSignUpPage">
+                                            <bool key="isElement" value="NO"/>
+                                        </accessibility>
                                         <state key="normal" title="SignUp">
                                             <color key="titleColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                         </state>
@@ -296,6 +306,9 @@
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tIV-ox-d0a">
                                         <rect key="frame" x="20" y="0.0" width="374" height="34"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="usernameLabel">
+                                            <bool key="isElement" value="NO"/>
+                                        </accessibility>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="34" id="Atk-F6-QB8"/>
                                         </constraints>
@@ -304,6 +317,9 @@
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VqS-SH-Att">
                                         <rect key="frame" x="20" y="54" width="374" height="34"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="passwordLabel">
+                                            <bool key="isElement" value="NO"/>
+                                        </accessibility>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="34" id="r5s-Nr-Lha"/>
                                         </constraints>
@@ -312,6 +328,9 @@
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EEv-6C-Jgb">
                                         <rect key="frame" x="20" y="108" width="374" height="34"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="emailLabel">
+                                            <bool key="isElement" value="NO"/>
+                                        </accessibility>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="34" id="ICa-Z5-gwr"/>
                                         </constraints>
@@ -320,6 +339,9 @@
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Gender" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Aqb-OD-bl8">
                                         <rect key="frame" x="20" y="162" width="374" height="34"/>
+                                        <accessibility key="accessibilityConfiguration">
+                                            <bool key="isElement" value="NO"/>
+                                        </accessibility>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="34" id="cbi-QG-0Ra"/>
                                         </constraints>
@@ -328,6 +350,9 @@
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Credit Card" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Nyj-a8-Dde">
                                         <rect key="frame" x="20" y="216" width="374" height="34"/>
+                                        <accessibility key="accessibilityConfiguration">
+                                            <bool key="isElement" value="NO"/>
+                                        </accessibility>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="34" id="knc-pq-voJ"/>
                                         </constraints>
@@ -336,6 +361,9 @@
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Bio" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pIM-uq-nTa">
                                         <rect key="frame" x="20" y="270" width="374" height="68"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="bioLabel">
+                                            <bool key="isElement" value="NO"/>
+                                        </accessibility>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="68" id="IJe-ul-Z45"/>
                                         </constraints>
@@ -344,6 +372,9 @@
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OtC-LM-B5F">
                                         <rect key="frame" x="180" y="358" width="54" height="30"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="signUpBtn">
+                                            <bool key="isElement" value="YES"/>
+                                        </accessibility>
                                         <state key="normal" title="Sign Up"/>
                                         <connections>
                                             <action selector="onSignUpClick:" destination="Swq-Kd-uVt" eventType="touchUpInside" id="qrV-hf-Mng"/>
