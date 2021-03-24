@@ -13,8 +13,8 @@
 import UIKit
 
 protocol CartPresentationLogic {
-    func presentCheckout(response: Cart.Checkout.Response)
-    func presentFetch(response: Cart.Fetch.Response)
+    func presentCheckout(response: CartModel.Checkout.Response)
+    func presentFetch(response: CartModel.Fetch.Response)
 }
 
 class CartPresenter: CartPresentationLogic {
@@ -22,16 +22,30 @@ class CartPresenter: CartPresentationLogic {
     
     // MARK: Do something
     
-    func presentCheckout(response: Cart.Checkout.Response) {
+    func presentCheckout(response: CartModel.Checkout.Response) {
         DispatchQueue.main.async {
-            var viewModel = Cart.ViewModel()
+            var viewModel = CartModel.ViewModel()
             viewModel.showModal = true
             viewModel.textMessage = "Success checkout"
             self.viewController?.updateScene(viewModel: viewModel)
         }
     }
     
-    func presentFetch(response: Cart.Fetch.Response) {
-        
+    func presentFetch(response: CartModel.Fetch.Response) {
+        DispatchQueue.main.async {
+            switch response {
+            case .success(let model):
+                var viewModel = CartModel.ViewModel()
+                viewModel.totalPrice = String(format: "$%.02f", Float(model.totalPrice)/100)
+                viewModel.items = model.items
+                self.viewController?.updateScene(viewModel: viewModel)
+            case .failure:
+                var viewModel = CartModel.ViewModel()
+                viewModel.showModal = true
+                viewModel.textMessage = "Fail"
+                self.viewController?.updateScene(viewModel: viewModel)
+                
+            }
+        }
     }
 }

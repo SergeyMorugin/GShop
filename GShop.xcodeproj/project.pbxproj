@@ -98,6 +98,9 @@
 		34EF52EE260B97E10084CB43 /* CartInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EF52E8260B97E10084CB43 /* CartInteractor.swift */; };
 		34EF52F0260BA2110084CB43 /* CartItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EF52EF260BA2110084CB43 /* CartItem.swift */; };
 		34EF52F2260BA9490084CB43 /* CartItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EF52F1260BA9490084CB43 /* CartItemTableViewCell.swift */; };
+		34EF52F4260BB07D0084CB43 /* CartShowRequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EF52F3260BB07D0084CB43 /* CartShowRequestFactory.swift */; };
+		34EF52F6260BB0C20084CB43 /* Cart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EF52F5260BB0C20084CB43 /* Cart.swift */; };
+		34EF52F8260BB10D0084CB43 /* CartShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EF52F7260BB10D0084CB43 /* CartShow.swift */; };
 		34F3473D25D53EE9008955A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F3473C25D53EE9008955A9 /* AppDelegate.swift */; };
 		34F3473F25D53EE9008955A9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F3473E25D53EE9008955A9 /* SceneDelegate.swift */; };
 		34F3474625D53EED008955A9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34F3474525D53EED008955A9 /* Assets.xcassets */; };
@@ -213,6 +216,9 @@
 		34EF52E8260B97E10084CB43 /* CartInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartInteractor.swift; sourceTree = "<group>"; };
 		34EF52EF260BA2110084CB43 /* CartItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartItem.swift; sourceTree = "<group>"; };
 		34EF52F1260BA9490084CB43 /* CartItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartItemTableViewCell.swift; sourceTree = "<group>"; };
+		34EF52F3260BB07D0084CB43 /* CartShowRequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartShowRequestFactory.swift; sourceTree = "<group>"; };
+		34EF52F5260BB0C20084CB43 /* Cart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cart.swift; sourceTree = "<group>"; };
+		34EF52F7260BB10D0084CB43 /* CartShow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartShow.swift; sourceTree = "<group>"; };
 		34F3473925D53EE9008955A9 /* GShop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GShop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		34F3473C25D53EE9008955A9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		34F3473E25D53EE9008955A9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -399,6 +405,8 @@
 			children = (
 				34A82C8525F14232009CF031 /* CartCheckout.swift */,
 				34A82C8725F1428E009CF031 /* CartCheckoutRequstFactory.swift */,
+				34EF52F3260BB07D0084CB43 /* CartShowRequestFactory.swift */,
+				34EF52F7260BB10D0084CB43 /* CartShow.swift */,
 			);
 			path = Carts;
 			sourceTree = "<group>";
@@ -556,6 +564,7 @@
 				347930DF25E6B49300625D92 /* ProductsIndex.swift */,
 				34BE0F082600B325001CCB4A /* UserInfo.swift */,
 				34EF52EF260BA2110084CB43 /* CartItem.swift */,
+				34EF52F5260BB0C20084CB43 /* Cart.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -769,6 +778,7 @@
 				34A62FEB25DD37710080A757 /* SignUpResult.swift in Sources */,
 				343181CF25FA7411003A9922 /* LogInInteractor.swift in Sources */,
 				3422BAB725E3C3AF00ACC7F9 /* GetGoodById.swift in Sources */,
+				34EF52F6260BB0C20084CB43 /* Cart.swift in Sources */,
 				343181D925FBADD5003A9922 /* UserInfoRouter.swift in Sources */,
 				348DA81C25EE26480083E1CB /* ReviewCreateResponse.swift in Sources */,
 				343181DA25FBADD5003A9922 /* UserInfoModels.swift in Sources */,
@@ -826,9 +836,11 @@
 				343181C125FA2CAA003A9922 /* SignUpViewController.swift in Sources */,
 				348DA81525ED514D0083E1CB /* Review.swift in Sources */,
 				34F3473F25D53EE9008955A9 /* SceneDelegate.swift in Sources */,
+				34EF52F4260BB07D0084CB43 /* CartShowRequestFactory.swift in Sources */,
 				34EF52EA260B97E10084CB43 /* CartWorker.swift in Sources */,
 				34A62FF825DD41E20080A757 /* ChangeUSerDataRequestFactory.swift in Sources */,
 				34A82C8F25F3BE22009CF031 /* CartItemsDeleteRequstFactory.swift in Sources */,
+				34EF52F8260BB10D0084CB43 /* CartShow.swift in Sources */,
 				348DA82525EE2A2B0083E1CB /* ReviewDeleteRequestFactory.swift in Sources */,
 				34A62FE725DD35C80080A757 /* SignUp.swift in Sources */,
 				34A62FD025DAD9920080A757 /* ErrorParser.swift in Sources */,

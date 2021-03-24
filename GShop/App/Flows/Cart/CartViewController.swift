@@ -13,13 +13,13 @@
 import UIKit
 
 protocol CartDisplayLogic: class {
-    func updateScene(viewModel: Cart.ViewModel)
+    func updateScene(viewModel: CartModel.ViewModel)
 }
 
 class CartViewController: UIViewController, CartDisplayLogic {
     var interactor: CartBusinessLogic?
     var router: (NSObjectProtocol & CartRoutingLogic & CartDataPassing)?
-    var viewModel: Cart.ViewModel!
+    var viewModel: CartModel.ViewModel!
     
     // MARK: Object lifecycle
 
@@ -45,6 +45,7 @@ class CartViewController: UIViewController, CartDisplayLogic {
         viewController.router = router
         interactor.presenter = presenter
         interactor.checkoutWorker = RequestFactory().makeCardCheckout()
+        interactor.fetchWorker = RequestFactory().makeCardShow()
         presenter.viewController = viewController
         router.viewController = viewController
         router.dataStore = interactor
@@ -67,12 +68,7 @@ class CartViewController: UIViewController, CartDisplayLogic {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-        updateScene(viewModel: .init(
-            showCheckoutButton: true,
-            items: [
-                CartItem(id: 1, quantity: 1,
-                         product: Product(id: 1, name: "Sumsung galaxy", price: 10000))],
-            totalPrice: "$100"))
+        updateScene(viewModel: .init())
         fetchCart()
     }
     
@@ -87,11 +83,10 @@ class CartViewController: UIViewController, CartDisplayLogic {
     
     
     func fetchCart() {
-        let request = Cart.Fetch.Request()
-        //interactor?.doSomething(request: request)
+        interactor?.fetch(request: .init())
     }
     
-    func updateScene(viewModel: Cart.ViewModel) {
+    func updateScene(viewModel: CartModel.ViewModel) {
         self.viewModel = viewModel
         tableView.reloadData()
         checkoutPanel.isHidden = !viewModel.showCheckoutButton

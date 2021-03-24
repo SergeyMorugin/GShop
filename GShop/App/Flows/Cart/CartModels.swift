@@ -12,13 +12,15 @@
 
 import UIKit
 
-enum Cart {
+enum CartModel {
     // MARK: Use cases
     
     enum Fetch {
         struct Request {
         }
-        struct Response {
+        enum Response {
+            case success(Cart)
+            case failure
         }
     }
     

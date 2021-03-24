@@ -13,8 +13,8 @@
 import UIKit
 
 protocol CartBusinessLogic {
-    func fetch(request: Cart.Fetch.Request)
-    func checkout(request: Cart.Checkout.Request)
+    func fetch(request: CartModel.Fetch.Request)
+    func checkout(request: CartModel.Checkout.Request)
 }
 
 protocol CartDataStore {
@@ -25,13 +25,24 @@ class CartInteractor: CartBusinessLogic, CartDataStore {
     var presenter: CartPresentationLogic?
     //var fetchWorker:
     var checkoutWorker: CartCheckoutRequestFactory?
+    var fetchWorker: CartShowRequestFactory?
     
     // MARK: Do something
-    func fetch(request: Cart.Fetch.Request) {
-
+    func fetch(request: CartModel.Fetch.Request) {
+        fetchWorker?.show(
+            cartId: 0,
+            completionHandler: { resp in
+                switch resp.result {
+                case .success(let model):
+                    self.presenter?.presentFetch(response: .success(model))
+                case .failure:
+                    self.presenter?.presentFetch(response: .failure)
+                }
+            }
+        )
     }
     
-    func checkout(request: Cart.Checkout.Request) {
+    func checkout(request: CartModel.Checkout.Request) {
         
         
         checkoutWorker?.checkout(
