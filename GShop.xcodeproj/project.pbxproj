@@ -90,6 +90,12 @@
 		34C38C472608F92C00194626 /* ProductTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34C38C452608F92C00194626 /* ProductTableViewCell.xib */; };
 		34C38C4A2608FD1E00194626 /* ReviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C38C482608FD1E00194626 /* ReviewTableViewCell.swift */; };
 		34C38C4B2608FD1E00194626 /* ReviewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34C38C492608FD1E00194626 /* ReviewTableViewCell.xib */; };
+		34EF52E9260B97E10084CB43 /* CartPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EF52E3260B97E10084CB43 /* CartPresenter.swift */; };
+		34EF52EA260B97E10084CB43 /* CartWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EF52E4260B97E10084CB43 /* CartWorker.swift */; };
+		34EF52EB260B97E10084CB43 /* CartRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EF52E5260B97E10084CB43 /* CartRouter.swift */; };
+		34EF52EC260B97E10084CB43 /* CartModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EF52E6260B97E10084CB43 /* CartModels.swift */; };
+		34EF52ED260B97E10084CB43 /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EF52E7260B97E10084CB43 /* CartViewController.swift */; };
+		34EF52EE260B97E10084CB43 /* CartInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EF52E8260B97E10084CB43 /* CartInteractor.swift */; };
 		34F3473D25D53EE9008955A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F3473C25D53EE9008955A9 /* AppDelegate.swift */; };
 		34F3473F25D53EE9008955A9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F3473E25D53EE9008955A9 /* SceneDelegate.swift */; };
 		34F3474625D53EED008955A9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34F3474525D53EED008955A9 /* Assets.xcassets */; };
@@ -197,6 +203,12 @@
 		34C38C452608F92C00194626 /* ProductTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductTableViewCell.xib; sourceTree = "<group>"; };
 		34C38C482608FD1E00194626 /* ReviewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewTableViewCell.swift; sourceTree = "<group>"; };
 		34C38C492608FD1E00194626 /* ReviewTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReviewTableViewCell.xib; sourceTree = "<group>"; };
+		34EF52E3260B97E10084CB43 /* CartPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartPresenter.swift; sourceTree = "<group>"; };
+		34EF52E4260B97E10084CB43 /* CartWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartWorker.swift; sourceTree = "<group>"; };
+		34EF52E5260B97E10084CB43 /* CartRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartRouter.swift; sourceTree = "<group>"; };
+		34EF52E6260B97E10084CB43 /* CartModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartModels.swift; sourceTree = "<group>"; };
+		34EF52E7260B97E10084CB43 /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
+		34EF52E8260B97E10084CB43 /* CartInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartInteractor.swift; sourceTree = "<group>"; };
 		34F3473925D53EE9008955A9 /* GShop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GShop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		34F3473C25D53EE9008955A9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		34F3473E25D53EE9008955A9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -427,6 +439,19 @@
 			path = Product;
 			sourceTree = "<group>";
 		};
+		34EF52E2260B97BD0084CB43 /* Cart */ = {
+			isa = PBXGroup;
+			children = (
+				34EF52E3260B97E10084CB43 /* CartPresenter.swift */,
+				34EF52E4260B97E10084CB43 /* CartWorker.swift */,
+				34EF52E5260B97E10084CB43 /* CartRouter.swift */,
+				34EF52E6260B97E10084CB43 /* CartModels.swift */,
+				34EF52E7260B97E10084CB43 /* CartViewController.swift */,
+				34EF52E8260B97E10084CB43 /* CartInteractor.swift */,
+			);
+			path = Cart;
+			sourceTree = "<group>";
+		};
 		34F3473025D53EE9008955A9 = {
 			isa = PBXGroup;
 			children = (
@@ -488,6 +513,7 @@
 		34F3477325D54519008955A9 /* Flows */ = {
 			isa = PBXGroup;
 			children = (
+				34EF52E2260B97BD0084CB43 /* Cart */,
 				34C38C372608EA8F00194626 /* Product */,
 				34C38C2626039AB300194626 /* Products */,
 				343181D025FBACF7003A9922 /* UserInfo */,
@@ -744,6 +770,7 @@
 				34A82C8B25F3BA8A009CF031 /* CartItemsCreateRequstFactory.swift in Sources */,
 				34A62FCE25DAD94E0080A757 /* AbstractErrorParser.swift in Sources */,
 				343181CA25FA7411003A9922 /* LogInPresenter.swift in Sources */,
+				34EF52EC260B97E10084CB43 /* CartModels.swift in Sources */,
 				3422BAC325E3CC8300ACC7F9 /* CatalogDataRequestFactory.swift in Sources */,
 				343181CC25FA7411003A9922 /* LogInRouter.swift in Sources */,
 				34C38C2D26039B2C00194626 /* ProductsPresenter.swift in Sources */,
@@ -754,9 +781,11 @@
 				34C38C4A2608FD1E00194626 /* ReviewTableViewCell.swift in Sources */,
 				348DA81325ED51180083E1CB /* ReviewsIndexResponse.swift in Sources */,
 				348DA82025EE26F30083E1CB /* ReviewCreate.swift in Sources */,
+				34EF52ED260B97E10084CB43 /* CartViewController.swift in Sources */,
 				347930E025E6B49300625D92 /* ProductsIndex.swift in Sources */,
 				34A82C9125F3BE59009CF031 /* CartItemsDelete.swift in Sources */,
 				34C38C3026039B2C00194626 /* ProductsModels.swift in Sources */,
+				34EF52EB260B97E10084CB43 /* CartRouter.swift in Sources */,
 				34A82C8625F14232009CF031 /* CartCheckout.swift in Sources */,
 				34A82C8825F1428E009CF031 /* CartCheckoutRequstFactory.swift in Sources */,
 				348DA81825ED51D10083E1CB /* ReviewsIndexRequestFactory.swift in Sources */,
@@ -783,12 +812,14 @@
 				348DA82725EE2A8D0083E1CB /* ReviewDelete.swift in Sources */,
 				34C38C3E2608EAAB00194626 /* ProductPresenter.swift in Sources */,
 				348DA81A25ED520A0083E1CB /* ReviewsIndex.swift in Sources */,
+				34EF52E9260B97E10084CB43 /* CartPresenter.swift in Sources */,
 				34A62FDB25DADB8F0080A757 /* AuthRequestFactory.swift in Sources */,
 				34C38C3126039B2C00194626 /* ProductsViewController.swift in Sources */,
 				343181BF25FA2CAA003A9922 /* SignUpRouter.swift in Sources */,
 				343181C125FA2CAA003A9922 /* SignUpViewController.swift in Sources */,
 				348DA81525ED514D0083E1CB /* Review.swift in Sources */,
 				34F3473F25D53EE9008955A9 /* SceneDelegate.swift in Sources */,
+				34EF52EA260B97E10084CB43 /* CartWorker.swift in Sources */,
 				34A62FF825DD41E20080A757 /* ChangeUSerDataRequestFactory.swift in Sources */,
 				34A82C8F25F3BE22009CF031 /* CartItemsDeleteRequstFactory.swift in Sources */,
 				348DA82525EE2A2B0083E1CB /* ReviewDeleteRequestFactory.swift in Sources */,
@@ -798,6 +829,7 @@
 				34C38C362603A6B100194626 /* ProductsTableViewCell.swift in Sources */,
 				348DA81E25EE26970083E1CB /* ReviewCreateRequestFactory.swift in Sources */,
 				3422BAC525E3CDC500ACC7F9 /* Product.swift in Sources */,
+				34EF52EE260B97E10084CB43 /* CartInteractor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
