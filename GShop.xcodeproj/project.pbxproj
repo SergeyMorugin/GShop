@@ -96,6 +96,8 @@
 		34EF52EC260B97E10084CB43 /* CartModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EF52E6260B97E10084CB43 /* CartModels.swift */; };
 		34EF52ED260B97E10084CB43 /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EF52E7260B97E10084CB43 /* CartViewController.swift */; };
 		34EF52EE260B97E10084CB43 /* CartInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EF52E8260B97E10084CB43 /* CartInteractor.swift */; };
+		34EF52F0260BA2110084CB43 /* CartItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EF52EF260BA2110084CB43 /* CartItem.swift */; };
+		34EF52F2260BA9490084CB43 /* CartItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EF52F1260BA9490084CB43 /* CartItemTableViewCell.swift */; };
 		34F3473D25D53EE9008955A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F3473C25D53EE9008955A9 /* AppDelegate.swift */; };
 		34F3473F25D53EE9008955A9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F3473E25D53EE9008955A9 /* SceneDelegate.swift */; };
 		34F3474625D53EED008955A9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34F3474525D53EED008955A9 /* Assets.xcassets */; };
@@ -209,6 +211,8 @@
 		34EF52E6260B97E10084CB43 /* CartModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartModels.swift; sourceTree = "<group>"; };
 		34EF52E7260B97E10084CB43 /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
 		34EF52E8260B97E10084CB43 /* CartInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartInteractor.swift; sourceTree = "<group>"; };
+		34EF52EF260BA2110084CB43 /* CartItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartItem.swift; sourceTree = "<group>"; };
+		34EF52F1260BA9490084CB43 /* CartItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartItemTableViewCell.swift; sourceTree = "<group>"; };
 		34F3473925D53EE9008955A9 /* GShop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GShop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		34F3473C25D53EE9008955A9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		34F3473E25D53EE9008955A9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -448,6 +452,7 @@
 				34EF52E6260B97E10084CB43 /* CartModels.swift */,
 				34EF52E7260B97E10084CB43 /* CartViewController.swift */,
 				34EF52E8260B97E10084CB43 /* CartInteractor.swift */,
+				34EF52F1260BA9490084CB43 /* CartItemTableViewCell.swift */,
 			);
 			path = Cart;
 			sourceTree = "<group>";
@@ -550,6 +555,7 @@
 				3422BAC425E3CDC500ACC7F9 /* Product.swift */,
 				347930DF25E6B49300625D92 /* ProductsIndex.swift */,
 				34BE0F082600B325001CCB4A /* UserInfo.swift */,
+				34EF52EF260BA2110084CB43 /* CartItem.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -811,6 +817,7 @@
 				343181C025FA2CAA003A9922 /* SignUpModels.swift in Sources */,
 				348DA82725EE2A8D0083E1CB /* ReviewDelete.swift in Sources */,
 				34C38C3E2608EAAB00194626 /* ProductPresenter.swift in Sources */,
+				34EF52F2260BA9490084CB43 /* CartItemTableViewCell.swift in Sources */,
 				348DA81A25ED520A0083E1CB /* ReviewsIndex.swift in Sources */,
 				34EF52E9260B97E10084CB43 /* CartPresenter.swift in Sources */,
 				34A62FDB25DADB8F0080A757 /* AuthRequestFactory.swift in Sources */,
@@ -829,6 +836,7 @@
 				34C38C362603A6B100194626 /* ProductsTableViewCell.swift in Sources */,
 				348DA81E25EE26970083E1CB /* ReviewCreateRequestFactory.swift in Sources */,
 				3422BAC525E3CDC500ACC7F9 /* Product.swift in Sources */,
+				34EF52F0260BA2110084CB43 /* CartItem.swift in Sources */,
 				34EF52EE260B97E10084CB43 /* CartInteractor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

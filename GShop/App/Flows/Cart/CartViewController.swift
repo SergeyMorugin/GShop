@@ -13,14 +13,16 @@
 import UIKit
 
 protocol CartDisplayLogic: class {
-    func displaySomething(viewModel: Cart.Something.ViewModel)
+    func updateScene(viewModel: Cart.ViewModel)
 }
 
 class CartViewController: UIViewController, CartDisplayLogic {
     var interactor: CartBusinessLogic?
     var router: (NSObjectProtocol & CartRoutingLogic & CartDataPassing)?
+    var viewModel: Cart.ViewModel!
     
     // MARK: Object lifecycle
+
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -42,6 +44,7 @@ class CartViewController: UIViewController, CartDisplayLogic {
         viewController.interactor = interactor
         viewController.router = router
         interactor.presenter = presenter
+        interactor.checkoutWorker = RequestFactory().makeCardCheckout()
         presenter.viewController = viewController
         router.viewController = viewController
         router.dataStore = interactor
@@ -62,19 +65,73 @@ class CartViewController: UIViewController, CartDisplayLogic {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        doSomething()
+        tableView.delegate = self
+        tableView.dataSource = self
+        updateScene(viewModel: .init(
+            showCheckoutButton: true,
+            items: [
+                CartItem(id: 1, quantity: 1,
+                         product: Product(id: 1, name: "Sumsung galaxy", price: 10000))],
+            totalPrice: "$100"))
+        fetchCart()
     }
     
     // MARK: Do something
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var checkoutPanel: UIView!
+    @IBOutlet weak var totalPriceLabel: UILabel!
     
-    //@IBOutlet weak var nameTextField: UITextField!
-    
-    func doSomething() {
-        let request = Cart.Something.Request()
-        interactor?.doSomething(request: request)
+    @IBAction func onCheckoutClick(_ sender: Any) {
+        interactor?.checkout(request: .init())
     }
     
-    func displaySomething(viewModel: Cart.Something.ViewModel) {
-        //nameTextField.text = viewModel.name
+    
+    func fetchCart() {
+        let request = Cart.Fetch.Request()
+        //interactor?.doSomething(request: request)
     }
+    
+    func updateScene(viewModel: Cart.ViewModel) {
+        self.viewModel = viewModel
+        tableView.reloadData()
+        checkoutPanel.isHidden = !viewModel.showCheckoutButton
+        totalPriceLabel.text = viewModel.totalPrice
+        
+        if viewModel.showModal {
+            let alert = UIAlertController(
+                title: "",
+                message: viewModel.textMessage,
+                preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
+}
+
+extension CartViewController:  UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return viewModel.items?.count ??  0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CartItemCell", for: indexPath)
+        guard
+            let productsCell = cell as? CartItemTableViewCell,
+            let items = self.viewModel.items
+        else {
+            return cell
+        }
+        // Configure the cell...
+        let cartItem = items[indexPath.row]
+        productsCell.nameLabel.text = cartItem.product.name
+        productsCell.priceLabel.text = String(format: "$%.02f", Float(cartItem.product.price)/100)
+        productsCell.quantityLabel.text = String(cartItem.quantity)
+        return productsCell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 82
+    }
+    
+
 }

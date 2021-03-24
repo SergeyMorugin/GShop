@@ -15,12 +15,29 @@ import UIKit
 enum Cart {
     // MARK: Use cases
     
-    enum Something {
+    enum Fetch {
         struct Request {
         }
         struct Response {
         }
-        struct ViewModel {
+    }
+    
+    enum Checkout {
+        struct Request {
         }
+        enum Response {
+            case success
+            case failure
+        }
+        
+    }
+    
+    struct ViewModel {
+        var showCheckoutButton: Bool = false
+        var items: [CartItem]?
+        var totalPrice: String = ""
+        
+        var showModal: Bool = false
+        var textMessage: String = ""
     }
 }

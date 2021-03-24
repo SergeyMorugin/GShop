@@ -62,4 +62,9 @@ class RequestFactory {
         return ReviewsIndex(errorParser: errorParser, sessionManager: commonSession, queue: sessionQueue, baseUrl: self.baseUrl!)
     }
     
+    func makeCardCheckout() -> CartCheckoutRequestFactory {
+        let errorParser = makeErrorParser()
+        return CartCheckout(errorParser: errorParser, sessionManager: commonSession, queue: sessionQueue, baseUrl: self.baseUrl!)
+    }
+    
 }
