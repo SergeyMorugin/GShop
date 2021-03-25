@@ -210,33 +210,35 @@
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OJV-R3-O32">
-                                            <rect key="frame" x="334" y="0.0" width="80" height="100"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="80" id="Da6-AY-Wib"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Product name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oAO-K9-RMe">
+                                            <rect key="frame" x="8" y="0.0" width="326" height="62"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="27"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Product name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oAO-K9-RMe">
-                                            <rect key="frame" x="20" y="0.0" width="306" height="100"/>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="27"/>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XA2-xS-RuJ">
+                                            <rect key="frame" x="342" y="0.0" width="72" height="100"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="72" id="Wmp-bI-IYD"/>
+                                            </constraints>
+                                            <state key="normal" image="cart" catalog="system"/>
+                                            <connections>
+                                                <action selector="addToCartClick:" destination="x9y-vb-lIJ" eventType="touchUpInside" id="FNq-2e-57D"/>
+                                            </connections>
+                                        </button>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OJV-R3-O32">
+                                            <rect key="frame" x="20" y="70" width="161" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="OJV-R3-O32" firstAttribute="top" secondItem="ale-4J-l9Z" secondAttribute="top" id="17a-lQ-gPZ"/>
-                                        <constraint firstAttribute="bottom" secondItem="oAO-K9-RMe" secondAttribute="bottom" id="3gk-YL-bie"/>
-                                        <constraint firstItem="oAO-K9-RMe" firstAttribute="top" secondItem="ale-4J-l9Z" secondAttribute="top" id="5Yo-Dq-InF"/>
-                                        <constraint firstAttribute="bottom" secondItem="OJV-R3-O32" secondAttribute="bottom" id="DDz-7U-Yl1"/>
-                                        <constraint firstItem="oAO-K9-RMe" firstAttribute="leading" secondItem="ale-4J-l9Z" secondAttribute="leading" constant="20" id="O3d-vf-xRb"/>
-                                        <constraint firstItem="OJV-R3-O32" firstAttribute="top" secondItem="ale-4J-l9Z" secondAttribute="top" id="TCV-GO-avi"/>
-                                        <constraint firstAttribute="trailing" secondItem="OJV-R3-O32" secondAttribute="trailing" id="TTY-gg-Jrx"/>
-                                        <constraint firstAttribute="trailing" secondItem="OJV-R3-O32" secondAttribute="trailing" id="dtv-qL-gdJ"/>
-                                        <constraint firstItem="OJV-R3-O32" firstAttribute="leading" secondItem="oAO-K9-RMe" secondAttribute="trailing" constant="8" id="gQB-uT-UX3"/>
-                                        <constraint firstAttribute="bottom" secondItem="OJV-R3-O32" secondAttribute="bottom" id="t7C-iK-VQq"/>
+                                        <constraint firstAttribute="bottom" secondItem="XA2-xS-RuJ" secondAttribute="bottom" id="JSG-JN-ej8"/>
+                                        <constraint firstAttribute="trailing" secondItem="XA2-xS-RuJ" secondAttribute="trailing" id="nDV-fu-Fzx"/>
+                                        <constraint firstItem="XA2-xS-RuJ" firstAttribute="top" secondItem="ale-4J-l9Z" secondAttribute="top" id="wV7-Zs-Tjp"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>

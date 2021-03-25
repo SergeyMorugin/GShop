@@ -13,10 +13,12 @@
 import UIKit
 
 protocol ProductsDisplayLogic: class {
-    func display(viewModel: Products.Show.ViewModel)
+    func updateScene(viewModel: Products.ViewModel)
 }
 
-class ProductsViewController: UITableViewController, ProductsDisplayLogic {
+class ProductsViewController: UITableViewController, ProductsDisplayLogic, ProductsTableViewCellDelegate {
+    
+    
     var interactor: ProductsBusinessLogic?
     var router: (NSObjectProtocol & ProductsRoutingLogic & ProductsDataPassing)?
     var products: [Product]! = []
@@ -38,7 +40,8 @@ class ProductsViewController: UITableViewController, ProductsDisplayLogic {
     private func setup() {
         let viewController = self
         let interactor = ProductsInteractor()
-        interactor.worker = RequestFactory().makeCatalogData()
+        interactor.fetchProductsWorker = RequestFactory().makeCatalogData()
+        interactor.addToCartWorker = RequestFactory().makeCardItemCreate()
         let presenter = ProductsPresenter()
         let router = ProductsRouter()
         viewController.interactor = interactor
@@ -82,11 +85,13 @@ class ProductsViewController: UITableViewController, ProductsDisplayLogic {
         interactor?.fetchProducts(request: request)
     }
     
-    func display(viewModel: Products.Show.ViewModel) {
+    func addToCart(productId: Int) {
+        interactor?.addToCart(request: .init(productId: productId))
+    }
+    
+    func updateScene(viewModel: Products.ViewModel) {
         if let items = viewModel.items {
             self.products = items
-        } else {
-            self.products = []
         }
         self.tableView.reloadData()
         
@@ -118,6 +123,8 @@ extension ProductsViewController {
         let product = self.products[indexPath.row]
         productsCell.productName.text = product.name
         productsCell.productPrice.text = String(format: "$%.02f", Float(product.price)/100)
+        productsCell.productId = product.id
+        productsCell.delegate = self
         return productsCell
     }
     

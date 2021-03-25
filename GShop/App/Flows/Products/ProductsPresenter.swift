@@ -13,28 +13,48 @@
 import UIKit
 
 protocol ProductsPresentationLogic {
-    func present(response: Products.Show.Response)
+    func presentAddToCart(response: Products.AddToCart.Response)
+    func presentFetchProducts(response: Products.Show.Response)
 }
 
 class ProductsPresenter: ProductsPresentationLogic {
     weak var viewController: ProductsDisplayLogic?
     
     // MARK: Do something
-    func present(response: Products.Show.Response) {
+    func presentAddToCart(response: Products.AddToCart.Response) {
+        DispatchQueue.main.async {
+            switch response {
+            case .success:
+                let viewModel = Products.ViewModel(
+                    showModal: true,
+                    textMessage: "Added the item to your cart",
+                    items: nil)
+                self.viewController?.updateScene(viewModel: viewModel)
+            case .failure:
+                let viewModel = Products.ViewModel(
+                    showModal: true,
+                    textMessage: "Fail adding the item to your cart",
+                    items: nil)
+                self.viewController?.updateScene(viewModel: viewModel)
+            }
+        }
+    }
+    
+    func presentFetchProducts(response: Products.Show.Response) {
         DispatchQueue.main.async {
             switch response {
             case .success(let items):
-                let viewModel = Products.Show.ViewModel(
+                let viewModel = Products.ViewModel(
                     showModal: false,
                     textMessage: "",
                     items: items)
-                self.viewController?.display(viewModel: viewModel)
+                self.viewController?.updateScene(viewModel: viewModel)
             case .failure:
-                let viewModel = Products.Show.ViewModel(
+                let viewModel = Products.ViewModel(
                     showModal: true,
                     textMessage: "Fail fetch products",
-                    items: nil)
-                self.viewController?.display(viewModel: viewModel)
+                    items: [])
+                self.viewController?.updateScene(viewModel: viewModel)
             }
         }
     }

@@ -14,6 +14,7 @@ import UIKit
 
 protocol ProductsBusinessLogic {
     func fetchProducts(request: Products.Show.Request)
+    func addToCart(request: Products.AddToCart.Request)
 }
 
 protocol ProductsDataStore {
@@ -23,21 +24,40 @@ protocol ProductsDataStore {
 class ProductsInteractor: ProductsBusinessLogic, ProductsDataStore {
     var selectedProductId: Int?
     var presenter: ProductsPresentationLogic?
-    var worker: CatalogDataRequestFactory?
+    var fetchProductsWorker: CatalogDataRequestFactory?
+    var addToCartWorker: CartItemsCreateRequestFactory?
     
     // MARK: Do something
+    func addToCart(request: Products.AddToCart.Request) {
+        addToCartWorker?.create(
+            productId: request.productId,
+            quantity: 1,
+            completionHandler: { resp in
+                switch resp.result {
+                case .success(let model):
+                    self.presenter?.presentAddToCart(response: .success)
+                case .failure:
+                    self.presenter?.presentAddToCart(response: .failure)
+                }
+            }
+        )
+    }
+    
+    
     func fetchProducts(request: Products.Show.Request) {
-        worker?.catalogData(
+        fetchProductsWorker?.catalogData(
             page: 1,
             perPage: 100,
             completionHandler: { resp in
                 switch resp.result {
                 case .success(let model):
-                    self.presenter?.present(response: .success(model.items))
+                    self.presenter?.presentFetchProducts(response: .success(model.items))
                 case .failure:
-                    self.presenter?.present(response: .failure)
+                    self.presenter?.presentFetchProducts(response: .failure)
                 }
             }
         )
     }
+    
+    
 }

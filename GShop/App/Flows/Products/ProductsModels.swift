@@ -15,7 +15,6 @@ import UIKit
 enum Products
 {
     // MARK: Use cases
-    
     enum Show {
         struct Request {
         }
@@ -23,10 +22,21 @@ enum Products
             case success([Product])
             case failure
         }
-        struct ViewModel {
-            var showModal: Bool = false
-            var textMessage: String = ""
-            let items: [Product]?
+    }
+    
+    enum AddToCart {
+        struct Request {
+            let productId: Int
         }
+        enum Response {
+            case success
+            case failure
+        }
+    }
+    
+    struct ViewModel {
+        var showModal: Bool = false
+        var textMessage: String = ""
+        let items: [Product]?
     }
 }

@@ -10,8 +10,8 @@ import Foundation
 import Alamofire
 
 class RequestFactory {
-    //var baseUrl = URL(string: "https://gshopserver.herokuapp.com/")
-    var baseUrl = URL(string: "http://127.0.0.1:8080/")
+    var baseUrl = URL(string: "https://gshopserver.herokuapp.com/")
+    //var baseUrl = URL(string: "http://127.0.0.1:8080/")
     
     func makeErrorParser() -> AbstractErrorParser {
         return ErrorParser()
@@ -70,6 +70,11 @@ class RequestFactory {
     func makeCardShow() -> CartShowRequestFactory {
         let errorParser = makeErrorParser()
         return CartShow(errorParser: errorParser, sessionManager: commonSession, queue: sessionQueue, baseUrl: self.baseUrl!)
+    }
+    
+    func makeCardItemCreate() -> CartItemsCreateRequestFactory {
+        let errorParser = makeErrorParser()
+        return CartItemsCreate(errorParser: errorParser, sessionManager: commonSession, queue: sessionQueue, baseUrl: self.baseUrl!)
     }
     
 }

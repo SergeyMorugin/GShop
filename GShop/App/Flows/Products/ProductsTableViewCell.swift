@@ -8,9 +8,20 @@
 
 import UIKit
 
+protocol ProductsTableViewCellDelegate {
+    func addToCart(productId: Int)
+}
+
 class ProductsTableViewCell: UITableViewCell {
     @IBOutlet weak var productName: UILabel!
     @IBOutlet weak var productPrice: UILabel!
+    var productId: Int!
+    var delegate: ProductsTableViewCellDelegate?
+    
+    
+    @IBAction func addToCartClick(_ sender: Any) {
+        delegate?.addToCart(productId: productId)
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
