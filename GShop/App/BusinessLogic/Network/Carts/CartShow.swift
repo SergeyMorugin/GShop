@@ -1,15 +1,15 @@
 //
-//  CartCheckout.swift
+//  CartShow.swift
 //  GShop
 //
-//  Created by Matthew on 04.03.2021.
+//  Created by Matthew on 24.03.2021.
 //  Copyright © 2021 Ostagram Inc. All rights reserved.
 //
 
 import Foundation
 import Alamofire
 
-class CartCheckout: AbstractRequestFactory {
+class CartShow: AbstractRequestFactory {
     let errorParser: AbstractErrorParser
     let sessionManager: Session
     let queue: DispatchQueue
@@ -27,21 +27,21 @@ class CartCheckout: AbstractRequestFactory {
     }
 }
 
-extension CartCheckout: CartCheckoutRequestFactory {
-    func checkout(cartId: Int, completionHandler: @escaping (AFDataResponse<CommonResponse>) -> Void) {
-        let requestModel = CartCheckoutRequest(
+extension CartShow: CartShowRequestFactory {
+    func show(cartId: Int, completionHandler: @escaping (AFDataResponse<Cart>) -> Void) {
+        let requestModel = CartShowRequest(
             baseUrl: self.baseUrl,
             cartId: cartId)
         self.request(request: requestModel, completionHandler: completionHandler)
     }
 }
 
-extension CartCheckout {
-    struct CartCheckoutRequest: RequestRouter {
+extension CartShow {
+    struct CartShowRequest: RequestRouter {
         let baseUrl: URL
-        let method: HTTPMethod = .post
+        let method: HTTPMethod = .get
         let cartId: Int
-        var path: String { return "carts/\(cartId)/checkout"}
+        var path: String { return "carts/\(cartId)"}
         
         var parameters: Parameters? {
             return [:

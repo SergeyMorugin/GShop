@@ -49,7 +49,7 @@ extension SignUp {
         let method: HTTPMethod = .post
         let path: String = "auth/register"
         
-        let id:String
+        let id: String
         let username: String
         let password: String
         let email: String
