@@ -71,6 +71,7 @@ class LogInViewController: UIViewController, LogInDisplayLogic {
     // MARK: Do something
     //@IBOutlet weak var nameTextField: UITextField!
     func doLogIn() {
+        fatalError()
         let request = LogIn.LoginAction.Request(
             login: loginTextField.text ?? "",
             password: passwordTextField.text ?? "")
