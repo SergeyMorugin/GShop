@@ -10,7 +10,7 @@ import Foundation
 import FirebaseAnalytics
 
 
-protocol AnalyticService {
+protocol AnalyticsService {
     func successLogIn()
     func failureLogIn()
     func signOut()
@@ -22,7 +22,7 @@ protocol AnalyticService {
     func addReview(_ review: Review) 
 }
 
-class GoogleAnalitics: AnalyticService {
+class GoogleAnalitics: AnalyticsService {
     func successLogIn() {
         Analytics.logEvent(AnalyticsEventLogin, parameters: ["status": "success"])
     }

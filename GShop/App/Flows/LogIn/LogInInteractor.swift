@@ -25,6 +25,7 @@ class LogInInteractor: LogInBusinessLogic, LogInDataStore {
     var presenter: LogInPresentationLogic?
     var network: AuthRequestFactory? 
     var userInfo: UserInfo?
+    var analyticsWorker: AnalyticsService?
     // MARK: Do something
     
     func login(request: LogIn.LoginAction.Request) {
@@ -34,6 +35,7 @@ class LogInInteractor: LogInBusinessLogic, LogInDataStore {
             completionHandler: { resp in
                 switch resp.result {
                 case .success(let model):
+                    self.analyticsWorker?.successLogIn()
                     self.userInfo = UserInfo(
                         email: model.user.email,
                         username: model.user.username,
@@ -42,6 +44,7 @@ class LogInInteractor: LogInBusinessLogic, LogInDataStore {
                     
                     self.presenter?.present(response: .success)
                 case .failure:
+                    self.analyticsWorker?.failureLogIn()
                     self.presenter?.present(response: .failure)
                 }
             }

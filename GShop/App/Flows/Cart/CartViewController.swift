@@ -46,6 +46,7 @@ class CartViewController: UIViewController, CartDisplayLogic {
         interactor.presenter = presenter
         interactor.checkoutWorker = RequestFactory().makeCardCheckout()
         interactor.fetchWorker = RequestFactory().makeCardShow()
+        interactor.analyticsWorker = GoogleAnalitics()
         presenter.viewController = viewController
         router.viewController = viewController
         router.dataStore = interactor

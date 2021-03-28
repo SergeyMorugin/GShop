@@ -45,6 +45,7 @@ class ProductsViewController: UITableViewController, ProductsDisplayLogic, Produ
         let presenter = ProductsPresenter()
         let router = ProductsRouter()
         viewController.interactor = interactor
+        interactor.analyticsWorker = GoogleAnalitics()
         viewController.router = router
         interactor.presenter = presenter
         presenter.viewController = viewController

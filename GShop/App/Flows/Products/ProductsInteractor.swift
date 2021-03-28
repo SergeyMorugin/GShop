@@ -26,6 +26,7 @@ class ProductsInteractor: ProductsBusinessLogic, ProductsDataStore {
     var presenter: ProductsPresentationLogic?
     var fetchProductsWorker: CatalogDataRequestFactory?
     var addToCartWorker: CartItemsCreateRequestFactory?
+    var analyticsWorker: AnalyticsService?
     
     // MARK: Do something
     func addToCart(request: Products.AddToCart.Request) {
@@ -35,6 +36,7 @@ class ProductsInteractor: ProductsBusinessLogic, ProductsDataStore {
             completionHandler: { resp in
                 switch resp.result {
                 case .success(let model):
+                    self.analyticsWorker?.addItemToCart(request.productId)
                     self.presenter?.presentAddToCart(response: .success)
                 case .failure:
                     self.presenter?.presentAddToCart(response: .failure)
@@ -51,6 +53,7 @@ class ProductsInteractor: ProductsBusinessLogic, ProductsDataStore {
             completionHandler: { resp in
                 switch resp.result {
                 case .success(let model):
+                    self.analyticsWorker?.showItemsList()
                     self.presenter?.presentFetchProducts(response: .success(model.items))
                 case .failure:
                     self.presenter?.presentFetchProducts(response: .failure)

@@ -28,6 +28,7 @@ class ProductInteractor: ProductBusinessLogic, ProductDataStore
     var presenter: ProductPresentationLogic?
     var productWorker: GetGoodByIdRequestFactory?
     var reviewWorker: ReviewsIndexRequestFactory?
+    var analyticsWorker: AnalyticsService?
     
     // MARK: Do something
     
@@ -38,6 +39,7 @@ class ProductInteractor: ProductBusinessLogic, ProductDataStore
             completionHandler: { resp in
                 switch resp.result {
                 case .success(let model):
+                    self.analyticsWorker?.showItemPage(productId)
                     self.presenter?.present(response: .successProductInfo(model))
                 case .failure:
                     self.presenter?.present(response: .failure)

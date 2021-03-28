@@ -18,14 +18,16 @@ protocol CartBusinessLogic {
 }
 
 protocol CartDataStore {
-    //var name: String { get set }
+    var cart: Cart? { get set }
 }
 
 class CartInteractor: CartBusinessLogic, CartDataStore {
+     var cart: Cart?
     var presenter: CartPresentationLogic?
     //var fetchWorker:
     var checkoutWorker: CartCheckoutRequestFactory?
     var fetchWorker: CartShowRequestFactory?
+    var analyticsWorker: AnalyticsService?
     
     // MARK: Do something
     func fetch(request: CartModel.Fetch.Request) {
@@ -34,6 +36,7 @@ class CartInteractor: CartBusinessLogic, CartDataStore {
             completionHandler: { resp in
                 switch resp.result {
                 case .success(let model):
+                    self.cart = model
                     self.presenter?.presentFetch(response: .success(model))
                 case .failure:
                     self.presenter?.presentFetch(response: .failure)
@@ -43,13 +46,12 @@ class CartInteractor: CartBusinessLogic, CartDataStore {
     }
     
     func checkout(request: CartModel.Checkout.Request) {
-        
-        
         checkoutWorker?.checkout(
             cartId: 0, 
             completionHandler: { resp in
                 switch resp.result {
                 case .success(let model):
+                    self.analyticsWorker?.cartCheckout(self.cart!)
                     self.presenter?.presentCheckout(response: .success)
                 case .failure:
                     self.presenter?.presentCheckout(response: .failure)

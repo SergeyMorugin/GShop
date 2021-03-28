@@ -37,6 +37,7 @@ class CartPresenter: CartPresentationLogic {
             case .success(let model):
                 var viewModel = CartModel.ViewModel()
                 viewModel.totalPrice = String(format: "$%.02f", Float(model.totalPrice)/100)
+                viewModel.showCheckoutButton = true
                 viewModel.items = model.items
                 self.viewController?.updateScene(viewModel: viewModel)
             case .failure:

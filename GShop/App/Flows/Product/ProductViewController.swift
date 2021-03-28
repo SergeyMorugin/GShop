@@ -48,6 +48,7 @@ class ProductViewController: UITableViewController, ProductDisplayLogic {
         interactor.presenter = presenter
         interactor.productWorker = RequestFactory().makeGetGoodById()
         interactor.reviewWorker = RequestFactory().makeReviewsIndex()
+        interactor.analyticsWorker = GoogleAnalitics()
         presenter.viewController = viewController
         router.viewController = viewController
         router.dataStore = interactor
