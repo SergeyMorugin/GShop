@@ -47,6 +47,7 @@
 		348DA82025EE26F30083E1CB /* ReviewCreate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348DA81F25EE26F30083E1CB /* ReviewCreate.swift */; };
 		348DA82525EE2A2B0083E1CB /* ReviewDeleteRequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348DA82425EE2A2B0083E1CB /* ReviewDeleteRequestFactory.swift */; };
 		348DA82725EE2A8D0083E1CB /* ReviewDelete.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348DA82625EE2A8D0083E1CB /* ReviewDelete.swift */; };
+		3497EE7E26122651008D5FF8 /* GemFile in Resources */ = {isa = PBXBuildFile; fileRef = 3497EE7D26122651008D5FF8 /* GemFile */; };
 		34A62FCB25DAD8F70080A757 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 34A62FCA25DAD8F70080A757 /* Alamofire */; };
 		34A62FCE25DAD94E0080A757 /* AbstractErrorParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A62FCD25DAD94E0080A757 /* AbstractErrorParser.swift */; };
 		34A62FD025DAD9920080A757 /* ErrorParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A62FCF25DAD9920080A757 /* ErrorParser.swift */; };
@@ -103,6 +104,7 @@
 		34EF52F8260BB10D0084CB43 /* CartShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EF52F7260BB10D0084CB43 /* CartShow.swift */; };
 		34EF52FC260F9B8B0084CB43 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 34EF52FB260F9B8B0084CB43 /* Podfile */; };
 		34EF52FE260F9F150084CB43 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34EF52FD260F9F150084CB43 /* GoogleService-Info.plist */; };
+		34EF5301260FA44A0084CB43 /* Analytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EF5300260FA44A0084CB43 /* Analytics.swift */; };
 		34F3473D25D53EE9008955A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F3473C25D53EE9008955A9 /* AppDelegate.swift */; };
 		34F3473F25D53EE9008955A9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F3473E25D53EE9008955A9 /* SceneDelegate.swift */; };
 		34F3474625D53EED008955A9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34F3474525D53EED008955A9 /* Assets.xcassets */; };
@@ -172,6 +174,7 @@
 		348DA81F25EE26F30083E1CB /* ReviewCreate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewCreate.swift; sourceTree = "<group>"; };
 		348DA82425EE2A2B0083E1CB /* ReviewDeleteRequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewDeleteRequestFactory.swift; sourceTree = "<group>"; };
 		348DA82625EE2A8D0083E1CB /* ReviewDelete.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewDelete.swift; sourceTree = "<group>"; };
+		3497EE7D26122651008D5FF8 /* GemFile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = GemFile; sourceTree = "<group>"; };
 		34A62FCD25DAD94E0080A757 /* AbstractErrorParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractErrorParser.swift; sourceTree = "<group>"; };
 		34A62FCF25DAD9920080A757 /* ErrorParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorParser.swift; sourceTree = "<group>"; };
 		34A62FD325DADAEC0080A757 /* RequestRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestRouter.swift; sourceTree = "<group>"; };
@@ -227,6 +230,7 @@
 		34EF52F7260BB10D0084CB43 /* CartShow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartShow.swift; sourceTree = "<group>"; };
 		34EF52FB260F9B8B0084CB43 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		34EF52FD260F9F150084CB43 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		34EF5300260FA44A0084CB43 /* Analytics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Analytics.swift; sourceTree = "<group>"; };
 		34F3473925D53EE9008955A9 /* GShop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GShop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		34F3473C25D53EE9008955A9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		34F3473E25D53EE9008955A9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -497,6 +501,7 @@
 		34F3473025D53EE9008955A9 = {
 			isa = PBXGroup;
 			children = (
+				3497EE7D26122651008D5FF8 /* GemFile */,
 				34EF52FB260F9B8B0084CB43 /* Podfile */,
 				34F3473B25D53EE9008955A9 /* GShop */,
 				34F3475225D53EED008955A9 /* GShopTests */,
@@ -580,6 +585,7 @@
 		34F3477525D5453F008955A9 /* Assembly */ = {
 			isa = PBXGroup;
 			children = (
+				34EF5300260FA44A0084CB43 /* Analytics.swift */,
 			);
 			path = Assembly;
 			sourceTree = "<group>";
@@ -665,8 +671,9 @@
 				34F3473525D53EE9008955A9 /* Sources */,
 				34F3473625D53EE9008955A9 /* Frameworks */,
 				34F3473725D53EE9008955A9 /* Resources */,
-				34B7FEC625ED3B0C008841D2 /* ShellScript */,
+				34B7FEC625ED3B0C008841D2 /* Run Script */,
 				46D6E25AA6833194A5BAB010 /* [CP] Embed Pods Frameworks */,
+				34EF52FF260FA10B0084CB43 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -770,6 +777,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3497EE7E26122651008D5FF8 /* GemFile in Resources */,
 				34A82C9325F8F2DE009CF031 /* Main.storyboard in Resources */,
 				34C38C472608F92C00194626 /* ProductTableViewCell.xib in Resources */,
 				34F3474925D53EED008955A9 /* LaunchScreen.storyboard in Resources */,
@@ -836,7 +844,25 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GShop-GShopUITests/Pods-GShop-GShopUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		34B7FEC625ED3B0C008841D2 /* ShellScript */ = {
+		34B7FEC625ED3B0C008841D2 /* Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Run Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\n# Type a script or drag a script file from your workspace to insert its path.\nif which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n\n\n";
+		};
+		34EF52FF260FA10B0084CB43 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -851,7 +877,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/FirebaseCrashlytics/run\"\n";
 		};
 		46D6E25AA6833194A5BAB010 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -945,6 +971,7 @@
 				34C38C2D26039B2C00194626 /* ProductsPresenter.swift in Sources */,
 				34A62FE325DD0D470080A757 /* ResponseCodable.swift in Sources */,
 				34C38C2F26039B2C00194626 /* ProductsRouter.swift in Sources */,
+				34EF5301260FA44A0084CB43 /* Analytics.swift in Sources */,
 				34C38C412608EAAB00194626 /* ProductModels.swift in Sources */,
 				343181CE25FA7411003A9922 /* LogInViewController.swift in Sources */,
 				34C38C4A2608FD1E00194626 /* ReviewTableViewCell.swift in Sources */,
@@ -1178,6 +1205,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = GRAL3CBVS6;
 				INFOPLIST_FILE = GShop/Environments/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
