@@ -48,6 +48,11 @@
 		348DA82525EE2A2B0083E1CB /* ReviewDeleteRequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348DA82425EE2A2B0083E1CB /* ReviewDeleteRequestFactory.swift */; };
 		348DA82725EE2A8D0083E1CB /* ReviewDelete.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348DA82625EE2A8D0083E1CB /* ReviewDelete.swift */; };
 		3497EE7E26122651008D5FF8 /* GemFile in Resources */ = {isa = PBXBuildFile; fileRef = 3497EE7D26122651008D5FF8 /* GemFile */; };
+		3497EE81261226F1008D5FF8 /* Appfile in Resources */ = {isa = PBXBuildFile; fileRef = 3497EE7F261226F1008D5FF8 /* Appfile */; };
+		3497EE82261226F1008D5FF8 /* Fastfile in Resources */ = {isa = PBXBuildFile; fileRef = 3497EE80261226F1008D5FF8 /* Fastfile */; };
+		3497EE8726123AD4008D5FF8 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3497EE8626123AD3008D5FF8 /* SnapshotHelper.swift */; };
+		3497EE8926123B56008D5FF8 /* GShopUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3497EE8826123B56008D5FF8 /* GShopUITests.swift */; };
+		3497EE8B26123C05008D5FF8 /* Snapfile in Resources */ = {isa = PBXBuildFile; fileRef = 3497EE8A26123C05008D5FF8 /* Snapfile */; };
 		34A62FCB25DAD8F70080A757 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 34A62FCA25DAD8F70080A757 /* Alamofire */; };
 		34A62FCE25DAD94E0080A757 /* AbstractErrorParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A62FCD25DAD94E0080A757 /* AbstractErrorParser.swift */; };
 		34A62FD025DAD9920080A757 /* ErrorParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A62FCF25DAD9920080A757 /* ErrorParser.swift */; };
@@ -109,7 +114,6 @@
 		34F3473F25D53EE9008955A9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F3473E25D53EE9008955A9 /* SceneDelegate.swift */; };
 		34F3474625D53EED008955A9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34F3474525D53EED008955A9 /* Assets.xcassets */; };
 		34F3474925D53EED008955A9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34F3474725D53EED008955A9 /* LaunchScreen.storyboard */; };
-		34F3475F25D53EED008955A9 /* GShopUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F3475E25D53EED008955A9 /* GShopUITests.swift */; };
 		620E2A9A223E294BB3D26A7B /* Pods_GShop.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6E91A1474191205ED7A3973 /* Pods_GShop.framework */; };
 		DF055F3BD1F50FC513D18F83 /* Pods_GShopTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19B5E919D253683D2013C2A0 /* Pods_GShopTests.framework */; };
 		FBE7CE0E83BFC10F1999BF13 /* Pods_GShop_GShopUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61AE718C43A45CC0383662A8 /* Pods_GShop_GShopUITests.framework */; };
@@ -175,6 +179,11 @@
 		348DA82425EE2A2B0083E1CB /* ReviewDeleteRequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewDeleteRequestFactory.swift; sourceTree = "<group>"; };
 		348DA82625EE2A8D0083E1CB /* ReviewDelete.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewDelete.swift; sourceTree = "<group>"; };
 		3497EE7D26122651008D5FF8 /* GemFile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = GemFile; sourceTree = "<group>"; };
+		3497EE7F261226F1008D5FF8 /* Appfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Appfile; path = fastlane/Appfile; sourceTree = "<group>"; };
+		3497EE80261226F1008D5FF8 /* Fastfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Fastfile; path = fastlane/Fastfile; sourceTree = "<group>"; };
+		3497EE8626123AD3008D5FF8 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnapshotHelper.swift; path = fastlane/SnapshotHelper.swift; sourceTree = SOURCE_ROOT; };
+		3497EE8826123B56008D5FF8 /* GShopUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GShopUITests.swift; sourceTree = "<group>"; };
+		3497EE8A26123C05008D5FF8 /* Snapfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Snapfile; path = fastlane/Snapfile; sourceTree = "<group>"; };
 		34A62FCD25DAD94E0080A757 /* AbstractErrorParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractErrorParser.swift; sourceTree = "<group>"; };
 		34A62FCF25DAD9920080A757 /* ErrorParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorParser.swift; sourceTree = "<group>"; };
 		34A62FD325DADAEC0080A757 /* RequestRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestRouter.swift; sourceTree = "<group>"; };
@@ -240,7 +249,6 @@
 		34F3474F25D53EED008955A9 /* GShopTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GShopTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		34F3475525D53EED008955A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		34F3475A25D53EED008955A9 /* GShopUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GShopUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		34F3475E25D53EED008955A9 /* GShopUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GShopUITests.swift; sourceTree = "<group>"; };
 		34F3476025D53EED008955A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		38E120F4F5912DB150449FF6 /* Pods-GShop-GShopUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GShop-GShopUITests.debug.xcconfig"; path = "Target Support Files/Pods-GShop-GShopUITests/Pods-GShop-GShopUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		61AE718C43A45CC0383662A8 /* Pods_GShop_GShopUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GShop_GShopUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -501,6 +509,9 @@
 		34F3473025D53EE9008955A9 = {
 			isa = PBXGroup;
 			children = (
+				3497EE8A26123C05008D5FF8 /* Snapfile */,
+				3497EE7F261226F1008D5FF8 /* Appfile */,
+				3497EE80261226F1008D5FF8 /* Fastfile */,
 				3497EE7D26122651008D5FF8 /* GemFile */,
 				34EF52FB260F9B8B0084CB43 /* Podfile */,
 				34F3473B25D53EE9008955A9 /* GShop */,
@@ -555,7 +566,8 @@
 		34F3475D25D53EED008955A9 /* GShopUITests */ = {
 			isa = PBXGroup;
 			children = (
-				34F3475E25D53EED008955A9 /* GShopUITests.swift */,
+				3497EE8826123B56008D5FF8 /* GShopUITests.swift */,
+				3497EE8626123AD3008D5FF8 /* SnapshotHelper.swift */,
 				34F3476025D53EED008955A9 /* Info.plist */,
 			);
 			path = GShopUITests;
@@ -777,9 +789,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3497EE82261226F1008D5FF8 /* Fastfile in Resources */,
 				3497EE7E26122651008D5FF8 /* GemFile in Resources */,
 				34A82C9325F8F2DE009CF031 /* Main.storyboard in Resources */,
 				34C38C472608F92C00194626 /* ProductTableViewCell.xib in Resources */,
+				3497EE81261226F1008D5FF8 /* Appfile in Resources */,
 				34F3474925D53EED008955A9 /* LaunchScreen.storyboard in Resources */,
 				34C38C4B2608FD1E00194626 /* ReviewTableViewCell.xib in Resources */,
 				34F3474625D53EED008955A9 /* Assets.xcassets in Resources */,
@@ -799,6 +813,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3497EE8B26123C05008D5FF8 /* Snapfile in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1054,7 +1069,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				34F3475F25D53EED008955A9 /* GShopUITests.swift in Sources */,
+				3497EE8726123AD4008D5FF8 /* SnapshotHelper.swift in Sources */,
+				3497EE8926123B56008D5FF8 /* GShopUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1205,6 +1221,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 6;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = GRAL3CBVS6;
 				INFOPLIST_FILE = GShop/Environments/Info.plist;
@@ -1216,6 +1233,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
 		};
@@ -1225,6 +1243,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = GRAL3CBVS6;
 				INFOPLIST_FILE = GShop/Environments/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1235,6 +1254,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
 		};
