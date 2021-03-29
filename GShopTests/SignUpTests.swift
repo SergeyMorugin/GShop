@@ -24,7 +24,9 @@ class SignUpTests: XCTestCase {
             baseUrl: URL(string: TestConfiguration.shared.mockServerUrl)!)
         
         let signedInExpectation = expectation(description: "exp")
-        signUp.signUp(id: "1", username: "Unknown", password: "12345678", email: "test@test.com", gender: "Male", creditCard: "4242424242424242", bio: "bio") { (response) in
+        signUp.signUp(id: "1", username: "Unknown", password: "12345678",
+                      email: "test@test.com", gender: "Male",
+                      creditCard: "4242424242424242", bio: "bio") { (response) in
             switch response.result {
             case .success(let result):
                 XCTAssertEqual(result.result, 1)

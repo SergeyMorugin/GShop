@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,49 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        
-        
-        /*let signUp = requestFactory.makeSignUpRequestFatory()
-        signUp.signUp(id: "1", username: "Unknown", password: "12345678", email: "test@test.com", gender: "Male", creditCard: "4242424242424242", bio: "bio"){ response in
-            switch response.result {
-            case .success(let result):
-                print(result)
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }
-        
-        let auth = requestFactory.makeAuthRequestFatory()
-        auth.login(userName: "Somebody", password: "mypassword") { response in
-            switch response.result {
-            case .success(let login):
-                print(login)
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }
-        
-        let changeUserData = requestFactory.makeChangeUserDataRequestFatory()
-        changeUserData.changeUserData(id: "123", username: "Unknown2", password: "12345678", email: "test@test.com", gender: "Male", creditCard: "4242424242424242", bio: "bio"){ response in
-            switch response.result {
-            case .success(let result):
-                print(result)
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }
-        
-        
-        let logOut = requestFactory.makeLogOutRequestFatory()
-        logOut.logOut(id: 123){ response in
-            switch response.result {
-            case .success(let result):
-                print(result)
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }*/
-
+        FirebaseApp.configure()
         return true
     }
 
@@ -79,3 +38,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
 }
+
