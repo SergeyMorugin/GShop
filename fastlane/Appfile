@@ -4,3 +4,6 @@
 
 # For more information about the Appfile, see:
 #     https://docs.fastlane.tools/advanced/#appfile
+
+app_identifier "com.morugins.GShop" # The bundle identifier of your app
+# apple_id ""  # Your Apple email address

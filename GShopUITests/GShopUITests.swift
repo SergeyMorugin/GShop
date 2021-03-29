@@ -18,6 +18,7 @@ class GShopUITests: XCTestCase {
         // In UI tests it is usually best to stop immediately when a failure occurs.
         continueAfterFailure = false
         app = XCUIApplication()
+        setupSnapshot(app)
         app.launch()
         scrollViewsQuery = app.scrollViews
         // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
@@ -37,7 +38,7 @@ class GShopUITests: XCTestCase {
         XCTAssertTrue(loginLabel.waitForExistence(timeout: 10))
         loginLabel.tap()
         loginLabel.typeText("admin")
-        
+        snapshot("SignInScreen")
         
         
         let button = app.buttons["loginButton"]
@@ -77,6 +78,7 @@ class GShopUITests: XCTestCase {
         let bioLabel = app.textFields["bioLabel"].firstMatch
         XCTAssertTrue(bioLabel.waitForExistence(timeout: 10))
         bioLabel.tap()
+        snapshot("SignUpScreenshot")
         
         let button = app.buttons["signUpBtn"].firstMatch
         XCTAssertTrue(button.waitForExistence(timeout: 10))
