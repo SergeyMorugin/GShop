@@ -40,24 +40,24 @@ class GoogleAnalitics: AnalyticsService {
     }
     
     func showItemPage(_ itemId: Int) {
-        Analytics.logEvent(AnalyticsEventViewItem, parameters: ["item_id": itemId])
+        Analytics.logEvent(AnalyticsEventViewItem, parameters: [AnalyticsParameterItemID: itemId])
     }
     
     func addItemToCart(_ itemId: Int) {
-        Analytics.logEvent(AnalyticsEventAddToCart, parameters: ["item_id": itemId])
+        Analytics.logEvent(AnalyticsEventAddToCart, parameters: [AnalyticsParameterItemID: itemId])
     }
     
     func deleteItemFromCart(_ itemId: Int) {
-        Analytics.logEvent(AnalyticsEventRemoveFromCart, parameters: ["item_id": itemId])
+        Analytics.logEvent(AnalyticsEventRemoveFromCart, parameters: [AnalyticsParameterItemID: itemId])
     }
     
     func cartCheckout(_ cart: Cart) {
         Analytics.logEvent(
             AnalyticsEventPurchase,
             parameters: [
-                "value": cart.totalPrice,
-                "items": [cart.items.map({$0.product.id})],
-                "currency": "USD"
+                AnalyticsParameterValue: cart.totalPrice,
+                AnalyticsParameterItems: [cart.items.map({$0.product.id})],
+                AnalyticsParameterCurrency: "USD"
             ]
         )
     }
