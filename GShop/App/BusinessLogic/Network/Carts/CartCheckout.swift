@@ -36,7 +36,7 @@ extension CartCheckout: CartCheckoutRequestFactory {
     }
 }
 
-extension CartCheckout{
+extension CartCheckout {
     struct CartCheckoutRequest: RequestRouter {
         let baseUrl: URL
         let method: HTTPMethod = .post
